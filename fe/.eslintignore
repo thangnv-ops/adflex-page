@@ -3,4 +3,4 @@ next.config.js
 .next
 postcss.config.js
 tailwind.config.js
-service-worker.js
+.eslintrc.js
