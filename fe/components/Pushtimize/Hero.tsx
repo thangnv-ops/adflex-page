@@ -1,10 +1,13 @@
 import React from 'react'
 import SecondaryBtn from '../SecondaryBtn'
 import QuaternaryBtn from '../QuaternaryBtn'
+import BriefUsModal from '../BriefUsModal'
 
 function Hero() {
   return (
     <div
+      data-aos="fade-up"
+      data-aos-duration="700"
       style={{
         backgroundImage: 'url(/images/pushtimize/pushtimize-hero-bg.png)',
         backgroundPosition: 'center',
@@ -35,9 +38,11 @@ function Hero() {
             <QuaternaryBtn className="px-5">
               <span className="text-sm md:text-base"> Đăng ký nhận brochure</span>
             </QuaternaryBtn>
-            <SecondaryBtn className="px-5">
-              <span className="text-sm md:text-base">Liên hệ tư vấn</span>
-            </SecondaryBtn>
+            <BriefUsModal>
+              <SecondaryBtn className="px-5">
+                <span className="text-sm md:text-base">Liên hệ tư vấn</span>
+              </SecondaryBtn>
+            </BriefUsModal>
           </div>
         </div>
       </div>

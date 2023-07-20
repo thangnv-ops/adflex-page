@@ -3,6 +3,7 @@ import Title from '../Title'
 import Line from '../Line'
 import PrimaryBtn from '../PrimaryBtn'
 import UpRightArrow from '../icons/UpRightArrow'
+import BriefUsModal from '../BriefUsModal'
 
 const effectives = [
   {
@@ -44,15 +45,18 @@ function Effective() {
             <span>Hiệu quả AdFlex</span> <br />
             mang lại cho khách hàng
           </Title>
-          <p className="max-w-[435px] text-justify">
+          <p data-aos="fade-up" data-aos-duration="700" className="max-w-[435px] text-justify">
             Với khả năng làm việc chuyên nghiệp cùng công nghệ vượt trội cho phép AdFlex giải quyết
             mọi vấn đề khó khăn nhất trong quá trình chinh phục KPI tiếp cận khách hàng cũng như
             quản trị doanh nghiệp của đối tác trên mọi lĩnh vực
           </p>
         </div>
         <div className="relative z-10 grid grid-cols-2 gap-4 mt-16 md:gap-8 md:grid-cols-4">
-          {effectives.map((item) => (
+          {effectives.map((item, index) => (
             <div
+              data-aos="fade-up"
+              data-aos-duration="700"
+              data-aos-delay={300 + 100 * index}
               key={item.id}
               className="py-4 md:py-6 bg-white rounded-2xl smooth-transform bg-opacity-5 hover:bg-opacity-25 effective-item h-[250px] md:h-[360px] flex flex-col justify-between backdrop-blur-xl"
             >
@@ -62,12 +66,14 @@ function Effective() {
                 <p className="px-4 text-xl md:px-6">{item.description}</p>
               </div>
               <div className="px-4 md:px-6 effective-btn">
-                <PrimaryBtn className="w-full mt-4 md:mt-8">
-                  <div className="flex items-center justify-center gap-2">
-                    <p className="text-white">Brief us</p>
-                    <UpRightArrow />
-                  </div>
-                </PrimaryBtn>
+                <BriefUsModal>
+                  <PrimaryBtn className="w-full mt-4 md:mt-8">
+                    <div className="flex items-center justify-center gap-2">
+                      <p className="text-white">Brief us</p>
+                      <UpRightArrow />
+                    </div>
+                  </PrimaryBtn>
+                </BriefUsModal>
               </div>
             </div>
           ))}

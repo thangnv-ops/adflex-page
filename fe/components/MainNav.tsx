@@ -47,7 +47,11 @@ function MainNav() {
   }, [])
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[9999] w-screen shadow-md">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="700"
+      className="fixed top-0 left-0 right-0 z-[9999] w-screen shadow-md"
+    >
       <div className={`${isChange ? 'bg-white' : 'bg-transparent'} smooth-transform`}>
         <div
           className={`flex max-w-maxContent mx-auto justify-between px-4 items-center py-2 md:py-[30px] text-gray `}

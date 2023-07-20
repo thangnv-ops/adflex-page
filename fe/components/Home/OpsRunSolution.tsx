@@ -7,6 +7,7 @@ import PrimaryBtn from '../PrimaryBtn'
 import UpRightArrow from '../icons/UpRightArrow'
 import CloseDialogIcon from '../icons/CloseDialogIcon'
 import CheckedIcon from '../icons/CheckedIcon'
+import Link from 'next/link'
 
 const opsrunAdvantage = [
   'Thiết kế và xây dựng hệ thống',
@@ -22,7 +23,7 @@ function OpsRunSolution() {
   const close = () => setShowDialog(false)
 
   return (
-    <div className="">
+    <div data-aos="fade-up" data-aos-duration="700" className="">
       <div
         style={{
           backgroundImage: 'url(/images/solution-bg1.png)',
@@ -82,12 +83,16 @@ function OpsRunSolution() {
                         </div>
                       ))}
                     </div>
-                    <PrimaryBtn className="mt-8">
-                      <div className="flex items-center gap-2">
-                        <p className="text-white">Tìm hiểu thêm </p>
-                        <UpRightArrow />
-                      </div>
-                    </PrimaryBtn>
+                    <Link href="/opsrun">
+                      <a>
+                        <PrimaryBtn className="mt-8">
+                          <div className="flex items-center gap-2">
+                            <p className="text-white">Tìm hiểu thêm </p>
+                            <UpRightArrow />
+                          </div>
+                        </PrimaryBtn>
+                      </a>
+                    </Link>
                   </div>
                   <div onClick={close} className="w-10 cursor-pointer">
                     <CloseDialogIcon />

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Title from '../Title'
 import CheckedIcon from '../icons/CheckedIcon'
 import PrimaryBtn from '../PrimaryBtn'
+import BriefUsModal from '../BriefUsModal'
 
 function Tab({
   tab,
@@ -33,10 +34,18 @@ function Advertisers() {
   ]
   return (
     <div>
-      <p className="text-xl font-medium">Giải pháp tối ưu hiệu quả marketing</p>
+      <p data-aos="fade-up" data-aos-duration="700" className="text-xl font-medium">
+        Giải pháp tối ưu hiệu quả marketing
+      </p>
       <div className="flex flex-col gap-4 mt-8">
         {advantage.map((item, index) => (
-          <div key={`pushtimize-${index}`} className="flex items-center gap-3">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="700"
+            data-aos-delay={300 + 100 * index}
+            key={`pushtimize-${index}`}
+            className="flex items-center gap-3"
+          >
             <CheckedIcon />
             {item}
           </div>
@@ -80,7 +89,7 @@ function Technology() {
       </Title>
       <div className="grid grid-cols-1 mt-8 md:grid-cols-46">
         <div className="text-black">
-          <div className="flex items-center gap-3">
+          <div data-aos="fade-up" data-aos-duration="700" className="flex items-center gap-3">
             <Tab tab={tab} setTab={setTab}>
               Với nhà quảng cáo
             </Tab>
@@ -92,10 +101,19 @@ function Technology() {
             {tab === 'Với nhà quảng cáo' && <Advertisers />}
             {tab === 'Với nhà xuất bản' && <PublishingCompany />}
           </div>
-          <PrimaryBtn className="mt-6">Đăng ký ngay</PrimaryBtn>
+          <div data-aos="fade-up" data-aos-duration="700">
+            <BriefUsModal>
+              <PrimaryBtn className="mt-6">Đăng ký ngay</PrimaryBtn>
+            </BriefUsModal>
+          </div>
         </div>
         <div className="row-start-1 md:row-auto">
-          <img src="/images/pushtimize/tech.png" alt="tech" />
+          <img
+            data-aos="fade-up"
+            data-aos-duration="700"
+            src="/images/pushtimize/tech.png"
+            alt="tech"
+          />
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ import PrimaryBtn from '../PrimaryBtn'
 import UpRightArrow from '../icons/UpRightArrow'
 import CloseDialogIcon from '../icons/CloseDialogIcon'
 import CheckedIcon from '../icons/CheckedIcon'
+import Link from 'next/link'
 
 const pushtimizeAdvantage = [
   'Đa dạng loại hình quảng cáo, tiếp cận tối đa khách hàng',
@@ -21,7 +22,7 @@ function PushtimizeSolution() {
   const close = () => setShowDialog(false)
 
   return (
-    <div className="">
+    <div data-aos="fade-up" data-aos-duration="700" className="">
       <div
         style={{
           backgroundImage: 'url(/images/solution-bg2.png)',
@@ -83,12 +84,16 @@ function PushtimizeSolution() {
                       ))}
                     </div>
                     <div className="flex justify-end">
-                      <PrimaryBtn className="mt-8">
-                        <div className="flex items-center gap-2">
-                          <p className="text-white">Tìm hiểu thêm </p>
-                          <UpRightArrow />
-                        </div>
-                      </PrimaryBtn>
+                      <Link href="/pushtimize">
+                        <a>
+                          <PrimaryBtn className="mt-8">
+                            <div className="flex items-center gap-2">
+                              <p className="text-white">Tìm hiểu thêm </p>
+                              <UpRightArrow />
+                            </div>
+                          </PrimaryBtn>
+                        </a>
+                      </Link>
                     </div>
                   </div>
                   <div onClick={close} className="w-10 cursor-pointer">

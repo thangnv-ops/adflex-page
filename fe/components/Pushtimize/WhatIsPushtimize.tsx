@@ -16,14 +16,22 @@ function WhatIsPushtimize() {
       >
         <div className="grid grid-cols-3 px-4 py-56 mx-auto gap-14 max-w-maxContent">
           <div className="flex flex-col items-end">
-            <img className="w-[334px]" src="/images/pushtimize-icon.png" alt="cpa" />
+            <img
+              data-aos="fade-up"
+              data-aos-duration="700"
+              className="w-[334px]"
+              src="/images/pushtimize-icon.png"
+              alt="cpa"
+            />
             <Title>là gì?</Title>
-            <SecondaryBtn className="mt-8">Tìm hiểu thêm</SecondaryBtn>
+            <div data-aos="fade-up" data-aos-duration="700">
+              <SecondaryBtn className="mt-8">Tìm hiểu thêm</SecondaryBtn>
+            </div>
           </div>
           <div />
 
           <div>
-            <p className="text-justify">
+            <p data-aos="fade-up" data-aos-duration="700" className="text-justify">
               PUSHTIMIZE là hệ thống quảng cáo tự động, giúp kết nối các nhà quảng cáo với hàng
               triệu người dùng cùng lúc. Chúng tôi cung cấp đa dạng các loại hình quảng cáo với công
               nghệ ưu việt cho phép target chuyên sâu đến đúng đối tượng khách hàng và tối ưu hiệu
@@ -33,14 +41,24 @@ function WhatIsPushtimize() {
           </div>
         </div>
       </div>
-      <div className="bg-[#121212] pt-16">
+      <div className="bg-[#121212] pt-16 block md:hidden">
         <div className="flex flex-col items-end px-4">
-          <img className="w-[214px] md:w-[334px]" src="/images/pushtimize-icon.png" alt="cpa" />
+          <img
+            data-aos="fade-up"
+            data-aos-duration="700"
+            className="w-[214px] md:w-[334px]"
+            src="/images/pushtimize-icon.png"
+            alt="cpa"
+          />
           <Title>là gì?</Title>
-          <SecondaryBtn className="mt-8">Tìm hiểu thêm</SecondaryBtn>
+          <div data-aos="fade-up" data-aos-duration="700">
+            <SecondaryBtn className="mt-8">Tìm hiểu thêm</SecondaryBtn>
+          </div>
         </div>
         <div className="">
           <img
+            data-aos="fade-up"
+            data-aos-duration="700"
             src="/images/pushtimize/what-is-pushtimize-bg.png"
             alt="pushtimize"
             className="h-[462px] w-[1060px] object-cover"
@@ -48,7 +66,7 @@ function WhatIsPushtimize() {
         </div>
 
         <div className="px-4 pt-12 pb-20">
-          <p className="text-justify">
+          <p data-aos="fade-up" data-aos-duration="700" className="text-justify">
             PUSHTIMIZE là hệ thống quảng cáo tự động, giúp kết nối các nhà quảng cáo với hàng triệu
             người dùng cùng lúc. Chúng tôi cung cấp đa dạng các loại hình quảng cáo với công nghệ ưu
             việt cho phép target chuyên sâu đến đúng đối tượng khách hàng và tối ưu hiệu quả

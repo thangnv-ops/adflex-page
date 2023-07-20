@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import ArrowDownIcon from '../icons/ArrowDownIcon'
 import SecondaryBtn from '../SecondaryBtn'
 import UpRightArrow from '../icons/UpRightArrow'
+import BriefUsModal from '../BriefUsModal'
 
 const listFAQ = [
   {
@@ -106,14 +107,18 @@ function FAQs() {
         <Title>Có thể bạn quan tâm?</Title>
         <div className="relative z-10 mt-10">
           {listFAQ.map((faq) => (
-            <FAQItem key={faq.id} question={faq.question} answer={faq.answer} />
-          ))}
-          <SecondaryBtn className="mt-12">
-            <div className="flex items-center gap-2">
-              <p className="text-white">Đặt câu hỏi cho chúng tôi</p>
-              <UpRightArrow />
+            <div key={faq.id} data-aos="fade-up" data-aos-duration="700">
+              <FAQItem question={faq.question} answer={faq.answer} />
             </div>
-          </SecondaryBtn>
+          ))}
+          <BriefUsModal>
+            <SecondaryBtn data-aos="fade-up" data-aos-duration="700" className="mt-12">
+              <div className="flex items-center gap-2">
+                <p className="text-white">Đặt câu hỏi cho chúng tôi</p>
+                <UpRightArrow />
+              </div>
+            </SecondaryBtn>
+          </BriefUsModal>
         </div>
       </div>
     </div>

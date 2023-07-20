@@ -10,7 +10,13 @@ function Solution() {
       <Title className="mt-28">Giải pháp của chúng tôi</Title>
       <div className="flex items-center justify-center mt-5">
         <div className="relative">
-          <img src="/images/solution-img.svg" alt="solution" />
+          <img
+            data-aos="zoom-in"
+            data-aos-duration="700"
+            data-aos-delay="800"
+            src="/images/solution-img.svg"
+            alt="solution"
+          />
           <div className="absolute top-[96px] -left-[300px] hidden md:block">
             <CPASolution />
           </div>

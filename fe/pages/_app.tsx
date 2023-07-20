@@ -11,6 +11,8 @@ import '../styles/globals.css'
 import 'react-toastify/dist/ReactToastify.css'
 import '@reach/dialog/styles.css'
 import 'react-multi-carousel/lib/styles.css'
+import 'aos/dist/aos.css'
+
 import Head from 'next/head'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {

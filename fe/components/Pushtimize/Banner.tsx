@@ -1,10 +1,14 @@
 import React from 'react'
 import RedBtn from '../RedBtn'
+import BriefUsModal from '../BriefUsModal'
 
 function Banner() {
   return (
     <div className="px-4 mx-auto mt-12 max-w-maxContent">
       <div
+        data-aos="fade-up"
+        data-aos-duration="700"
+        data-aos-delay={300}
         style={{
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -21,7 +25,9 @@ function Banner() {
             Đừng chần chừ, hãy để lại thông tin, chúng tôi sẽ liên hệ ngay với{' '}
             <br className="hidden md:block" /> bạn trong vòng 24h
           </p>
-          <RedBtn className="mt-4">Đăng ký ngay</RedBtn>
+          <BriefUsModal>
+            <RedBtn className="mt-4">Đăng ký ngay</RedBtn>
+          </BriefUsModal>
         </div>
         <div className="block md:hidden">
           <img

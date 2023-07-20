@@ -1,6 +1,7 @@
 import React from 'react'
 import Title from '../Title'
 import PrimaryBtn from '../PrimaryBtn'
+import BriefUsModal from '../BriefUsModal'
 
 function Banner() {
   return (
@@ -20,9 +21,13 @@ function Banner() {
             tỉ lệ chuyển đổi <br className="hidden md:block" />
             của bạn
           </Title>
-          <PrimaryBtn className="mt-6">Liên hệ tư vấn</PrimaryBtn>
+          <div data-aos="fade-up" data-aos-duration="700">
+            <BriefUsModal>
+              <PrimaryBtn className="mt-6">Liên hệ tư vấn</PrimaryBtn>
+            </BriefUsModal>
+          </div>
         </div>
-        <div className="flex justify-center">
+        <div data-aos="fade-up" data-aos-duration="700" className="flex justify-center">
           <img src="/images/cpa/ava.png" alt="ava" className="" />
         </div>
       </div>

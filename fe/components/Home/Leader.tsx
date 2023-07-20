@@ -31,7 +31,7 @@ const leaders = [
 function Leader() {
   return (
     <div className="relative z-10 -mt-14">
-      <div className="px-4 mx-auto max-w-maxContent">
+      <div data-aos="fade-up" data-aos-duration="700" className="px-4 mx-auto max-w-maxContent">
         <Label
           startColor="#BA5850"
           stopColor="#C06962"
@@ -51,8 +51,13 @@ function Leader() {
       >
         <div className="px-4 mx-auto max-w-maxContent">
           <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
-            {leaders.map((leader) => (
-              <div key={leader.id}>
+            {leaders.map((leader, index) => (
+              <div
+                data-aos="fade-up"
+                data-aos-duration="700"
+                data-aos-delay={300 + 100 * index}
+                key={leader.id}
+              >
                 <img src={leader.avatar} alt="avatar" />
                 <div className="px-0 py-2 text-black md:px-6">
                   <p className="text-lg font-bold md:text-2xl">{leader.name}</p>

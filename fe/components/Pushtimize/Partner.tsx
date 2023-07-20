@@ -25,13 +25,17 @@ const responsiveCarouselTournaments = {
 function Partner() {
   return (
     <div>
-      <div className="px-4 mx-auto max-w-maxContent">
+      <div data-aos="fade-up" data-aos-duration="700" className="px-4 mx-auto max-w-maxContent">
         <Label className="bg-[#EAECF0]" startColor="#EAECF0" stopColor="#EAECF0">
           <p className="text-xl text-black uppercase">Đối tác của chúng tôi</p>
         </Label>
       </div>
       <div className="bg-[#EAECF0]">
-        <div className="px-4 mx-auto max-w-maxContent py-7 md:py-14">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="700"
+          className="px-4 mx-auto max-w-maxContent py-7 md:py-14"
+        >
           <Carousel
             className="w-full"
             responsive={responsiveCarouselTournaments}

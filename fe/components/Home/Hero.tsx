@@ -5,7 +5,11 @@ import Line from '../Line'
 
 function Hero() {
   return (
-    <div className="relative flex flex-col justify-end w-screen h-screen">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="700"
+      className="relative flex flex-col justify-end w-screen pt-64"
+    >
       <div className="max-w-[930px] px-4 flex flex-col items-center mx-auto">
         <Title className="text-center">
           Tối ưu hóa hoạt động <span>Marketing</span> và&nbsp;
