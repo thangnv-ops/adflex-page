@@ -16,6 +16,10 @@ class MyDocument extends Document {
         <Head>
           <script src="https://accounts.google.com/gsi/client" async defer />
           <script src="https://js.pusher.com/beams/1.0/push-notifications-cdn.js" async defer />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&family=Cinzel+Decorative&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <Main />

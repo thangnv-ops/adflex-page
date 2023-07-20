@@ -67,5 +67,6 @@ module.exports = {
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': 'off',
     'import/no-cycle': 'off',
+    '@next/next/no-img-element': 'off',
   },
 }

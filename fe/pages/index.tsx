@@ -1,7 +1,13 @@
-import type { NextPage } from 'next'
+import Home from '@/components/Home/Home'
+import Layout from '@/components/Layout'
+import React from 'react'
 
-const Dashboard: NextPage = () => {
-  return <div className="font-bold">index</div>
+function page() {
+  return (
+    <Layout>
+      <Home />
+    </Layout>
+  )
 }
 
-export default Dashboard
+export default page
