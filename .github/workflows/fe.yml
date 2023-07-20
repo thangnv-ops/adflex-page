@@ -26,7 +26,7 @@ jobs:
           node-version: "16.x"
       - name: install packages
         working-directory: ./fe
-        run: npm install
+        run: yarn
       - name: build next
         working-directory: ./fe
-        run: npm run build
+        run: yarn build
