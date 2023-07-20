@@ -6,6 +6,7 @@ import PlusIcon from '../icons/PlusIcon'
 import PrimaryBtn from '../PrimaryBtn'
 import UpRightArrow from '../icons/UpRightArrow'
 import CloseDialogIcon from '../icons/CloseDialogIcon'
+import Link from 'next/link'
 
 function CPASolution() {
   const [showDialog, setShowDialog] = useState(false)
@@ -64,12 +65,16 @@ function CPASolution() {
                       Data driven, AdFlex có thể đáp ứng KPI lớn (high volume traffic) và được
                       AppsFlyer xếp hạng top 6 trên toàn Đông Nam Á về chất lượng CPA.
                     </p>
-                    <PrimaryBtn className="mt-8 md:mt-24">
-                      <div className="flex items-center gap-2">
-                        <p className="text-white">Tìm hiểu thêm </p>
-                        <UpRightArrow />
-                      </div>
-                    </PrimaryBtn>
+                    <Link href="/cpa">
+                      <a>
+                        <PrimaryBtn className="mt-8 md:mt-24">
+                          <div className="flex items-center gap-2">
+                            <p className="text-white">Tìm hiểu thêm </p>
+                            <UpRightArrow />
+                          </div>
+                        </PrimaryBtn>
+                      </a>
+                    </Link>
                   </div>
                   <div onClick={close} className="w-10 cursor-pointer">
                     <CloseDialogIcon />

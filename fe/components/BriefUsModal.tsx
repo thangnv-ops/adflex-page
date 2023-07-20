@@ -6,7 +6,7 @@ import PrimaryInput from './PrimaryInput'
 import PrimaryTextarea from './PrimaryTextarea'
 import PrimaryBtn from './PrimaryBtn'
 import CloseDialogIcon from './icons/CloseDialogIcon'
-import { toast } from 'react-toastify'
+import { handleSubmitForm } from '@/lib/submitFormToGoogleSheet'
 
 function BriefUsModal({ children }: { children: ReactNode }) {
   const [showDialog, setShowDialog] = useState(false)
@@ -17,31 +17,6 @@ function BriefUsModal({ children }: { children: ReactNode }) {
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhoneNumber] = useState<number>()
   const [note, setNote] = useState('')
-
-  const scriptUrl =
-    'https://script.google.com/macros/s/AKfycbzEu3SmCX7QYYHxDiyiM4Pc4_CV3CHlR06JWIxj3LH1qcADt5H9RZtQ9L4Mcxkn4a1B/exec'
-
-  const handleSubmidForm = (e: any) => {
-    e.preventDefault()
-
-    const payload = {
-      name,
-      email,
-      phoneNumber,
-      note,
-    }
-    const formData = new FormData()
-
-    Object.keys(payload).forEach((key: string) => {
-      formData.append(key, String(payload[key]))
-    })
-
-    fetch(scriptUrl, { method: 'POST', body: formData })
-      .then(() => {
-        toast.success('Submit form successfully!')
-      })
-      .catch((err) => console.log(err))
-  }
 
   return (
     <div className="">
@@ -63,7 +38,6 @@ function BriefUsModal({ children }: { children: ReactNode }) {
                 initial={{ y: +30 }}
                 animate={{ y: 0 }}
                 method="post"
-                onSubmit={handleSubmidForm}
               >
                 <div className="flex items-center justify-between">
                   <p className="text-[24px] md:text-[40px]">Đăng ký nhận báo giá</p>
@@ -85,10 +59,11 @@ function BriefUsModal({ children }: { children: ReactNode }) {
                       className="w-full"
                     />
                     <PrimaryInput
-                      value={phoneNumber}
+                      value={String(phoneNumber)}
                       onChange={(e) => setPhoneNumber(Number(e.target.value))}
                       placeholder="Số điện thoại"
                       className="w-full"
+                      type="number"
                     />
                   </div>
                   <div>
@@ -104,7 +79,10 @@ function BriefUsModal({ children }: { children: ReactNode }) {
                     <input type="checkbox" />
                     <p>Nhận thông tin từ Adflex</p>
                   </div>
-                  <PrimaryBtn type="submit" onClick={handleSubmidForm}>
+                  <PrimaryBtn
+                    type="submit"
+                    onClick={() => handleSubmitForm({ name, email, phoneNumber, note })}
+                  >
                     Gửi thông tin
                   </PrimaryBtn>
                 </div>

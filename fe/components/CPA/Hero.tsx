@@ -1,5 +1,6 @@
 import React from 'react'
 import SecondaryBtn from '../SecondaryBtn'
+import BriefUsModal from '../BriefUsModal'
 
 function Hero() {
   return (
@@ -34,7 +35,9 @@ function Hero() {
             Bằng công nghệ vượt trội, và kinh nghiệm 10+ năm trong ngành, AdFlex là đối tác đáng tin
             cậy của hơn 10,000+ khách hàng đa lĩnh vực.
           </p>
-          <SecondaryBtn className="mt-5">Đăng ký ngay</SecondaryBtn>
+          <BriefUsModal>
+            <SecondaryBtn className="mt-5">Đăng ký ngay</SecondaryBtn>
+          </BriefUsModal>
         </div>
       </div>
     </div>

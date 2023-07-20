@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PrimaryBtn from '../PrimaryBtn'
 import PrimaryInput from '../PrimaryInput'
 import PrimaryTextarea from '../PrimaryTextarea'
-import { toast } from 'react-toastify'
+import { handleSubmitForm } from '@/lib/submitFormToGoogleSheet'
 
 function BriefUs() {
   const [name, setName] = useState('')
@@ -10,31 +10,6 @@ function BriefUs() {
   const [phoneNumber, setPhoneNumber] = useState<number>()
   const [note, setNote] = useState('')
 
-  const scriptUrl =
-    'https://script.google.com/macros/s/AKfycbzEu3SmCX7QYYHxDiyiM4Pc4_CV3CHlR06JWIxj3LH1qcADt5H9RZtQ9L4Mcxkn4a1B/exec'
-
-  const handleSubmidForm = (e: any) => {
-    e.preventDefault()
-
-    const payload = {
-      name,
-      email,
-      phoneNumber,
-      note,
-    }
-
-    const formData = new FormData()
-
-    Object.keys(payload).forEach((key: string) => {
-      formData.append(key, String(payload[key]))
-    })
-
-    fetch(scriptUrl, { method: 'POST', body: formData })
-      .then(() => {
-        toast.success('Submit form successfully!')
-      })
-      .catch((err) => console.log(err))
-  }
   return (
     <div data-aos="fade-up" data-aos-duration="700" className="max-w-[1126px] mx-auto px-4">
       <div
@@ -46,7 +21,7 @@ function BriefUs() {
         </p>
         <p className="mt-2 text-xl">Hãy cho chúng tôi biết ý tưởng của bạn.</p>
         <div className="grid grid-cols-1 gap-8 mt-6 md:grid-cols-2">
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 text-black">
             <PrimaryInput
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -60,13 +35,14 @@ function BriefUs() {
               className="w-full"
             />
             <PrimaryInput
-              value={phoneNumber}
+              value={String(phoneNumber)}
               onChange={(e) => setPhoneNumber(Number(e.target.value))}
               placeholder="Số điện thoại"
               className="w-full"
+              type="number"
             />
           </div>
-          <div>
+          <div className="text-black">
             <PrimaryTextarea
               value={note}
               onChange={(e) => setNote(e.target.value)}
@@ -79,7 +55,10 @@ function BriefUs() {
             <input type="checkbox" />
             <p className="text-black">Nhận thông tin từ Adflex</p>
           </div>
-          <PrimaryBtn onClick={handleSubmidForm} className="w-full md:w-auto">
+          <PrimaryBtn
+            onClick={() => handleSubmitForm({ name, email, phoneNumber, note })}
+            className="w-full md:w-auto"
+          >
             Gửi thông tin
           </PrimaryBtn>
         </div>

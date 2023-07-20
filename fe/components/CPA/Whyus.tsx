@@ -5,6 +5,7 @@ import RenewIcon from '../icons/RenewIcon'
 import LikeIcon from '../icons/LikeIcon'
 import QualityIcon from '../icons/QualityIcon'
 import EffectiveIcon from '../icons/EffectiveIcon'
+import BriefUsModal from '../BriefUsModal'
 
 function Whyus() {
   return (
@@ -21,7 +22,9 @@ function Whyus() {
           <div>
             <Title>Lý do nên lựa chọn chúng tôi</Title>
             <div data-aos="fade-up" data-aos-duration="700">
-              <SecondaryBtn className="mt-8">Đăng ký ngay</SecondaryBtn>
+              <BriefUsModal>
+                <SecondaryBtn className="mt-8">Đăng ký ngay</SecondaryBtn>
+              </BriefUsModal>
             </div>
           </div>
           <div

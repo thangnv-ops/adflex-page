@@ -14,7 +14,7 @@ function FooterItem({ text, href }: { text: string; href: string }) {
 
 function Footer() {
   return (
-    <div className="px-4 pb-8 pt-28">
+    <div className="px-4 pb-16 pt-28">
       <div data-aos="fade-up" data-aos-duration="700" className="flex justify-center">
         <LogoBlack />
       </div>

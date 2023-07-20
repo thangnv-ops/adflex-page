@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Title from '../Title'
 import CheckedIcon from '../icons/CheckedIcon'
 import PrimaryBtn from '../PrimaryBtn'
+import BriefUsModal from '../BriefUsModal'
 
 function Tab({
   tab,
@@ -101,7 +102,9 @@ function Technology() {
             {tab === 'Với nhà xuất bản' && <PublishingCompany />}
           </div>
           <div data-aos="fade-up" data-aos-duration="700">
-            <PrimaryBtn className="mt-6">Đăng ký ngay</PrimaryBtn>
+            <BriefUsModal>
+              <PrimaryBtn className="mt-6">Đăng ký ngay</PrimaryBtn>
+            </BriefUsModal>
           </div>
         </div>
         <div className="row-start-1 md:row-auto">

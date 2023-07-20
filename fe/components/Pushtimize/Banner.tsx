@@ -1,5 +1,6 @@
 import React from 'react'
 import RedBtn from '../RedBtn'
+import BriefUsModal from '../BriefUsModal'
 
 function Banner() {
   return (
@@ -24,7 +25,9 @@ function Banner() {
             Đừng chần chừ, hãy để lại thông tin, chúng tôi sẽ liên hệ ngay với{' '}
             <br className="hidden md:block" /> bạn trong vòng 24h
           </p>
-          <RedBtn className="mt-4">Đăng ký ngay</RedBtn>
+          <BriefUsModal>
+            <RedBtn className="mt-4">Đăng ký ngay</RedBtn>
+          </BriefUsModal>
         </div>
         <div className="block md:hidden">
           <img

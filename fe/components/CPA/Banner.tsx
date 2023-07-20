@@ -1,6 +1,7 @@
 import React from 'react'
 import Title from '../Title'
 import PrimaryBtn from '../PrimaryBtn'
+import BriefUsModal from '../BriefUsModal'
 
 function Banner() {
   return (
@@ -21,7 +22,9 @@ function Banner() {
             của bạn
           </Title>
           <div data-aos="fade-up" data-aos-duration="700">
-            <PrimaryBtn className="mt-6">Liên hệ tư vấn</PrimaryBtn>
+            <BriefUsModal>
+              <PrimaryBtn className="mt-6">Liên hệ tư vấn</PrimaryBtn>
+            </BriefUsModal>
           </div>
         </div>
         <div data-aos="fade-up" data-aos-duration="700" className="flex justify-center">

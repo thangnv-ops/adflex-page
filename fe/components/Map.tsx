@@ -2,38 +2,13 @@ import React, { useState } from 'react'
 import PrimaryInput from './PrimaryInput'
 import PrimaryTextarea from './PrimaryTextarea'
 import SecondaryBtn from './SecondaryBtn'
-import { toast } from 'react-toastify'
+import { handleSubmitForm } from '@/lib/submitFormToGoogleSheet'
 
 function Map() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhoneNumber] = useState<number>()
   const [note, setNote] = useState('')
-
-  const scriptUrl =
-    'https://script.google.com/macros/s/AKfycbzEu3SmCX7QYYHxDiyiM4Pc4_CV3CHlR06JWIxj3LH1qcADt5H9RZtQ9L4Mcxkn4a1B/exec'
-
-  const handleSubmidForm = (e: any) => {
-    e.preventDefault()
-
-    const payload = {
-      name,
-      email,
-      phoneNumber,
-      note,
-    }
-    const formData = new FormData()
-
-    Object.keys(payload).forEach((key: string) => {
-      formData.append(key, String(payload[key]))
-    })
-
-    fetch(scriptUrl, { method: 'POST', body: formData })
-      .then(() => {
-        toast.success('Submit form successfully!')
-      })
-      .catch((err) => console.log(err))
-  }
 
   return (
     <div className="px-4 py-12 mx-auto max-w-maxContent">
@@ -53,10 +28,10 @@ function Map() {
           data-aos="fade-up"
           data-aos-duration="700"
           data-aos-delay={500}
-          className="flex flex-col px-4 py-4 md:px-20 md:py-24 "
+          className="flex flex-col px-4 py-4 text-black md:px-20 md:py-24"
         >
-          <p className="text-[40px]">Giữ liên lạc với chúng tôi</p>
-          <p className="mt-2 text-xl">Chúng tôi luôn muốn lắng nghe từ bạn</p>
+          <p className="text-[40px] text-white">Giữ liên lạc với chúng tôi</p>
+          <p className="mt-2 text-xl text-white">Chúng tôi luôn muốn lắng nghe từ bạn</p>
           <PrimaryInput
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -70,10 +45,11 @@ function Map() {
             placeholder="Email"
           />
           <PrimaryInput
-            value={phoneNumber}
+            value={String(phoneNumber)}
             onChange={(e) => setPhoneNumber(Number(e.target.value))}
             className="w-full mt-6"
             placeholder="Số điện thoại"
+            type="number"
           />
           <PrimaryTextarea
             value={note}
@@ -81,7 +57,10 @@ function Map() {
             className="h-[128px] mt-6"
             placeholder="Thông tin bạn quan tâm"
           />
-          <SecondaryBtn onClick={handleSubmidForm} className="max-w-[216px] mt-6">
+          <SecondaryBtn
+            onClick={() => handleSubmitForm({ name, email, phoneNumber, note })}
+            className="max-w-[216px] mt-6 text-white"
+          >
             Gửi thông tin
           </SecondaryBtn>
         </div>
