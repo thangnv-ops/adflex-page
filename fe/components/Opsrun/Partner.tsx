@@ -25,24 +25,34 @@ function Partner() {
   return (
     <div className="bg-[#EAECF0]">
       <div className="px-4 mx-auto max-w-maxContent py-14">
-        <p className="text-center text-black text-xl md:text-[32px]">
+        <p
+          data-aos="fade-up"
+          data-aos-duration="700"
+          className="text-center text-black text-xl md:text-[32px]"
+        >
           Opsrun tự hào là đại lý phân phối của top nhà cung cấp đứng đầu thế giới
         </p>
-        <Carousel
-          className="w-full"
-          responsive={responsiveCarouselTournaments}
-          containerClass="w-full"
-          arrows={false}
-          autoPlay
-          autoPlaySpeed={2000}
-          infinite
-        >
-          {partners.map((partner) => (
-            <div key={partner} className="px-4 md:px-0">
-              <img className="w-44" src={`/images/opsrun/partners/${partner}.png`} alt={partner} />
-            </div>
-          ))}
-        </Carousel>
+        <div data-aos="fade-up" data-aos-duration="700">
+          <Carousel
+            className="w-full"
+            responsive={responsiveCarouselTournaments}
+            containerClass="w-full"
+            arrows={false}
+            autoPlay
+            autoPlaySpeed={2000}
+            infinite
+          >
+            {partners.map((partner) => (
+              <div key={partner} className="px-4 md:px-0">
+                <img
+                  className="w-44"
+                  src={`/images/opsrun/partners/${partner}.png`}
+                  alt={partner}
+                />
+              </div>
+            ))}
+          </Carousel>
+        </div>
       </div>
     </div>
   )

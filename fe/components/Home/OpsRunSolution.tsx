@@ -22,7 +22,7 @@ function OpsRunSolution() {
   const close = () => setShowDialog(false)
 
   return (
-    <div className="">
+    <div data-aos="fade-up" data-aos-duration="700" className="">
       <div
         style={{
           backgroundImage: 'url(/images/solution-bg1.png)',

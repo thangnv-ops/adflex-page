@@ -2,8 +2,8 @@ import React from 'react'
 import Title from '../Title'
 import Line from '../Line'
 
-function VerticalLine({ className = 'border-[#48444B]' }: { className?: string }) {
-  return <div className={`w-full h-10 border-r ${className}`} />
+function VerticalLine({ className = 'border-[#48444B]', ...props }: { className?: string }) {
+  return <div {...props} className={`w-full h-10 border-r ${className}`} />
 }
 
 function RoadMapItem({
@@ -46,24 +46,44 @@ function Roadmap() {
         <Title>
           <span>Lịch sử </span>hình thành & phát triển
         </Title>
-        <div className="overflow-auto mt-14 md:mt-32">
+        <div className="overflow-x-auto overflow-y-hidden mt-14 md:mt-32">
           <div className="grid -ml-8 grid-cols-16 w-[933px] md:w-auto">
             <div />
-            <div className="col-span-2">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="700"
+              data-aos-delay="500"
+              className="col-span-2"
+            >
               <RoadMapItem timeline="2012" event="Thành lập" />
             </div>
             <div />
             <div />
-            <div className="col-span-2">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="700"
+              data-aos-delay="700"
+              className="col-span-2"
+            >
               <RoadMapItem timeline="2016" event="Top 3 Asian Mobile Ad Network" />
             </div>
             <div />
             <div />
-            <div className="col-span-3">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="700"
+              data-aos-delay="900"
+              className="col-span-3"
+            >
               <RoadMapItem isOutstanding timeline="2019" event="Đạt $50M GMV cho CPO" />
             </div>
             <div />
-            <div className="col-span-3">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="700"
+              data-aos-delay="1100"
+              className="col-span-3"
+            >
               <RoadMapItem
                 timeline="2023"
                 event="20.000+ khách hàng, có văn phòng đại diện tại Việt Nam, Singapore, Indonesia, Thái Lan"
@@ -71,49 +91,77 @@ function Roadmap() {
             </div>
           </div>
           <div className="grid mt-6 md:mt-8 grid-cols-16 w-[933px] md:w-auto">
-            <VerticalLine />
+            <VerticalLine data-aos="fade-up" data-aos-duration="700" data-aos-delay="500" />
             <div />
             <div />
             <div />
-            <VerticalLine />
+            <VerticalLine data-aos="fade-up" data-aos-duration="700" data-aos-delay="700" />
             <div />
             <div />
             <div />
-            <VerticalLine className="border-primary" />
+            <VerticalLine
+              data-aos="fade-up"
+              data-aos-duration="700"
+              data-aos-delay="900"
+              className="border-primary"
+            />
             <div />
             <div />
             <div />
-            <VerticalLine />
+            <VerticalLine data-aos="fade-up" data-aos-duration="700" data-aos-delay="1100" />
           </div>
-          <Line className="w-[933px] md:w-auto" />
+
+          <div className="w-[933px] md:w-auto">
+            <Line
+              data-aos="fade-up"
+              data-aos-duration="700"
+              data-aos-delay="900"
+              className="w-[933px] md:w-auto"
+            />
+          </div>
           <div className="grid grid-cols-16 w-[933px] md:w-auto">
             <div />
             <div />
-            <VerticalLine />
+            <VerticalLine data-aos="fade-up" data-aos-duration="700" data-aos-delay="700" />
             <div />
             <div />
             <div />
-            <VerticalLine />
+            <VerticalLine data-aos="fade-up" data-aos-duration="700" data-aos-delay="900" />
             <div />
             <div />
             <div />
-            <VerticalLine />
+            <VerticalLine data-aos="fade-up" data-aos-duration="700" data-aos-delay="1100" />
           </div>
           <div className="grid mt-6 md:mt-10 -ml-8 grid-cols-16 w-[933px] md:w-auto">
             <div />
             <div />
             <div />
-            <div className="col-span-2">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="700"
+              data-aos-delay="700"
+              className="col-span-2"
+            >
               <RoadMapItem timeline="2014" event="Top 10 Asian Mobile Affiliate Network" />
             </div>
             <div />
             <div />
-            <div className="col-span-2">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="700"
+              data-aos-delay="900"
+              className="col-span-2"
+            >
               <RoadMapItem timeline="2017" event="Thiết lập giải pháp CPO" />
             </div>
             <div />
             <div />
-            <div className="col-span-3">
+            <div
+              data-aos="fade-up"
+              data-aos-duration="700"
+              data-aos-delay="1100"
+              className="col-span-3"
+            >
               <RoadMapItem
                 timeline="2020"
                 event="Đến nay: có 20.000+ khách hàng, có văn phòng đại diện tại Việt Nam, Singapore, Indonesia, Thái Lan"

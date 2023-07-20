@@ -4,6 +4,8 @@ import SecondaryBtn from '../SecondaryBtn'
 function Hero() {
   return (
     <div
+      data-aos="fade-up"
+      data-aos-duration="700"
       style={{
         backgroundImage: 'url(/images/cpa/cpa-hero-bg.png)',
         backgroundPosition: 'center',

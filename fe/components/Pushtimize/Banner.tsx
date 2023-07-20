@@ -5,6 +5,9 @@ function Banner() {
   return (
     <div className="px-4 mx-auto mt-12 max-w-maxContent">
       <div
+        data-aos="fade-up"
+        data-aos-duration="700"
+        data-aos-delay={300}
         style={{
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

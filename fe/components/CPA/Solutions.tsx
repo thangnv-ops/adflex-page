@@ -6,7 +6,6 @@ import EkycIcon from '../icons/EkycIcon'
 import SmsIcon from '../icons/SmsIcon'
 import CloudServeIcon from '../icons/CloudServeIcon'
 import Line from '../Line'
-import SecondaryBtn from '../SecondaryBtn'
 
 const solutions = [
   {
@@ -88,38 +87,53 @@ function Solutions() {
       />
       <div className="hidden px-4 mx-auto max-w-maxContent md:block">
         <div className="grid grid-cols-4 gap-8">
-          {solutions.slice(0, 3).map((i) => (
-            <Item key={i.id} title={i.title} description={i.description} icon={i.icon} />
+          {solutions.slice(0, 3).map((i, index) => (
+            <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={300 + 100 * index}>
+              <Item key={i.id} title={i.title} description={i.description} icon={i.icon} />
+            </div>
           ))}
         </div>
-        <Line className="mt-8" />
-        <SecondaryBtn className="mt-8">Đăng ký ngay</SecondaryBtn>
-        <p className="text-center text-[48px]">
+        <Line data-aos="fade-up" data-aos-duration="700" className="mt-8" />
+
+        <p data-aos="fade-up" data-aos-duration="700" className="text-center text-[48px] mt-8">
           Tích hợp đa dạng các giải pháp <br /> phù hợp nhu cầu của khách hàng
         </p>
-        <Line className="mt-8" />
+        <Line data-aos="fade-up" data-aos-duration="700" className="mt-8" />
         <div className="grid grid-cols-4 gap-8 mt-8">
           <div />
-          {solutions.slice(3, solutions.length).map((i) => (
-            <Item
-              isAlignRight
-              key={i.id}
-              title={i.title}
-              description={i.description}
-              icon={i.icon}
-            />
+          {solutions.slice(3, solutions.length).map((i, index) => (
+            <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={300 + 100 * index}>
+              <Item
+                isAlignRight
+                key={i.id}
+                title={i.title}
+                description={i.description}
+                icon={i.icon}
+              />
+            </div>
           ))}
         </div>
       </div>
       <div className="block px-4 mx-auto max-w-maxContent md:hidden">
-        <p className="text-center text-[30px] md:text-[48px]">
+        <p
+          data-aos="fade-up"
+          data-aos-duration="700"
+          className="text-center text-[30px] md:text-[48px]"
+        >
           Tích hợp đa dạng các giải pháp phù hợp nhu cầu của khách hàng
         </p>
-        <Line className="my-8" />
+        <Line data-aos="fade-up" data-aos-duration="700" className="my-8" />
 
         <div className="grid grid-cols-2 gap-4">
-          {solutions.map((i) => (
-            <Item key={i.id} title={i.title} description={i.description} icon={i.icon} />
+          {solutions.map((i, index) => (
+            <div
+              data-aos="fade-up"
+              data-aos-duration="700"
+              className="flex"
+              data-aos-delay={300 + 100 * index}
+            >
+              <Item key={i.id} title={i.title} description={i.description} icon={i.icon} />
+            </div>
           ))}
         </div>
       </div>

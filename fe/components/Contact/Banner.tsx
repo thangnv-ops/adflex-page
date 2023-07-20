@@ -5,6 +5,8 @@ function Banner() {
   return (
     <div className="px-4 mx-auto mt-32 max-w-maxContent">
       <div
+        data-aos="fade-up"
+        data-aos-duration="700"
         style={{
           backgroundImage: `url(/images/contact/contact-banner.png)`,
           backgroundPosition: 'center',

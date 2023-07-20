@@ -4,7 +4,6 @@ import Partner from './Partner'
 import Whyus from './Whyus'
 import Solution from './Solution'
 import Plant from './Plant'
-import CustomerReviews from './CustomerReviews'
 import Map from '../Map'
 
 function Opsrun() {
@@ -15,7 +14,7 @@ function Opsrun() {
       <Whyus />
       <Solution />
       <Plant />
-      <CustomerReviews />
+      {/* <CustomerReviews /> */}
       <Map />
     </div>
   )

@@ -54,7 +54,7 @@ module.exports = {
     'prettier/prettier': ['error', { singleQuote: true, semi: false }],
     'import/prefer-default-export': 'off',
     'import/export': 0,
-    'no-console': 'error',
+    'no-console': 'off',
     'no-param-reassign': 0,
     'jsx-a11y/label-has-associated-control': 'off',
     'jsx-a11y/label-has-for': 'off',

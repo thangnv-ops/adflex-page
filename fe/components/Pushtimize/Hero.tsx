@@ -5,6 +5,8 @@ import QuaternaryBtn from '../QuaternaryBtn'
 function Hero() {
   return (
     <div
+      data-aos="fade-up"
+      data-aos-duration="700"
       style={{
         backgroundImage: 'url(/images/pushtimize/pushtimize-hero-bg.png)',
         backgroundPosition: 'center',

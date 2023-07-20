@@ -1,9 +1,12 @@
 import React from 'react'
 import SecondaryBtn from '../SecondaryBtn'
+import BriefUsModal from '../BriefUsModal'
 
 function Hero() {
   return (
     <div
+      data-aos="fade-up"
+      data-aos-duration="700"
       style={{
         backgroundImage: 'url(/images/opsrun/opsrun-hero-bg.png)',
         backgroundPosition: 'center',
@@ -23,7 +26,9 @@ function Hero() {
             Hỗ trợ doanh nghiệp trong quá trình chuyển đổi số.
           </p>
           <div className="flex gap-2 mt-5">
-            <SecondaryBtn>Bắt đầu</SecondaryBtn>
+            <BriefUsModal>
+              <SecondaryBtn>Bắt đầu</SecondaryBtn>
+            </BriefUsModal>
           </div>
         </div>
         <div className="static row-start-1 md:relative md:row-auto">

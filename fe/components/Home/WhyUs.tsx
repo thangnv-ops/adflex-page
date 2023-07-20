@@ -10,6 +10,7 @@ import CpuWithBgIcon from '../icons/CpuWithBgIcon'
 import PersonWithBgIcon from '../icons/PersonWithBgIcon'
 import StarWithBgIcon from '../icons/StarWithBgIcon'
 import TrophyWithBgIcon from '../icons/TrophyWithBgIcon'
+import BriefUsModal from '../BriefUsModal'
 
 const ICON_ID = {
   CPU: 'cpu',
@@ -50,6 +51,8 @@ function Item({
   }
   return (
     <div
+      data-aos="fade-up"
+      data-aos-duration="700"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={`flex items-start bg-black bg-opacity-5 md:bg-transparent  gap-6 p-6 smooth-transform border border-black border-opacity-20 md:border-opacity-100 border-transparent hover:border-[#D0D5DD] rounded-2xl ${className}`}
@@ -72,12 +75,16 @@ function WhyUs() {
         <Title>
           <span>Tại sao</span> lựa chọn chúng tôi?
         </Title>
-        <PrimaryBtn className="mt-2 md:mt-8">
-          <div className="flex items-center gap-2">
-            <p className="text-white">Brief us</p>
-            <UpRightArrow />
+        <BriefUsModal>
+          <div data-aos="fade-up" data-aos-duration="700">
+            <PrimaryBtn className="mt-2 md:mt-8">
+              <div className="flex items-center gap-2">
+                <p className="text-white">Brief us</p>
+                <UpRightArrow />
+              </div>
+            </PrimaryBtn>
           </div>
-        </PrimaryBtn>
+        </BriefUsModal>
       </div>
       <div className="grid justify-center grid-cols-1 mt-16 md:grid-cols-343">
         <div className="flex-col hidden md:flex justify-evenly">
@@ -94,7 +101,7 @@ function WhyUs() {
             focusId={STAR}
           />
         </div>
-        <div className="relative">
+        <div data-aos="fade-up" data-aos-duration="700" className="relative">
           <img src="/images/whyus-img.png" alt="whyus" />
           <CpuWithBgIcon className="smooth-transform grayscale-[0.4] w-12 md:w-16 absolute top-[70px] left-[70px] md:top-[98px] md:left-[98px]" />
           <PersonWithBgIcon className="smooth-transform grayscale-[0.4] w-12 md:w-16 absolute top-[70px] right-[85px] md:top-[98px] md:right-[110px]" />

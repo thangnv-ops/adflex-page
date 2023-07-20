@@ -15,20 +15,22 @@ function FooterItem({ text, href }: { text: string; href: string }) {
 function Footer() {
   return (
     <div className="px-4 pb-8 pt-28">
-      <div className="flex justify-center">
+      <div data-aos="fade-up" data-aos-duration="700" className="flex justify-center">
         <LogoBlack />
       </div>
       <div className="mx-auto mt-24 text-black max-w-maxContent">
-        <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="700"
+          className="flex flex-col items-center justify-between gap-8 md:flex-row"
+        >
           <div className="grid items-center grid-cols-2 gap-8">
             <div className="flex flex-col gap-8 md:flex-row">
-              <FooterItem text="Giải pháp CPA" href="/" />
-              <FooterItem text="Giải pháp Pushtimize" href="/" />
-              <FooterItem text="Giải pháp Opsrun" href="/" />
+              <FooterItem text="Giải pháp CPA" href="/cpa" />
+              <FooterItem text="Giải pháp Pushtimize" href="/pustimize" />
+              <FooterItem text="Giải pháp Opsrun" href="/opsrun" />
             </div>
             <div className="flex flex-col gap-8 md:flex-row">
-              <FooterItem text="Tin tức" href="/" />
-              <FooterItem text="Tuyển dụng" href="/" />
               <FooterItem text="Liên hệ" href="/" />
             </div>
           </div>
@@ -38,7 +40,9 @@ function Footer() {
           </div>
         </div>
       </div>
-      <p className="text-[#344054] text-center mt-10">(C) 2023 All right reserved.</p>
+      <p data-aos="fade-up" data-aos-duration="700" className="text-[#344054] text-center mt-10">
+        (C) 2023 All right reserved.
+      </p>
     </div>
   )
 }

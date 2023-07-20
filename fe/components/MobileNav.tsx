@@ -5,6 +5,9 @@ import CloseDialogIcon from './icons/CloseDialogIcon'
 import IconHamburger from './icons/IconHamburger'
 import LogoBlack from './LogoBlack'
 import { useRouter } from 'next/router'
+import BriefUsModal from './BriefUsModal'
+import SecondaryBtn from './SecondaryBtn'
+import UpRightArrow from './icons/UpRightArrow'
 
 const variants = {
   open: {
@@ -132,7 +135,7 @@ function MobileNav() {
             <div className="flex items-center justify-end px-4 py-2 ">
               <CloseDialogIcon onClick={toggleOpenMobileNav} />
             </div>
-            <div className="px-8">
+            <div onClick={toggleOpenMobileNav} className="px-8">
               <Link href="/">
                 <a>
                   <LogoBlack />
@@ -161,6 +164,14 @@ function MobileNav() {
                   href="/contact"
                   isActive={router?.asPath.includes('/contact')}
                 />
+                <BriefUsModal>
+                  <SecondaryBtn>
+                    <div className="flex items-center gap-2">
+                      <p className="text-black">Brief us</p>
+                      <UpRightArrow />
+                    </div>
+                  </SecondaryBtn>
+                </BriefUsModal>
               </div>
             </div>
           </motion.div>

@@ -5,7 +5,6 @@ import Partner from './Partner'
 import Technology from './Technology'
 import WhyUs from './WhyUs'
 import Banner from './Banner'
-import CustomerReviews from './CustomerReviews'
 import Map from '../Map'
 
 function Pushtimize() {
@@ -19,7 +18,7 @@ function Pushtimize() {
       <Technology />
       <WhyUs />
       <Banner />
-      <CustomerReviews />
+      {/* <CustomerReviews /> */}
       <Map />
     </div>
   )

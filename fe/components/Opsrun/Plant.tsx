@@ -2,6 +2,7 @@ import React from 'react'
 import StepBar from './StepBar/StepBar'
 import Carousel from 'react-multi-carousel'
 import SecondaryBtn from '../SecondaryBtn'
+import BriefUsModal from '../BriefUsModal'
 
 const responsiveCarousel = {
   desktop: {
@@ -64,7 +65,11 @@ function Plant() {
       className="pt-32 pb-32"
     >
       <StepBar />
-      <div className="px-4 mx-auto mt-16 max-w-maxContent">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="700"
+        className="px-4 mx-auto mt-16 max-w-maxContent"
+      >
         <Carousel
           className="w-full rounded-2xl"
           responsive={responsiveCarousel}
@@ -87,7 +92,9 @@ function Plant() {
               <div className="flex flex-col items-center gap-4">
                 <p className="text-2xl md:text-[40px] text-center">{slide.title}</p>
                 <p className="text-sm md:text-lg max-w-[604px] text-center">{slide.description}</p>
-                <SecondaryBtn className="w-[180px]">Đăng ký ngay</SecondaryBtn>
+                <BriefUsModal>
+                  <SecondaryBtn className="w-[180px]">Đăng ký ngay</SecondaryBtn>
+                </BriefUsModal>
               </div>
             </div>
           ))}

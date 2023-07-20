@@ -4,7 +4,6 @@ import Solutions from './Solutions'
 import Partner from '../Home/Partner'
 import Whyus from './Whyus'
 import Banner from './Banner'
-import CustomerReviews from './CustomerReviews'
 import Map from '../Map'
 
 function CPA() {
@@ -17,7 +16,7 @@ function CPA() {
       </div>
       <Whyus />
       <Banner />
-      <CustomerReviews />
+      {/* <CustomerReviews /> */}
       <Map />
     </div>
   )

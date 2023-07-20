@@ -20,9 +20,13 @@ function Whyus() {
         <div className="flex items-center justify-between">
           <div>
             <Title>Lý do nên lựa chọn chúng tôi</Title>
-            <SecondaryBtn className="mt-8">Đăng ký ngay</SecondaryBtn>
+            <div data-aos="fade-up" data-aos-duration="700">
+              <SecondaryBtn className="mt-8">Đăng ký ngay</SecondaryBtn>
+            </div>
           </div>
           <div
+            data-aos="fade-up"
+            data-aos-duration="700"
             style={{
               backgroundImage: 'url(/images/cpa/renew-bg.png)',
               backgroundPosition: 'center',
@@ -37,6 +41,9 @@ function Whyus() {
         </div>
         <div className="items-center justify-end hidden grid-cols-2 gap-2 mt-2 md:flex">
           <div
+            data-aos="fade-up"
+            data-aos-duration="700"
+            data-aos-delay={300}
             style={{
               backgroundImage: 'url(/images/cpa/professional-bg.png)',
               backgroundPosition: 'center',
@@ -48,11 +55,19 @@ function Whyus() {
             <LikeIcon />
             <p className="mt-4 text-2xl">Chuyên nghiệp</p>
           </div>
-          <div className="flex flex-col justify-center items-center w-[312px] h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="700"
+            data-aos-delay={500}
+            className="flex flex-col justify-center items-center w-[312px] h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl"
+          >
             <QualityIcon />
             <p className="mt-4 text-2xl">Chất lượng</p>
           </div>
           <div
+            data-aos="fade-up"
+            data-aos-duration="700"
+            data-aos-delay={700}
             style={{
               backgroundImage: 'url(/images/cpa/effctive-bg.png)',
               backgroundPosition: 'center',
@@ -66,20 +81,40 @@ function Whyus() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-2 mt-12">
-          <div className="flex flex-col justify-center items-center w-auto h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl">
+        <div className="grid grid-cols-2 gap-2 mt-12 md:hidden">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="700"
+            data-aos-delay={300}
+            className="flex flex-col justify-center items-center w-auto h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl"
+          >
             <LikeIcon />
             <p className="mt-4 text-2xl">Chuyên nghiệp</p>
           </div>
-          <div className="flex flex-col justify-center items-center w-auto h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="700"
+            data-aos-delay={500}
+            className="flex flex-col justify-center items-center w-auto h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl"
+          >
             <RenewIcon />
             <p className="mt-4 text-2xl">Đổi mới</p>
           </div>
-          <div className="flex flex-col justify-center items-center w-auto h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="700"
+            data-aos-delay={700}
+            className="flex flex-col justify-center items-center w-auto h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl"
+          >
             <QualityIcon />
             <p className="mt-4 text-2xl">Chất lượng</p>
           </div>
-          <div className="flex flex-col justify-center items-center w-auto h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="700"
+            data-aos-delay={900}
+            className="flex flex-col justify-center items-center w-auto h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl"
+          >
             <EffectiveIcon />
             <p className="mt-4 text-2xl">Hiệu quả</p>
           </div>
