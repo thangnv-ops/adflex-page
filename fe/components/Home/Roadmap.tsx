@@ -55,7 +55,7 @@ function Roadmap() {
               data-aos-delay="500"
               className="col-span-2"
             >
-              <RoadMapItem timeline="2012" event="Thành lập" />
+              <RoadMapItem timeline="2013" event="Thành lập AdFlex" />
             </div>
             <div />
             <div />
@@ -65,7 +65,7 @@ function Roadmap() {
               data-aos-delay="700"
               className="col-span-2"
             >
-              <RoadMapItem timeline="2016" event="Top 3 Asian Mobile Ad Network" />
+              <RoadMapItem timeline="2014" event="Top 10 Asian Mobile Affiliate Network" />
             </div>
             <div />
             <div />
@@ -75,7 +75,7 @@ function Roadmap() {
               data-aos-delay="900"
               className="col-span-3"
             >
-              <RoadMapItem isOutstanding timeline="2019" event="Đạt $50M GMV cho CPO" />
+              <RoadMapItem timeline="2016" event="Phát triển ra thị trường Indonesia & Thái Lan" />
             </div>
             <div />
             <div
@@ -84,10 +84,7 @@ function Roadmap() {
               data-aos-delay="1100"
               className="col-span-3"
             >
-              <RoadMapItem
-                timeline="2023"
-                event="20.000+ khách hàng, có văn phòng đại diện tại Việt Nam, Singapore, Indonesia, Thái Lan"
-              />
+              <RoadMapItem timeline="2019" event=" Đạt $50M GMV. Ra mắt nền tảng Pushtimize" />
             </div>
           </div>
           <div className="grid mt-6 md:mt-8 grid-cols-16 w-[933px] md:w-auto">
@@ -99,12 +96,7 @@ function Roadmap() {
             <div />
             <div />
             <div />
-            <VerticalLine
-              data-aos="fade-up"
-              data-aos-duration="700"
-              data-aos-delay="900"
-              className="border-primary"
-            />
+            <VerticalLine data-aos="fade-up" data-aos-duration="700" data-aos-delay="900" />
             <div />
             <div />
             <div />
@@ -130,7 +122,12 @@ function Roadmap() {
             <div />
             <div />
             <div />
-            <VerticalLine data-aos="fade-up" data-aos-duration="700" data-aos-delay="1100" />
+            <VerticalLine
+              className="border-primary"
+              data-aos="fade-up"
+              data-aos-duration="700"
+              data-aos-delay="1100"
+            />
           </div>
           <div className="grid mt-6 md:mt-10 -ml-8 grid-cols-16 w-[933px] md:w-auto">
             <div />
@@ -142,7 +139,7 @@ function Roadmap() {
               data-aos-delay="700"
               className="col-span-2"
             >
-              <RoadMapItem timeline="2014" event="Top 10 Asian Mobile Affiliate Network" />
+              <RoadMapItem timeline="2020" event="Đánh dấu cột mốc phục vụ 20,000+ khách hàng" />
             </div>
             <div />
             <div />
@@ -152,7 +149,7 @@ function Roadmap() {
               data-aos-delay="900"
               className="col-span-2"
             >
-              <RoadMapItem timeline="2017" event="Thiết lập giải pháp CPO" />
+              <RoadMapItem timeline="2022" event="Trở thành Strategic Partner của AppsFlyer" />
             </div>
             <div />
             <div />
@@ -163,8 +160,9 @@ function Roadmap() {
               className="col-span-3"
             >
               <RoadMapItem
-                timeline="2020"
-                event="Đến nay: có 20.000+ khách hàng, có văn phòng đại diện tại Việt Nam, Singapore, Indonesia, Thái Lan"
+                isOutstanding
+                timeline="2023"
+                event="Trở thành Cloud & Service Partner của AWS, Google Cloud, Azure, Alibaba, HuaWei, TenCent"
               />
             </div>
           </div>
