@@ -41,7 +41,7 @@ const listFAQ = [
     id: 'quest6',
     question: 'Làm sao để liên hệ với AdFlex?',
     answer:
-      'Trong trường hợp gấp, hãy gọi ngay đến hotline 012345 để được AdFlex tư vấn giúp bạn. Nếu bạn chưa vội, hãy điền thông tin cá nhân của bạn ngay phần liên hệ bên dưới nhé!',
+      'Trong trường hợp gấp, hãy gọi ngay đến hotline 0345036008 (Uyển) để được AdFlex tư vấn giúp bạn. Nếu bạn chưa vội, hãy điền thông tin cá nhân của bạn ngay phần liên hệ bên dưới nhé!',
   },
 ]
 
