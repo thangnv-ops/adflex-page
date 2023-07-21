@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import StepBar from './StepBar/StepBar'
 import Carousel from 'react-multi-carousel'
 import SecondaryBtn from '../SecondaryBtn'
@@ -25,15 +25,15 @@ const responsiveCarousel = {
 const slides = [
   {
     id: '1',
-    title: 'Lên kế hoạch triển khai',
-    description:
-      'Lập kế hoạch chi tiết tối ưu tài nguyên thừa, phân bổ không hợp lý hoặc kế hoạch chuyển đổi hệ thống công nghệ thông tin lên Cloud.',
-  },
-  {
-    id: '2',
     title: 'Rà soát, phân tích hiện trạng',
     description:
       'Opsrun rà soát và đánh giá hiện trạng hệ thống thông tin hiện tại của doanh nghiệp. Sau đó tiến hành phân tích chuyên sâu và chỉ ra các lỗ hổng tài nguyên doanh nghiệp đang gặp phải',
+  },
+  {
+    id: '2',
+    title: 'Lên kế hoạch triển khai',
+    description:
+      'Lập kế hoạch chi tiết tối ưu tài nguyên thừa, phân bổ không hợp lý hoặc kế hoạch chuyển đổi hệ thống công nghệ thông tin lên Cloud.',
   },
   {
     id: '3',
@@ -54,6 +54,14 @@ const slides = [
 ]
 
 function Plant() {
+  const carouselRef = useRef(null)
+  const [activatingSlide, setActivatingSlide] = useState(0)
+
+  const goToSlide = (slideIndex: number) => {
+    console.log('oke')
+    setActivatingSlide(slideIndex)
+    carouselRef.current?.goToSlide(slideIndex + 2, true)
+  }
   return (
     <div
       style={{
@@ -64,13 +72,14 @@ function Plant() {
       }}
       className="pt-32 pb-32"
     >
-      <StepBar />
+      <StepBar goToSlide={goToSlide} activatingSlide={activatingSlide} />
       <div
         data-aos="fade-up"
         data-aos-duration="700"
         className="px-4 mx-auto mt-16 max-w-maxContent"
       >
         <Carousel
+          ref={carouselRef}
           className="w-full rounded-2xl"
           responsive={responsiveCarousel}
           containerClass="w-full "
@@ -78,9 +87,17 @@ function Plant() {
           autoPlay
           autoPlaySpeed={3000}
           infinite
+          beforeChange={(nextSlide) => {
+            let indexNextSlide = (nextSlide - 2) % slides.length
+            if (indexNextSlide < 0) {
+              indexNextSlide = slides.length - 1
+            }
+            setActivatingSlide(indexNextSlide)
+          }}
         >
-          {slides.map((slide) => (
+          {slides.map((slide, index) => (
             <div
+              key={`plant-${index}`}
               style={{
                 backgroundImage: `url(/images/opsrun/step-bg/${slide.id}.png)`,
                 backgroundPosition: 'center',
