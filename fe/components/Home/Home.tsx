@@ -7,6 +7,7 @@ import Roadmap from './Roadmap'
 import Leader from './Leader'
 import FAQs from './FAQs'
 import Partner from './Partner'
+import Address from '../Contact/Address'
 
 function Home() {
   return (
@@ -29,6 +30,9 @@ function Home() {
       <Roadmap />
       <Leader />
       <FAQs />
+      <div className="mt-16 md:mt-20">
+        <Address />
+      </div>
     </div>
   )
 }

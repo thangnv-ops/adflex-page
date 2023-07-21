@@ -114,7 +114,7 @@ function FAQs() {
           <BriefUsModal>
             <SecondaryBtn data-aos="fade-up" data-aos-duration="700" className="mt-12">
               <div className="flex items-center gap-2">
-                <p className="text-white">Đặt câu hỏi cho chúng tôi</p>
+                <p className="text-white">Đăng ký liên hệ hợp tác</p>
                 <UpRightArrow />
               </div>
             </SecondaryBtn>

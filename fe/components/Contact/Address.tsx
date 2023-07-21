@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 function Icon({ ...props }) {
   return (
@@ -21,7 +21,7 @@ function Item({
   className = '',
 }: {
   title: string
-  content: string
+  content: string | ReactNode
   className?: string
 }) {
   return (
@@ -30,7 +30,7 @@ function Item({
         <Icon />
         <p className="font-medium">{title}</p>
       </div>
-      <p className="mt-4 text-[32px] underline underline-offset-4">{content}</p>
+      <div className="mt-4 text-[32px] underline underline-offset-4">{content}</div>
     </div>
   )
 }
@@ -40,13 +40,22 @@ function Address() {
     <div className="max-w-[1126px] px-4 mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-[104px] text-black">
         <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={500}>
-          <p className="text-5xl">Trụ sở Adflex</p>
+          <p className="text-5xl">Trụ sở AdFlex</p>
           <div className="flex flex-col gap-6 mt-20">
-            <Item title="Email" content="info@adflex.com" />
+            <Item title="Email" content="info@adflex.vn" />
             <Item title="Hotline" content="+84 987 654 321" />
             <Item
               title="Địa chỉ"
-              content="EcoLife Tố Hữu, 58 P. Tố Hữu, Trung Văn, Nam Từ Liêm, Hà Nội"
+              content={
+                <div className="flex flex-col gap-3 text-3xl">
+                  <p>
+                    Hà Nội: Tầng 2, Toà nhà Ecolife Capitol 58 Tố Hữu, Mễ Trì, Nam Từ Liêm, Hà Nội
+                  </p>
+                  <p> HCM: 99 Nguyễn Thị Minh Khai, Quận 1, Tp. HCM </p>
+                  SINGAPORE: 470 North Bridge
+                  <p>Road, #05 -12 Bugis Cube, Singapore</p>
+                </div>
+              }
             />
           </div>
         </div>

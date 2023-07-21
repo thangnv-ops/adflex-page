@@ -13,7 +13,7 @@ function Hero() {
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }}
-      className="h-auto pb-32 overflow-hidden md:h-screen pt-44"
+      className="h-auto pb-32 overflow-hidden pt-72"
     >
       <div className="grid items-start h-full grid-cols-1 px-4 mx-auto md:grid-cols-64 max-w-maxContent">
         <div className="flex flex-col justify-center h-full ">
