@@ -40,7 +40,7 @@ function BriefUsModal({ children }: { children: ReactNode }) {
                 method="post"
               >
                 <div className="flex items-center justify-between">
-                  <p className="text-[24px] md:text-[40px]">Đăng ký nhận báo giá</p>
+                  <p className="text-[24px] md:text-[40px]">Đăng ký liên hệ hợp tác</p>
                   <CloseDialogIcon className="w-8 cursor-pointer md:w-10" onClick={close} />
                 </div>
                 <p className="mt-2 text-sm md:text-xl">Hãy cho chúng tôi biết ý tưởng của bạn.</p>
@@ -77,7 +77,7 @@ function BriefUsModal({ children }: { children: ReactNode }) {
                 <div className="flex flex-col items-center justify-between gap-8 mt-6 md:flex-row">
                   <div className="flex items-center gap-4">
                     <input type="checkbox" />
-                    <p>Nhận thông tin từ Adflex</p>
+                    <p>Nhận thông tin từ AdFlex</p>
                   </div>
                   <PrimaryBtn
                     type="submit"

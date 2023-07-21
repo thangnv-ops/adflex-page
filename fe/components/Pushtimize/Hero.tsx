@@ -14,7 +14,7 @@ function Hero() {
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
       }}
-      className="h-auto pb-32 md:h-screen pt-44"
+      className="h-auto pb-32 pt-44"
     >
       <div className="grid items-center h-full grid-cols-1 px-4 mx-auto md:grid-cols-2 max-w-maxContent">
         <div>
