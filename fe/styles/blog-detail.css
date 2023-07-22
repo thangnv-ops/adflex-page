@@ -1,0 +1,64 @@
+.blog-detail-style h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.blog-detail-style h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.blog-detail-style h3 {
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
+.blog-detail-style h4 {
+  font-weight: bold;
+}
+
+.blog-detail-style h5 {
+  font-size: 0.83em;
+  font-weight: bold;
+}
+
+.blog-detail-style h7 {
+  font-size: 0.67em;
+  font-weight: bold;
+}
+
+.blog-detail-style ul {
+  list-style-type: disc;
+  padding-left: 32px;
+  margin-top: 4px;
+}
+
+.blog-detail-style a {
+  color: deepskyblue;
+  text-decoration-line: underline;
+}
+
+.blog-detail-style pre {
+  font-weight: bold;
+  background-color: #ffffff25;
+  padding: 4px 8px;
+  margin: 8px 0;
+  border: 1px #ffffff40 solid;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+.blog-detail-style p code {
+  font-weight: bold;
+  background-color: #ffffff25;
+  padding: 4px 8px;
+  margin: 8px 0;
+}
+
+.blog-detail-style table {
+  margin: 10px 0;
+}
+
+.blog-detail-style table tbody tr td {
+  padding: 6px 10px;
+}

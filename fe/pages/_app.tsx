@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 
 import '../styles/globals.css'
+import '../styles/blog-detail.css'
 
 import '@reach/dialog/styles.css'
 import 'aos/dist/aos.css'
