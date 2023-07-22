@@ -9,10 +9,10 @@ import { ToastContainer } from 'react-toastify'
 import '../styles/globals.css'
 import '../styles/blog-detail.css'
 
-import 'react-toastify/dist/ReactToastify.css'
 import '@reach/dialog/styles.css'
-import 'react-multi-carousel/lib/styles.css'
 import 'aos/dist/aos.css'
+import 'react-multi-carousel/lib/styles.css'
+import 'react-toastify/dist/ReactToastify.css'
 
 import Head from 'next/head'
 
@@ -35,7 +35,10 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
           name="description"
           content="AdFlex là nền tảng Affiliate Marketing hàng đầu tại Đông Nam Á. Nhiệm vụ của chúng tôi là tạo ra giải pháp bán hàng tốt nhất, đột phá doanh thu lớn nhất cho các đối tác."
         />
-        <meta property="og:title" content="Fungib.ly | Your One-Stop Marketplace for NFT Games" />
+        <meta
+          property="og:title"
+          content="Adflex.vn | AdFlex là nền tảng Affiliate Marketing hàng đầu tại Đông Nam Á."
+        />
         <meta
           property="og:description"
           content="AdFlex là nền tảng Affiliate Marketing hàng đầu tại Đông Nam Á. Nhiệm vụ của chúng tôi là tạo ra giải pháp bán hàng tốt nhất, đột phá doanh thu lớn nhất cho các đối tác."
