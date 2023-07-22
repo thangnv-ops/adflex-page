@@ -194,7 +194,7 @@ function JobDetails() {
             Thông tin liên hệ
           </p>
           <AddressItem title="Email" content="info@adflex.vn" />
-          <AddressItem title="Hotline" content="+84 987 654 321" />
+          <AddressItem title="Hotline" content="0345 036 008" />
           <AddressItem
             title="Địa chỉ"
             content={

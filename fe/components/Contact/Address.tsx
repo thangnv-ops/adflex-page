@@ -43,7 +43,7 @@ function Address() {
           <p className="text-5xl">Trụ sở AdFlex</p>
           <div className="flex flex-col gap-6 mt-20">
             <Item title="Email" content="info@adflex.vn" />
-            <Item title="Hotline" content="+84 987 654 321" />
+            <Item title="Hotline" content="0345 036 008" />
             <Item
               title="Địa chỉ"
               content={
