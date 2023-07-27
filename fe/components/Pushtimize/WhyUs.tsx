@@ -85,7 +85,7 @@ function WhyUs() {
       <div className="px-4 mx-auto max-w-maxContent">
         <Line data-aos="fade-up" data-aos-duration="700" />
         <div className="flex flex-col items-start justify-between gap-4 py-8 md:gap-8 md:items-center md:flex-row">
-          <Title className="">
+          <Title className="!text-[28px] !md:text-[32px]">
             <span>Tại sao</span> nên <br /> lựa chọn chúng tôi?
           </Title>
           <p

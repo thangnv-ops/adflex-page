@@ -5,7 +5,7 @@ function Title({ children, className = '' }: { children: ReactNode; className?: 
     <div
       data-aos="fade-up"
       data-aos-duration="700"
-      className={`${className} title text-[28px] md:text-5xl`}
+      className={`${className} title text-[24px] md:text-[36px]`}
     >
       {children}
     </div>

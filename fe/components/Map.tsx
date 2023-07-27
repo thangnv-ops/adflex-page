@@ -30,7 +30,7 @@ function Map() {
           data-aos-delay={500}
           className="flex flex-col px-4 py-4 text-black md:px-20 md:py-24"
         >
-          <p className="text-[40px] text-white">Giữ liên lạc với chúng tôi</p>
+          <p className="text-[28px] md:text-[32px] text-white ">Đăng ký liên hệ hợp tác</p>
           <p className="mt-2 text-xl text-white">Chúng tôi luôn muốn lắng nghe từ bạn</p>
           <PrimaryInput
             value={name}

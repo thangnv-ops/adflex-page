@@ -7,7 +7,7 @@ import PushtimizeSolution from './PushtimizeSolution'
 function Solution() {
   return (
     <div className="px-4 mx-auto max-w-maxContent">
-      <Title className="mt-28">Giải pháp của chúng tôi</Title>
+      <Title className="mt-14">Giải pháp của chúng tôi</Title>
       <div className="flex items-center justify-center mt-5">
         <div className="relative">
           <img

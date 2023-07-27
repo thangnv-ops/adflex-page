@@ -10,21 +10,23 @@ function RoadMapItem({
   timeline,
   event,
   isOutstanding,
+  isAlignRight,
 }: {
   timeline: string
   event: string
   isOutstanding?: boolean
+  isAlignRight?: boolean
 }) {
   return (
     <div>
       <p
-        className={`${
-          isOutstanding ? 'text-primary' : 'text-white'
-        } text-[48px] md:text-[60px] font-bold`}
+        className={`${isOutstanding ? 'text-primary' : 'text-white'} ${
+          isAlignRight ? 'text-right' : 'text-left'
+        } text-[32px] md:text-[60px] font-bold`}
       >
         {timeline}
       </p>
-      <p className="text-sm md:text-base">{event}</p>
+      <p className={`text-sm md:text-base ${isAlignRight ? 'text-right' : 'text-left'}`}>{event}</p>
     </div>
   )
 }
@@ -42,11 +44,11 @@ function Roadmap() {
         alt="decor"
         className="absolute -top-[250px] -right-[350px]"
       />
-      <div className="relative z-10 px-4 mx-auto max-w-maxContent">
-        <Title>
-          <span>Lịch sử </span>hình thành & phát triển
+      <div className="relative z-10 mx-auto max-w-maxContent">
+        <Title className="text-center md:text-left">
+          <span>Lịch sử </span>hình thành <br className="block md:hidden" /> & phát triển
         </Title>
-        <div className="overflow-x-auto overflow-y-hidden mt-14 md:mt-32">
+        <div className="hidden overflow-x-auto overflow-y-hidden mt-14 md:mt-20 md:block">
           <div className="grid -ml-8 grid-cols-16 w-[933px] md:w-auto">
             <div />
             <div
@@ -164,6 +166,64 @@ function Roadmap() {
               className="col-span-3"
             >
               <RoadMapItem timeline="2022" event="Trở thành Strategic Partner của AppsFlyer" />
+            </div>
+          </div>
+        </div>
+
+        <div className="block w-full mt-10 md:hidden">
+          <div className="grid justify-center w-full grid-cols-2">
+            <div>
+              <div data-aos="fade-right" data-aos-duration="700" className="flex gap-8 mt-28">
+                <RoadMapItem
+                  isAlignRight
+                  timeline="2014"
+                  event="Top 10 Asian Mobile Affiliate Network"
+                />
+                <Line className="mt-6 max-w-[24px]" />
+              </div>
+              <div data-aos="fade-right" data-aos-duration="700" className="flex gap-8 mt-14">
+                <RoadMapItem
+                  isAlignRight
+                  timeline="2019"
+                  event=" Đạt $50M GMV. Ra mắt nền tảng Pushtimize"
+                />
+                <Line className="mt-6 max-w-[24px]" />
+              </div>
+
+              <div data-aos="fade-right" data-aos-duration="700" className="flex gap-8 mt-14">
+                <RoadMapItem
+                  isAlignRight
+                  timeline="2022"
+                  event="Trở thành Strategic Partner của AppsFlyer"
+                />
+
+                <Line className="mt-6 max-w-[24px]" />
+              </div>
+            </div>
+            <div className="min-w-[123px] pb-10 flex flex-col border-l border-white border-opacity-25">
+              <div data-aos="fade-left" data-aos-duration="700" className="flex gap-8 mt-5">
+                <Line className="mt-6 max-w-[24px]" />
+                <RoadMapItem timeline="2013" event="Thành lập AdFlex" />
+              </div>
+              <div data-aos="fade-left" data-aos-duration="700" className="flex gap-8 mt-24">
+                <Line className="mt-6 max-w-[24px]" />
+                <RoadMapItem
+                  timeline="2016"
+                  event="Phát triển ra thị trường Indonesia & Thái Lan"
+                />
+              </div>
+              <div data-aos="fade-left" data-aos-duration="700" className="flex gap-8 mt-16">
+                <Line className="mt-6  max-w-[24px]" />
+                <RoadMapItem timeline="2020" event="Đánh dấu cột mốc phục vụ 20,000+ khách hàng" />
+              </div>
+              <div data-aos="fade-left" data-aos-duration="700" className="flex gap-8 mt-16">
+                <Line className="mt-6  max-w-[24px]" />
+                <RoadMapItem
+                  isOutstanding
+                  timeline="2023"
+                  event="Trở thành Cloud & Service Partner của AWS, Google Cloud, Azure, Alibaba, HuaWei, TenCent"
+                />
+              </div>
             </div>
           </div>
         </div>

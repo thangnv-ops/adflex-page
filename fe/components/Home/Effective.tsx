@@ -58,12 +58,12 @@ function Effective() {
               data-aos-duration="700"
               data-aos-delay={300 + 100 * index}
               key={item.id}
-              className="py-4 md:py-6 bg-white rounded-2xl smooth-transform bg-opacity-5 hover:bg-opacity-25 effective-item h-[250px] md:h-[360px] flex flex-col justify-between backdrop-blur-xl"
+              className="py-4 md:py-6 bg-white rounded-2xl smooth-transform bg-opacity-5 hover:bg-opacity-25 effective-item h-[233px] md:h-[312px] flex flex-col justify-between backdrop-blur-xl"
             >
               <div>
-                <p className="px-4 text-5xl font-bold md:px-6 md:text-7xl">{item.percent}</p>
+                <p className="px-4 text-[40px] font-bold md:px-6 md:text-[56px]">{item.percent}</p>
                 <Line className="my-4" />
-                <p className="px-4 text-xl md:px-6">{item.description}</p>
+                <p className="px-4 text-base md:text-xl md:px-6">{item.description}</p>
               </div>
               <div className="px-4 md:px-6 effective-btn">
                 <BriefUsModal>

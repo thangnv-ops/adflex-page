@@ -42,12 +42,12 @@ function Item({
 }) {
   return (
     <div
-      className={`p-6 bg-white border border-white bg-opacity-5 rounded-2xl border-opacity-20 flex flex-col ${
+      className={`p-4 bg-white border border-white bg-opacity-5 rounded-2xl border-opacity-20 flex flex-col ${
         isAlignRight ? 'items-end' : ''
       }`}
     >
       {icon}
-      <p className={`mt-4 text-2xl font-medium ${isAlignRight && 'text-right'}`}>{title}</p>
+      <p className={`mt-4 text-[21px] font-medium ${isAlignRight && 'text-right'}`}>{title}</p>
       <p className={`mt-4 ${isAlignRight && 'text-right'}`}>{description}</p>
     </div>
   )
@@ -60,12 +60,13 @@ function Whyus() {
         <Line data-aos="fade-up" data-aos-duration="700" />
         <div className="grid grid-cols-1 gap-8 my-8 md:grid-cols-4">
           <div>
-            <Title>
+            <Title className="!text-[28px] !md:text-[32px]">
               <span>Tại sao</span> nên <br className="block md:hidden" /> lựa chọn chúng tôi?
             </Title>
           </div>
           {solutions.map((i, index) => (
             <div
+              key={`opsrun-sol-${index}`}
               data-aos="fade-up"
               data-aos-duration="700"
               data-aos-delay={300 + 100 * index}
@@ -87,9 +88,9 @@ function Whyus() {
             data-aos="fade-up"
             data-aos-duration="700"
             data-aos-delay={300}
-            className="p-6 border-b border-white border-dashed md:border-b-0 md:p-12 md:border-r das border-opacity-20"
+            className="p-6 border-b border-white border-dashed md:border-b-0 md:border-r border-opacity-20"
           >
-            <p className="font-bold text-[48px] md:text-7xl">$100K+</p>
+            <p className="font-bold text-[40px] md:text-[56px] leading-none">$100K+</p>
             <Line className="max-w-[120px] my-4" />
             <p className="text-base md:text-xl">
               Tổng chi phí Opsrun tiết kiệm mỗi năm cho khách hàng
@@ -99,19 +100,14 @@ function Whyus() {
             data-aos="fade-up"
             data-aos-duration="700"
             data-aos-delay={500}
-            className="p-6 border-b border-white border-dashed md:border-b-0 md:p-12 md:border-r das border-opacity-20"
+            className="p-6 border-b border-white border-dashed md:border-b-0 md:border-r das border-opacity-20"
           >
-            <p className="font-bold text-[48px] md:text-7xl">70%</p>
+            <p className="font-bold text-[40px] md:text-[56px] leading-none">70%</p>
             <Line className="max-w-[120px] my-4" />
             <p className="text-base md:text-xl">Khách hàng tái sử dụng dịch vụ</p>
           </div>
-          <div
-            data-aos="fade-up"
-            data-aos-duration="700"
-            data-aos-delay={700}
-            className="p-6 md:p-12"
-          >
-            <p className="font-bold text-[48px] md:text-7xl">98%</p>
+          <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={700} className="p-6">
+            <p className="font-bold text-[40px] md:text-[56px] leading-none">98%</p>
             <Line className="max-w-[120px] my-4" />
             <p className="text-base md:text-xl">Khách hàng hài lòng</p>
           </div>

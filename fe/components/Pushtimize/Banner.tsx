@@ -17,7 +17,7 @@ function Banner() {
         className="grid grid-cols-1 md:grid-cols-2 rounded-2xl bg-black md:bg-[url(/images/pushtimize/pushtimize-banner.png)]"
       >
         <div className="p-6 md:p-12">
-          <p className="text-2xl md:text-[40px]">
+          <p className="!text-[28px] !md:text-[32px]">
             Bạn muốn tối ưu hiệu quả quảng <br className="hidden md:block" /> cáo hoặc đẩy mạnh thu
             nhập?
           </p>
