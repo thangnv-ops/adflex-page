@@ -19,7 +19,7 @@ function Home() {
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
         }}
-        className="pb-36"
+        className="pb-10 md:pb-36"
       >
         <Hero />
         <Solution />

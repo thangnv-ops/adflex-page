@@ -30,7 +30,7 @@ function Item({
         <Icon />
         <p className="font-medium">{title}</p>
       </div>
-      <div className="mt-4 text-[32px] underline underline-offset-4">{content}</div>
+      <div className="mt-4 text-xl md:text-[32px] ">{content}</div>
     </div>
   )
 }
@@ -47,13 +47,20 @@ function Address() {
             <Item
               title="Địa chỉ"
               content={
-                <div className="flex flex-col gap-3 text-3xl">
+                <div className="flex flex-col gap-3 text-xl md:text-[32px] leading-normal">
                   <p>
-                    Hà Nội: Tầng 2, Toà nhà Ecolife Capitol 58 Tố Hữu, Mễ Trì, Nam Từ Liêm, Hà Nội
+                    <span className="font-semibold underline underline-offset-4">Hà Nội:</span> Tầng
+                    2, Toà nhà Ecolife Capitol 58 Tố Hữu, Mễ Trì, Nam Từ Liêm, Hà Nội
                   </p>
-                  <p> HCM: 99 Nguyễn Thị Minh Khai, Quận 1, Tp. HCM </p>
-                  SINGAPORE: 470 North Bridge
-                  <p>Road, #05 -12 Bugis Cube, Singapore</p>
+                  <p>
+                    <span className="font-semibold underline underline-offset-4">HCM:</span> 99
+                    Nguyễn Thị Minh Khai, Quận 1, Tp. HCM
+                  </p>
+
+                  <p>
+                    <span className="font-semibold underline underline-offset-4">SINGAPORE:</span>{' '}
+                    470 North BridgeRoad, #05 -12 Bugis Cube, Singapore
+                  </p>
                 </div>
               }
             />

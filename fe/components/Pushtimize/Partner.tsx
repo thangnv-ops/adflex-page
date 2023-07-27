@@ -34,7 +34,7 @@ function Partner() {
         <div
           data-aos="fade-up"
           data-aos-duration="700"
-          className="px-4 mx-auto max-w-maxContent py-7 md:py-14"
+          className="px-4 py-0 mx-auto max-w-maxContent md:py-14"
         >
           <Carousel
             className="w-full"

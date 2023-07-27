@@ -70,7 +70,7 @@ function Item({
 function WhyUs() {
   const { CPU, PERSON, STAR, TROPHY } = ICON_ID
   return (
-    <div className="max-w-maxContent mx-auto px-4 py-[120px] text-black">
+    <div className="max-w-maxContent mx-auto px-4 py-10 md:py-[120px] text-black">
       <div className="flex flex-col items-start justify-between md:items-center md:flex-row">
         <Title>
           <span>Tại sao</span> lựa chọn chúng tôi?
@@ -86,7 +86,7 @@ function WhyUs() {
           </div>
         </BriefUsModal>
       </div>
-      <div className="grid justify-center grid-cols-1 mt-16 md:grid-cols-343">
+      <div className="grid justify-center grid-cols-1 mt-5 md:grid-cols-343">
         <div className="flex-col hidden md:flex justify-evenly">
           <Item
             title="Công nghệ vượt trội"
@@ -101,7 +101,7 @@ function WhyUs() {
             focusId={STAR}
           />
         </div>
-        <div data-aos="fade-up" data-aos-duration="700" className="relative">
+        <div data-aos="fade-up" data-aos-duration="700" className="relative hidden md:block">
           <img src="/images/whyus-img.png" alt="whyus" />
           <CpuWithBgIcon className="smooth-transform grayscale-[0.4] w-12 md:w-16 absolute top-[70px] left-[70px] md:top-[98px] md:left-[98px]" />
           <PersonWithBgIcon className="smooth-transform grayscale-[0.4] w-12 md:w-16 absolute top-[70px] right-[85px] md:top-[98px] md:right-[110px]" />

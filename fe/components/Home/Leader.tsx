@@ -22,8 +22,8 @@ const leaders = [
   },
   {
     id: 'leader4',
-    name: 'CAMMY KIM CHI',
-    title: 'Chief Commercial Officer',
+    name: 'CAMY KIM CHI',
+    title: 'Chief Customer Officer',
     avatar: '/images/leaders/kimchi.png',
   },
 ]
@@ -43,11 +43,10 @@ function Leader() {
       <div
         style={{
           backgroundImage: 'url(/images/leader-bg.png)',
-          backgroundPosition: 'center',
+          backgroundPosition: 'left',
           backgroundRepeat: 'no-repeat',
-          backgroundSize: '100% 100%',
         }}
-        className="py-[10px]"
+        className="py-[10px] bg-cover"
       >
         <div className="px-4 mx-auto max-w-maxContent">
           <div className="grid grid-cols-2 gap-2 md:grid-cols-4">

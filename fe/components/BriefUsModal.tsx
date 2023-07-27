@@ -31,7 +31,7 @@ function BriefUsModal({ children }: { children: ReactNode }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="z-50 min-w-[343px] !p-0 md:min-w-[1114px] !bg-transparent"
+              className="z-50 min-w-[343px] !p-0 md:min-w-[886px] !bg-transparent"
             >
               <motion.form
                 className="flex flex-col p-4 px-4 bg-white rounded-lg md:px-10 md:py-10 bg-opacity-60 backdrop-blur-md"
@@ -43,7 +43,9 @@ function BriefUsModal({ children }: { children: ReactNode }) {
                   <p className="text-[24px] md:text-[40px]">Đăng ký liên hệ hợp tác</p>
                   <CloseDialogIcon className="w-8 cursor-pointer md:w-10" onClick={close} />
                 </div>
-                <p className="mt-2 text-sm md:text-xl">Hãy cho chúng tôi biết ý tưởng của bạn.</p>
+                <p className="mt-2 text-sm md:text-xl">
+                  Hãy cho chúng tôi biết vấn đề bạn đang gặp phải
+                </p>
                 <div className="grid grid-cols-1 gap-8 mt-6 md:grid-cols-2">
                   <div className="flex flex-col gap-6">
                     <PrimaryInput
@@ -70,7 +72,7 @@ function BriefUsModal({ children }: { children: ReactNode }) {
                     <PrimaryTextarea
                       value={note}
                       onChange={(e) => setNote(e.target.value)}
-                      placeholder="Thông tin bạn quan tâm"
+                      placeholder="Giải pháp bạn quan tâm"
                     />
                   </div>
                 </div>

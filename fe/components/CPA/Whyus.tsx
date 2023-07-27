@@ -20,7 +20,7 @@ function Whyus() {
       <div className="px-4 py-20 mx-auto max-w-maxContent">
         <div className="flex items-center justify-between">
           <div>
-            <Title>Lý do nên lựa chọn chúng tôi</Title>
+            <Title className="!text-[28px] !md:text-[32px]">Lý do nên lựa chọn chúng tôi</Title>
             <div data-aos="fade-up" data-aos-duration="700">
               <BriefUsModal>
                 <SecondaryBtn className="mt-8">Đăng ký ngay</SecondaryBtn>

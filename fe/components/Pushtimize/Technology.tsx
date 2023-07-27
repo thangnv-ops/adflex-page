@@ -81,7 +81,7 @@ function Technology() {
   const [tab, setTab] = useState('Với nhà quảng cáo')
   return (
     <div className="px-4 pt-20 pb-24 mx-auto md:pt-32 max-w-maxContent">
-      <Title className="text-black">
+      <Title className="text-black !text-[28px] !md:text-[32px]">
         Nền tảng công nghệ vượt trội tối ưu
         <br className="hidden md:block" /> hiệu quả cho nhà quảng cáo,
         <br className="hidden md:block" />

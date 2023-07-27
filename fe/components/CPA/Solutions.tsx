@@ -95,14 +95,19 @@ function Solutions() {
         </div>
         <Line data-aos="fade-up" data-aos-duration="700" className="mt-8" />
 
-        <p data-aos="fade-up" data-aos-duration="700" className="text-center text-[48px] mt-8">
+        <p data-aos="fade-up" data-aos-duration="700" className="text-center text-[32px] mt-8">
           Tích hợp đa dạng các giải pháp <br /> phù hợp nhu cầu của khách hàng
         </p>
         <Line data-aos="fade-up" data-aos-duration="700" className="mt-8" />
         <div className="grid grid-cols-4 gap-8 mt-8">
           <div />
           {solutions.slice(3, solutions.length).map((i, index) => (
-            <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={300 + 100 * index}>
+            <div
+              key={`sol-1-${index}`}
+              data-aos="fade-up"
+              data-aos-duration="700"
+              data-aos-delay={300 + 100 * index}
+            >
               <Item
                 isAlignRight
                 key={i.id}
@@ -118,7 +123,7 @@ function Solutions() {
         <p
           data-aos="fade-up"
           data-aos-duration="700"
-          className="text-center text-[30px] md:text-[48px]"
+          className="text-center text-[28px] md:text-[48px]"
         >
           Tích hợp đa dạng các giải pháp phù hợp nhu cầu của khách hàng
         </p>
@@ -127,6 +132,7 @@ function Solutions() {
         <div className="grid grid-cols-2 gap-4">
           {solutions.map((i, index) => (
             <div
+              key={`sol-2-${index}`}
               data-aos="fade-up"
               data-aos-duration="700"
               className="flex"
