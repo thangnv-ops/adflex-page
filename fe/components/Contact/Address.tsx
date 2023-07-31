@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react'
 import Title from '../Title'
+import { ReactNode } from 'react'
 
 function Icon({ ...props }) {
   return (
@@ -26,7 +26,7 @@ function Item({
   className?: string
 }) {
   return (
-    <div className={`${className}`}>
+    <div className={className}>
       <div className="flex items-center gap-2">
         <Icon />
         <p className="font-medium">{title}</p>
