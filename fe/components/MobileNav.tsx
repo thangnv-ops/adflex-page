@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 import BriefUsModal from './BriefUsModal'
 import SecondaryBtn from './SecondaryBtn'
 import UpRightArrow from './icons/UpRightArrow'
+import SelectLanguageDropDown from './SelectLanguageDropDown'
 
 const variants = {
   open: {
@@ -172,6 +173,9 @@ function MobileNav() {
                     </div>
                   </SecondaryBtn>
                 </BriefUsModal>
+                <div onClick={(e) => e.stopPropagation()}>
+                  <SelectLanguageDropDown />
+                </div>
               </div>
             </div>
           </motion.div>

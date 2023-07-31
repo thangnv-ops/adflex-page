@@ -8,6 +8,7 @@ import LogoBlack from './LogoBlack'
 import UpRightArrow from './icons/UpRightArrow'
 import BriefUsModal from './BriefUsModal'
 import ProductDropdown from './ProductDropdown'
+import SelectLanguageDropDown from './SelectLanguageDropDown'
 
 function Item({
   children,
@@ -83,6 +84,7 @@ function MainNav() {
           </div>
 
           <div className="items-center hidden gap-20 md:flex">
+            <SelectLanguageDropDown color={!isChange ? '#ffffff' : '#000000'} />
             <BriefUsModal>
               {isChange ? (
                 <button
