@@ -11,7 +11,7 @@ import Address from '../Contact/Address'
 
 function Home() {
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden bg-black">
       <div
         style={{
           backgroundImage: 'url(/images/top-bg.png)',
