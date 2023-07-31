@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react'
+import Title from '../Title'
 
 function Icon({ ...props }) {
   return (
@@ -30,7 +31,7 @@ function Item({
         <Icon />
         <p className="font-medium">{title}</p>
       </div>
-      <div className="mt-4 text-xl md:text-[32px] ">{content}</div>
+      <div className="mt-4 text-xl">{content}</div>
     </div>
   )
 }
@@ -40,14 +41,14 @@ function Address() {
     <div className="max-w-[1126px] px-4 mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-[104px] text-black">
         <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={500}>
-          <p className="text-5xl">Trụ sở AdFlex</p>
+          <Title className="">Trụ sở AdFlex</Title>
           <div className="flex flex-col gap-6 mt-20">
             <Item title="Email" content="info@adflex.vn" />
             <Item title="Hotline" content="0345 036 008" />
             <Item
               title="Địa chỉ"
               content={
-                <div className="flex flex-col gap-3 text-xl md:text-[32px] leading-normal">
+                <div className="flex flex-col gap-3 text-xl leading-normal">
                   <p>
                     <span className="font-semibold underline underline-offset-4">Hà Nội:</span> Tầng
                     2, Toà nhà Ecolife Capitol 58 Tố Hữu, Mễ Trì, Nam Từ Liêm, Hà Nội
