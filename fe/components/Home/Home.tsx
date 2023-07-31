@@ -11,7 +11,7 @@ import Address from '../Contact/Address'
 
 function Home() {
   return (
-    <div className="overflow-hidden bg-black">
+    <div className="overflow-hidden">
       <div
         style={{
           backgroundImage: 'url(/images/top-bg.png)',
@@ -19,7 +19,7 @@ function Home() {
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
         }}
-        className="pb-10 md:pb-36"
+        className="pb-10 bg-black md:pb-36"
       >
         <Hero />
         <Solution />
