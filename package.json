@@ -1,5 +1,5 @@
 {
-  "name": "e-com-frontend",
+  "name": "adflex-page",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
     "check-format": "prettier --check .",
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
     "check-types": "tsc --pretty --noEmit",
-    "prepare": "cd .. && husky install fe/.husky"
+    "prepare": "husky install .husky"
   },
   "dependencies": {
     "@fontsource/roboto": "^4.5.8",
