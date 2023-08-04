@@ -1,8 +1,16 @@
-import React from 'react'
-import SecondaryBtn from '../SecondaryBtn'
+import useTranslation from '@/hooks/useTranslation'
 import BriefUsModal from '../BriefUsModal'
+import SecondaryBtn from '../SecondaryBtn'
 
 function Hero() {
+  const tranRes = useTranslation([
+    'Giải pháp thiết kế, triển khai, vận hành',
+    'hệ thống công nghệ thông tin trên',
+    'nền tảng cloud server',
+    'Hỗ trợ doanh nghiệp trong quá trình chuyển đổi số.',
+    'Bắt đầu',
+  ])
+
   return (
     <div
       data-aos="fade-up"
@@ -19,15 +27,12 @@ function Hero() {
         <div className="flex flex-col justify-center h-full">
           <img className="w-[186px] md:w-[334px]" src="/images/opsrun-icon.png" alt="cpa" />
           <p className="mt-5 !text-[28px] !md:text-[32px]">
-            Giải pháp thiết kế, triển khai, vận hành <br className="hidden md:block" /> hệ thống
-            công nghệ thông tin trên <br /> nền tảng cloud server
+            {tranRes[0]} <br className="hidden md:block" /> {tranRes[1]} <br /> {tranRes[2]}
           </p>
-          <p className="mt-5 text-sm md:text-base">
-            Hỗ trợ doanh nghiệp trong quá trình chuyển đổi số.
-          </p>
+          <p className="mt-5 text-sm md:text-base">{tranRes[3]}</p>
           <div className="flex gap-2 mt-5">
             <BriefUsModal>
-              <SecondaryBtn>Bắt đầu</SecondaryBtn>
+              <SecondaryBtn>{tranRes[4]}</SecondaryBtn>
             </BriefUsModal>
           </div>
         </div>

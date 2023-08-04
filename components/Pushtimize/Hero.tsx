@@ -1,9 +1,18 @@
-import React from 'react'
-import SecondaryBtn from '../SecondaryBtn'
-import QuaternaryBtn from '../QuaternaryBtn'
+import useTranslation from '@/hooks/useTranslation'
 import BriefUsModal from '../BriefUsModal'
+import QuaternaryBtn from '../QuaternaryBtn'
+import SecondaryBtn from '../SecondaryBtn'
 
 function Hero() {
+  const tranRes = useTranslation([
+    'Nền tảng quảng cáo tự động',
+    'đầu tiên tại Đông Nam Á',
+    'Pushtimize đồng hành cùng bạn nâng cao hiệu suất marketing và gia tăng',
+    'thu nhập cho trang web thông qua đa dạng các định dạng quảng cáo.',
+    'Đăng ký nhận brochure',
+    'Liên hệ tư vấn',
+  ])
+
   return (
     <div
       data-aos="fade-up"
@@ -27,20 +36,18 @@ function Hero() {
         <div className="flex flex-col items-start justify-center h-full md:items-end">
           <img className="w-[214px] md:w-[334px]" src="/images/pushtimize-icon.png" alt="cpa" />
           <p className="mt-5 text-left md:text-right text-[32px]">
-            Nền tảng quảng cáo tự động <br className="hidden md:block" /> đầu tiên tại Đông Nam Á
+            {tranRes[0]} <br className="hidden md:block" /> {tranRes[1]}
           </p>
           <p className="mt-5 text-sm text-left md:text-base md:text-right">
-            Pushtimize đồng hành cùng bạn nâng cao hiệu suất marketing và gia tăng{' '}
-            <br className="hidden md:block" /> thu nhập cho trang web thông qua đa dạng các định
-            dạng quảng cáo.
+            {tranRes[2]} <br className="hidden md:block" /> {tranRes[3]}
           </p>
           <div className="flex gap-2 mt-5">
             <QuaternaryBtn className="px-5">
-              <span className="text-sm md:text-base"> Đăng ký nhận brochure</span>
+              <span className="text-sm md:text-base">{tranRes[4]}</span>
             </QuaternaryBtn>
             <BriefUsModal>
               <SecondaryBtn className="px-5">
-                <span className="text-sm md:text-base">Liên hệ tư vấn</span>
+                <span className="text-sm md:text-base">{tranRes[5]}</span>
               </SecondaryBtn>
             </BriefUsModal>
           </div>

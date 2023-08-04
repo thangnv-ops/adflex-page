@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { LANGUAGE_COOKIE_KEY } from '@/lib'
-import axiosInstance from '@/lib/axios/request'
+import axios from 'axios'
 import { useCookies } from 'react-cookie'
 
 export default function useTranslation(text: string[]) {
@@ -18,20 +18,21 @@ export default function useTranslation(text: string[]) {
       const q = text.map((item) => {
         return { Text: item }
       })
-      console.log(window.location)
-      const translate = await axiosInstance.post(
-        `${window.location.protocol}//${window.location.host}/api/translate`,
-        {
-          q,
-          language: cookies.language || 'en',
-        }
-      )
-      if (translate.status === 200) {
+      try {
+        const translate = await axios.post(
+          `${window.location.protocol}//${window.location.host}/api/translate`,
+          {
+            q,
+            language: cookies.language || 'en',
+          }
+        )
         setResult(
           translate.data.map((item: any) => {
             return item.translations[0].text
           })
         )
+      } catch (err) {
+        // do smth
       }
     }
   }

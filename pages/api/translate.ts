@@ -17,6 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       'Content-Type': 'application/json',
       'X-RapidAPI-Key': process.env.RAPID_KEY,
       'X-RapidAPI-Host': process.env.RAPID_HOST,
+      'Accept-Encoding': 'deflate',
     },
     data: q,
   }
@@ -26,6 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const response = getTranslate.data
     res.status(200).send(response)
   } catch (err) {
-    res.status(500).send(err)
+    console.log(err)
+    res.status(400).send(err)
   }
 }

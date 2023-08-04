@@ -1,8 +1,9 @@
+import useTranslation from '@/hooks/useTranslation'
 import React, { useState } from 'react'
+import BriefUsModal from '../BriefUsModal'
+import PrimaryBtn from '../PrimaryBtn'
 import Title from '../Title'
 import CheckedIcon from '../icons/CheckedIcon'
-import PrimaryBtn from '../PrimaryBtn'
-import BriefUsModal from '../BriefUsModal'
 
 function Tab({
   tab,
@@ -32,13 +33,16 @@ function Advertisers() {
     'Dịch vụ 5 sao: hỗ trợ khách hàng 1:1',
     'Báo cáo chủ động, linh hoạt - real time',
   ]
+  const tranRes = useTranslation(advantage)
+
+  const tranTitle = useTranslation(['Giải pháp tối ưu hiệu quả marketing'])
   return (
     <div>
       <p data-aos="fade-up" data-aos-duration="700" className="text-xl font-medium">
-        Giải pháp tối ưu hiệu quả marketing
+        {tranTitle[0]}
       </p>
       <div className="flex flex-col gap-4 mt-8">
-        {advantage.map((item, index) => (
+        {tranRes.map((item, index) => (
           <div
             data-aos="fade-up"
             data-aos-duration="700"
@@ -62,11 +66,16 @@ function PublishingCompany() {
     'Vận hành tối ưu',
     'Thanh toán linh hoạt',
   ]
+
+  const tranRes = useTranslation(advantage)
+
+  const tranTitle = useTranslation(['Giải pháp kiếm tiền tốt nhất dành cho nhà xuất bản'])
+
   return (
     <div>
-      <p className="text-xl font-medium">Giải pháp kiếm tiền tốt nhất dành cho nhà xuất bản</p>
+      <p className="text-xl font-medium">{tranTitle[0]}</p>
       <div className="flex flex-col gap-4 mt-8">
-        {advantage.map((item, index) => (
+        {tranRes.map((item, index) => (
           <div key={`pushtimize-${index}`} className="flex items-center gap-3">
             <CheckedIcon />
             {item}
@@ -78,32 +87,42 @@ function PublishingCompany() {
 }
 
 function Technology() {
-  const [tab, setTab] = useState('Với nhà quảng cáo')
+  const tranRes = useTranslation([
+    'Với nhà quảng cáo',
+    'Nền tảng công nghệ vượt trội tối ưu',
+    'hiệu quả cho nhà quảng cáo,',
+    'tối ưu doanh thu cho nhà xuất bản',
+    'Với nhà xuất bản',
+    'Đăng ký ngay',
+  ])
+
+  const [tab, setTab] = useState(tranRes[0])
+
   return (
     <div className="px-4 pt-20 pb-24 mx-auto md:pt-32 max-w-maxContent">
       <Title className="text-black !text-[28px] !md:text-[32px]">
-        Nền tảng công nghệ vượt trội tối ưu
-        <br className="hidden md:block" /> hiệu quả cho nhà quảng cáo,
+        {tranRes[1]}
+        <br className="hidden md:block" /> {tranRes[2]}
         <br className="hidden md:block" />
-        tối ưu doanh thu cho nhà xuất bản
+        {tranRes[3]}
       </Title>
       <div className="grid grid-cols-1 mt-8 md:grid-cols-46">
         <div className="text-black">
           <div data-aos="fade-up" data-aos-duration="700" className="flex items-center gap-3">
             <Tab tab={tab} setTab={setTab}>
-              Với nhà quảng cáo
+              {tranRes[0]}
             </Tab>
             <Tab tab={tab} setTab={setTab}>
-              Với nhà xuất bản
+              {tranRes[4]}
             </Tab>
           </div>
           <div className="mt-6">
-            {tab === 'Với nhà quảng cáo' && <Advertisers />}
-            {tab === 'Với nhà xuất bản' && <PublishingCompany />}
+            {tab === tranRes[0] && <Advertisers />}
+            {tab === tranRes[4] && <PublishingCompany />}
           </div>
           <div data-aos="fade-up" data-aos-duration="700">
             <BriefUsModal>
-              <PrimaryBtn className="mt-6">Đăng ký ngay</PrimaryBtn>
+              <PrimaryBtn className="mt-6">{tranRes[5]}</PrimaryBtn>
             </BriefUsModal>
           </div>
         </div>

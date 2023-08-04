@@ -1,13 +1,13 @@
 import Layout from '@/components/Layout'
 import Pushtimize from '@/components/Pushtimize/Pushtimize'
-import React from 'react'
+import { NextPageWithLayout } from './_app'
 
-function pushtimize() {
-  return (
-    <Layout>
-      <Pushtimize />
-    </Layout>
-  )
+const pushtimize: NextPageWithLayout = () => {
+  return <Pushtimize />
+}
+
+pushtimize.getLayout = (page) => {
+  return <Layout>{page}</Layout>
 }
 
 export default pushtimize

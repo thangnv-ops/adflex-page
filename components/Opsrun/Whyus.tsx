@@ -1,9 +1,10 @@
-import React, { ReactNode } from 'react'
+import useTranslation from '@/hooks/useTranslation'
+import { ReactNode } from 'react'
+import Line from '../Line'
+import Title from '../Title'
 import DollarIcon from '../icons/Opsrun/DollarIcon'
 import PhoneIcon from '../icons/Opsrun/PhoneIcon'
 import ShieldIcon from '../icons/Opsrun/ShieldIcon'
-import Line from '../Line'
-import Title from '../Title'
 
 const solutions = [
   {
@@ -40,6 +41,7 @@ function Item({
   icon: ReactNode
   isAlignRight?: boolean
 }) {
+  const tranRes = useTranslation([title, description])
   return (
     <div
       className={`p-4 bg-white border border-white bg-opacity-5 rounded-2xl border-opacity-20 flex flex-col ${
@@ -47,13 +49,22 @@ function Item({
       }`}
     >
       {icon}
-      <p className={`mt-4 text-[21px] font-medium ${isAlignRight && 'text-right'}`}>{title}</p>
-      <p className={`mt-4 ${isAlignRight && 'text-right'}`}>{description}</p>
+      <p className={`mt-4 text-[21px] font-medium ${isAlignRight && 'text-right'}`}>{tranRes[0]}</p>
+      <p className={`mt-4 ${isAlignRight && 'text-right'}`}>{tranRes[1]}</p>
     </div>
   )
 }
 
 function Whyus() {
+  const tranRes = useTranslation([
+    'Tại sao',
+    'nên',
+    'lựa chọn chúng tôi?',
+    'Tổng chi phí Opsrun tiết kiệm mỗi năm cho khách hàng',
+    'Khách hàng tái sử dụng dịch vụ',
+    'Khách hàng hài lòng',
+  ])
+
   return (
     <div className="bg-[#262626] py-28">
       <div className="px-4 mx-auto max-w-maxContent">
@@ -61,7 +72,7 @@ function Whyus() {
         <div className="grid grid-cols-1 gap-8 my-8 md:grid-cols-4">
           <div>
             <Title className="!text-[28px] !md:text-[32px]">
-              <span>Tại sao</span> nên <br className="block md:hidden" /> lựa chọn chúng tôi?
+              <span>{tranRes[0]}</span> {tranRes[1]} <br className="block md:hidden" /> {tranRes[2]}
             </Title>
           </div>
           {solutions.map((i, index) => (
@@ -92,9 +103,7 @@ function Whyus() {
           >
             <p className="font-bold text-[40px] md:text-[56px] leading-none">$100K+</p>
             <Line className="max-w-[120px] my-4" />
-            <p className="text-base md:text-xl">
-              Tổng chi phí Opsrun tiết kiệm mỗi năm cho khách hàng
-            </p>
+            <p className="text-base md:text-xl">{tranRes[3]}</p>
           </div>
           <div
             data-aos="fade-up"
@@ -104,12 +113,12 @@ function Whyus() {
           >
             <p className="font-bold text-[40px] md:text-[56px] leading-none">70%</p>
             <Line className="max-w-[120px] my-4" />
-            <p className="text-base md:text-xl">Khách hàng tái sử dụng dịch vụ</p>
+            <p className="text-base md:text-xl">{tranRes[4]}</p>
           </div>
           <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={700} className="p-6">
             <p className="font-bold text-[40px] md:text-[56px] leading-none">98%</p>
             <Line className="max-w-[120px] my-4" />
-            <p className="text-base md:text-xl">Khách hàng hài lòng</p>
+            <p className="text-base md:text-xl">{tranRes[5]}</p>
           </div>
         </div>
       </div>

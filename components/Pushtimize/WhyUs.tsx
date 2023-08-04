@@ -1,12 +1,13 @@
-import React, { ReactNode } from 'react'
+import useTranslation from '@/hooks/useTranslation'
+import { ReactNode } from 'react'
 import Line from '../Line'
 import Title from '../Title'
+import CardIcon from '../icons/Pushtimize/CardIcon'
 import CpuIcon from '../icons/Pushtimize/CpuIcon'
+import PersonIcon from '../icons/Pushtimize/PersonIcon'
+import PhoneIcon from '../icons/Pushtimize/PhoneIcon'
 import QualityIcon from '../icons/Pushtimize/QualityIcon'
 import UptrendIcon from '../icons/Pushtimize/UptrendIcon'
-import PhoneIcon from '../icons/Pushtimize/PhoneIcon'
-import PersonIcon from '../icons/Pushtimize/PersonIcon'
-import CardIcon from '../icons/Pushtimize/CardIcon'
 
 const solutions = [
   {
@@ -64,6 +65,7 @@ function Item({
   icon: ReactNode
   isAlignRight?: boolean
 }) {
+  const tranRes = useTranslation([title, description])
   return (
     <div
       className={`p-4 md:p-6 bg-white border border-white bg-opacity-5 rounded-2xl border-opacity-20 flex flex-col ${
@@ -72,29 +74,36 @@ function Item({
     >
       {icon}
       <p className={`mt-4 text-xl md:text-2xl font-medium ${isAlignRight && 'text-right'}`}>
-        {title}
+        {tranRes[0]}
       </p>
-      <p className={`mt-4 text-sm md:text-base ${isAlignRight && 'text-right'}`}>{description}</p>
+      <p className={`mt-4 text-sm md:text-base ${isAlignRight && 'text-right'}`}>{tranRes[1]}</p>
     </div>
   )
 }
 
 function WhyUs() {
+  const tranRes = useTranslation([
+    'Tại sao',
+    'nên',
+    'lựa chọn chúng tôi?',
+    `Nền tảng tự động Pushtimize luôn được khách hàng công nhận và đánh giá cao với hệ thống
+vận hành tối ưu và đem lại trải nghiệm tốt nhất cho khách hàng và người dùng.`,
+  ])
+
   return (
     <div className="bg-black pt-[106px] pb-[123px]">
       <div className="px-4 mx-auto max-w-maxContent">
         <Line data-aos="fade-up" data-aos-duration="700" />
         <div className="flex flex-col items-start justify-between gap-4 py-8 md:gap-8 md:items-center md:flex-row">
           <Title className="!text-[28px] !md:text-[32px]">
-            <span>Tại sao</span> nên <br /> lựa chọn chúng tôi?
+            <span>{tranRes[0]}</span> {tranRes[1]} <br /> {tranRes[2]}
           </Title>
           <p
             data-aos="fade-up"
             data-aos-duration="700"
             className="max-w-[541px] text-sm md:text-base text-justify"
           >
-            Nền tảng tự động Pushtimize luôn được khách hàng công nhận và đánh giá cao với hệ thống
-            vận hành tối ưu và đem lại trải nghiệm tốt nhất cho khách hàng và người dùng.
+            {tranRes[3]}
           </p>
         </div>
         <Line data-aos="fade-up" data-aos-duration="700" />

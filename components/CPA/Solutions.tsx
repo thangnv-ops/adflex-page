@@ -1,11 +1,12 @@
-import React, { ReactNode } from 'react'
+import useTranslation from '@/hooks/useTranslation'
+import { ReactNode } from 'react'
+import Line from '../Line'
+import AfiliateIcon from '../icons/AfiliateIcon'
+import CloudServeIcon from '../icons/CloudServeIcon'
+import EkycIcon from '../icons/EkycIcon'
 import MobileCPAICon from '../icons/MobileCPAICon'
 import PushtimizeAdsIcon from '../icons/PushtimizeAdsIcon'
-import AfiliateIcon from '../icons/AfiliateIcon'
-import EkycIcon from '../icons/EkycIcon'
 import SmsIcon from '../icons/SmsIcon'
-import CloudServeIcon from '../icons/CloudServeIcon'
-import Line from '../Line'
 
 const solutions = [
   {
@@ -57,6 +58,8 @@ function Item({
   icon: ReactNode
   isAlignRight?: boolean
 }) {
+  const tranRes = useTranslation([title, description])
+
   return (
     <div
       className={`p-4 md:p-6 bg-white border border-white bg-opacity-5 rounded-2xl border-opacity-20 flex flex-col ${
@@ -65,14 +68,20 @@ function Item({
     >
       {icon}
       <p className={`mt-4 text-xl md:text-2xl font-medium ${isAlignRight && 'text-right'}`}>
-        {title}
+        {tranRes[0]}
       </p>
-      <p className={`text-sm md:text-base mt-4 ${isAlignRight && 'text-right'}`}>{description}</p>
+      <p className={`text-sm md:text-base mt-4 ${isAlignRight && 'text-right'}`}>{tranRes[1]}</p>
     </div>
   )
 }
 
 function Solutions() {
+  const tranRes = useTranslation([
+    'Tích hợp đa dạng các giải pháp',
+    'phù hợp nhu cầu của khách hàng',
+    'Tích hợp đa dạng các giải pháp phù hợp nhu cầu của khách hàng',
+  ])
+
   return (
     <div className="bg-[#1A1A1A] pt-28 pb-28 relative overflow-hidden">
       <img
@@ -96,7 +105,7 @@ function Solutions() {
         <Line data-aos="fade-up" data-aos-duration="700" className="mt-8" />
 
         <p data-aos="fade-up" data-aos-duration="700" className="text-center text-[32px] mt-8">
-          Tích hợp đa dạng các giải pháp <br /> phù hợp nhu cầu của khách hàng
+          {tranRes[0]} <br /> {tranRes[1]}
         </p>
         <Line data-aos="fade-up" data-aos-duration="700" className="mt-8" />
         <div className="grid grid-cols-4 gap-8 mt-8">
@@ -125,7 +134,7 @@ function Solutions() {
           data-aos-duration="700"
           className="text-center text-[28px] md:text-[48px]"
         >
-          Tích hợp đa dạng các giải pháp phù hợp nhu cầu của khách hàng
+          {tranRes[3]}
         </p>
         <Line data-aos="fade-up" data-aos-duration="700" className="my-8" />
 

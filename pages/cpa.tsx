@@ -1,13 +1,13 @@
 import CPA from '@/components/CPA/CPA'
 import Layout from '@/components/Layout'
-import React from 'react'
+import { NextPageWithLayout } from './_app'
 
-function cpa() {
-  return (
-    <Layout>
-      <CPA />
-    </Layout>
-  )
+const cpa: NextPageWithLayout = () => {
+  return <CPA />
+}
+
+cpa.getLayout = (page) => {
+  return <Layout>{page}</Layout>
 }
 
 export default cpa

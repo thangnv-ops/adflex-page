@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react'
-import StepBar from './StepBar/StepBar'
+import useTranslation from '@/hooks/useTranslation'
+import { useRef, useState } from 'react'
 import Carousel from 'react-multi-carousel'
-import SecondaryBtn from '../SecondaryBtn'
 import BriefUsModal from '../BriefUsModal'
+import SecondaryBtn from '../SecondaryBtn'
+import StepBar from './StepBar/StepBar'
 
 const responsiveCarousel = {
   desktop: {
@@ -62,6 +63,16 @@ function Plant() {
     setActivatingSlide(slideIndex)
     carouselRef.current?.goToSlide(slideIndex + 2, true)
   }
+
+  const tranRes = useTranslation(['Đăng ký ngay'])
+
+  const transTitle = useTranslation(slides.map((item) => item.title))
+  const transDes = useTranslation(slides.map((item) => item.description))
+
+  const afterTranSlide = slides.map((item, index) => {
+    return { ...item, title: transTitle[index], description: transDes[index] }
+  })
+
   return (
     <div
       style={{
@@ -95,7 +106,7 @@ function Plant() {
             setActivatingSlide(indexNextSlide)
           }}
         >
-          {slides.map((slide, index) => (
+          {afterTranSlide.map((slide, index) => (
             <div
               key={`plant-${index}`}
               style={{
@@ -110,7 +121,7 @@ function Plant() {
                 <p className="text-2xl md:text-[40px] text-center">{slide.title}</p>
                 <p className="text-sm md:text-lg max-w-[604px] text-center">{slide.description}</p>
                 <BriefUsModal>
-                  <SecondaryBtn className="w-[180px]">Đăng ký ngay</SecondaryBtn>
+                  <SecondaryBtn className="w-[180px]">{tranRes[0]}</SecondaryBtn>
                 </BriefUsModal>
               </div>
             </div>

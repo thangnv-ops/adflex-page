@@ -1,4 +1,4 @@
-import React from 'react'
+import useTranslation from '@/hooks/useTranslation'
 import Carousel from 'react-multi-carousel'
 
 const partners = ['alibaba', 'aws', 'azure', 'gg', 'huawei', 'tencent']
@@ -22,6 +22,10 @@ const responsiveCarouselTournaments = {
 }
 
 function Partner() {
+  const tranRes = useTranslation([
+    'Opsrun tự hào là đại lý phân phối của top nhà cung cấp đứng đầu thế giới',
+  ])
+
   return (
     <div className="bg-[#EAECF0]">
       <div className="px-4 mx-auto max-w-maxContent py-14">
@@ -30,7 +34,7 @@ function Partner() {
           data-aos-duration="700"
           className="text-center text-black text-xl md:text-[32px]"
         >
-          Opsrun tự hào là đại lý phân phối của top nhà cung cấp đứng đầu thế giới
+          {tranRes[0]}
         </p>
         <div data-aos="fade-up" data-aos-duration="700">
           <Carousel
