@@ -1,9 +1,9 @@
-import React from 'react'
-import Title from '../Title'
+import useTranslation from '@/hooks/useTranslation'
+import BriefUsModal from '../BriefUsModal'
 import Line from '../Line'
 import PrimaryBtn from '../PrimaryBtn'
+import Title from '../Title'
 import UpRightArrow from '../icons/UpRightArrow'
-import BriefUsModal from '../BriefUsModal'
 
 const effectives = [
   {
@@ -29,6 +29,20 @@ const effectives = [
 ]
 
 function Effective() {
+  const tranRes = useTranslation([
+    'Hiệu quả AdFlex',
+    'mang lại cho khách hàng',
+    ` Với khả năng làm việc chuyên nghiệp cùng công nghệ vượt trội cho phép AdFlex giải quyết
+    mọi vấn đề khó khăn nhất trong quá trình chinh phục KPI tiếp cận khách hàng cũng như
+    quản trị doanh nghiệp của đối tác trên mọi lĩnh vực`,
+  ])
+
+  const transEffRes = useTranslation([...effectives.map((item) => item.description)])
+
+  const afterTrans = effectives.map((item, index) => {
+    return { ...item, description: transEffRes[index] }
+  })
+
   return (
     <div
       style={{
@@ -42,17 +56,15 @@ function Effective() {
       <div className="mx-auto max-w-maxContent">
         <div className="flex flex-col items-start justify-between md:items-center md:flex-row">
           <Title>
-            <span>Hiệu quả AdFlex</span> <br />
-            mang lại cho khách hàng
+            <span>{tranRes[0]}</span> <br />
+            {tranRes[1]}
           </Title>
           <p data-aos="fade-up" data-aos-duration="700" className="max-w-[435px] text-justify">
-            Với khả năng làm việc chuyên nghiệp cùng công nghệ vượt trội cho phép AdFlex giải quyết
-            mọi vấn đề khó khăn nhất trong quá trình chinh phục KPI tiếp cận khách hàng cũng như
-            quản trị doanh nghiệp của đối tác trên mọi lĩnh vực
+            {tranRes[2]}
           </p>
         </div>
         <div className="relative z-10 grid grid-cols-2 gap-4 mt-16 md:gap-8 md:grid-cols-4">
-          {effectives.map((item, index) => (
+          {afterTrans.map((item, index) => (
             <div
               data-aos="fade-up"
               data-aos-duration="700"

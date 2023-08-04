@@ -1,18 +1,26 @@
+import useTranslation from '@/hooks/useTranslation'
 import { DialogOverlay } from '@reach/dialog'
 import { AnimatePresence, motion } from 'framer-motion'
+import Link from 'next/link'
 import { useState } from 'react'
 import MotionDialogContent from '../MotionDialogContent'
-import PlusIcon from '../icons/PlusIcon'
 import PrimaryBtn from '../PrimaryBtn'
-import UpRightArrow from '../icons/UpRightArrow'
 import CloseDialogIcon from '../icons/CloseDialogIcon'
-import Link from 'next/link'
+import PlusIcon from '../icons/PlusIcon'
+import UpRightArrow from '../icons/UpRightArrow'
 
 function CPASolution() {
   const [showDialog, setShowDialog] = useState(false)
   const open = () => setShowDialog(true)
   const close = () => setShowDialog(false)
 
+  const translationResult = useTranslation([
+    'Giải pháp CPA',
+    `Nền tảng Affiliate Marketing CPA – Cost-per-action hàng đầu Châu Á phục vụ nhu cầu quảng cáo chuyển đổi mở rộng cho khách hàng tại Việt Nam và quốc tế.`,
+    ` Với Strong knowhow về affiliate marketing (10+ năm kinh nghiệm) cùng nền tảng Data driven, AdFlex có thể đáp ứng KPI lớn (high volume traffic) và được
+AppsFlyer xếp hạng top 6 trên toàn Đông Nam Á về chất lượng CPA.`,
+    'Tìm hiểu thêm ',
+  ])
   return (
     <div data-aos="fade-up" data-aos-duration="700" className="">
       <div
@@ -29,11 +37,8 @@ function CPASolution() {
           <img src="/images/cpa-icon.png" alt="cpa" className="w-11" />
           <PlusIcon />
         </div>
-        <p className="mt-2 text-2xl">Giải pháp CPA</p>
-        <p className="mt-2 text-justify">
-          Nền tảng Affiliate Marketing CPA – Cost-per-action hàng đầu Châu Á phục vụ nhu cầu quảng
-          cáo chuyển đổi mở rộng cho khách hàng tại Việt Nam và quốc tế.
-        </p>
+        <p className="mt-2 text-2xl">{translationResult[0]}</p>
+        <p className="mt-2 text-justify">{translationResult[1]}</p>
       </div>
       <AnimatePresence>
         {showDialog && (
@@ -59,17 +64,13 @@ function CPASolution() {
                 <div className="flex items-start">
                   <div className="">
                     <img src="/images/cpa-icon.png" alt="cpa" className="w-11" />
-                    <p className="text-[32px] font-medium mt-4">Giải pháp CPA</p>
-                    <p className="mt-4">
-                      Với Strong knowhow về affiliate marketing (10+ năm kinh nghiệm) cùng nền tảng
-                      Data driven, AdFlex có thể đáp ứng KPI lớn (high volume traffic) và được
-                      AppsFlyer xếp hạng top 6 trên toàn Đông Nam Á về chất lượng CPA.
-                    </p>
+                    <p className="text-[32px] font-medium mt-4">{translationResult[0]}</p>
+                    <p className="mt-4">{translationResult[2]}</p>
                     <Link href="/cpa">
                       <a>
                         <PrimaryBtn className="mt-8 md:mt-24">
                           <div className="flex items-center gap-2">
-                            <p className="text-white">Tìm hiểu thêm </p>
+                            <p className="text-white">{translationResult[3]}</p>
                             <UpRightArrow />
                           </div>
                         </PrimaryBtn>

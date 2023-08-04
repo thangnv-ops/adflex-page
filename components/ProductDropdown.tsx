@@ -1,7 +1,8 @@
+import useTranslation from '@/hooks/useTranslation'
 import { motion } from 'framer-motion'
-import React, { useEffect, useRef, useState } from 'react'
-import ArrowDropdownIcon from './icons/ArrowDropdownIcon'
 import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+import ArrowDropdownIcon from './icons/ArrowDropdownIcon'
 
 function DropDownItem({ label = '', href = '' }: { label: string; href: string }) {
   return (
@@ -22,6 +23,8 @@ function ProductDropdown({
 }) {
   const node = useRef(null)
   const [isOpen, toggleOpen] = useState(false)
+
+  const tranRes = useTranslation(['Giải pháp'])
 
   const toggleOpenMenu = () => {
     toggleOpen(!isOpen)
@@ -77,7 +80,7 @@ function ProductDropdown({
         className="flex items-center gap-1 p-2 cursor-pointer"
       >
         <p style={{ color }} className="hover:!text-primary">
-          Giải pháp
+          {tranRes[0]}
         </p>
         <div className={`${isOpen && 'rotate-180'} smooth-transform `}>
           <ArrowDropdownIcon color={color} />

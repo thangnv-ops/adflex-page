@@ -1,13 +1,13 @@
 import Layout from '@/components/Layout'
 import Opsrun from '@/components/Opsrun/Opsrun'
-import React from 'react'
+import { NextPageWithLayout } from './_app'
 
-function opsrun() {
-  return (
-    <Layout>
-      <Opsrun />
-    </Layout>
-  )
+const opsrun: NextPageWithLayout = () => {
+  return <Opsrun />
+}
+
+opsrun.getLayout = (page) => {
+  return <Layout>{page}</Layout>
 }
 
 export default opsrun

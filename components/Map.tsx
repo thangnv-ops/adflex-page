@@ -1,14 +1,24 @@
-import React, { useState } from 'react'
+import useTranslation from '@/hooks/useTranslation'
+import { handleSubmitForm } from '@/lib/submitFormToGoogleSheet'
+import { useState } from 'react'
 import PrimaryInput from './PrimaryInput'
 import PrimaryTextarea from './PrimaryTextarea'
 import SecondaryBtn from './SecondaryBtn'
-import { handleSubmitForm } from '@/lib/submitFormToGoogleSheet'
 
 function Map() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhoneNumber] = useState<number>()
   const [note, setNote] = useState('')
+
+  const tranRes = useTranslation([
+    'Đăng ký liên hệ hợp tác',
+    'Chúng tôi luôn muốn lắng nghe từ bạn',
+    'Họ và tên',
+    'Số điện thoại',
+    'Thông tin bạn quan tâm',
+    'Gửi thông tin',
+  ])
 
   return (
     <div className="px-4 py-12 mx-auto max-w-maxContent">
@@ -30,13 +40,13 @@ function Map() {
           data-aos-delay={500}
           className="flex flex-col px-4 py-4 text-black md:px-20 md:py-24"
         >
-          <p className="text-[28px] md:text-[32px] text-white ">Đăng ký liên hệ hợp tác</p>
-          <p className="mt-2 text-xl text-white">Chúng tôi luôn muốn lắng nghe từ bạn</p>
+          <p className="text-[28px] md:text-[32px] text-white ">{tranRes[0]}</p>
+          <p className="mt-2 text-xl text-white">{tranRes[1]}</p>
           <PrimaryInput
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="w-full mt-6"
-            placeholder="Họ và tên"
+            placeholder={tranRes[2]}
           />
           <PrimaryInput
             value={email}
@@ -48,20 +58,20 @@ function Map() {
             value={String(phoneNumber)}
             onChange={(e) => setPhoneNumber(Number(e.target.value))}
             className="w-full mt-6"
-            placeholder="Số điện thoại"
+            placeholder={tranRes[3]}
             type="number"
           />
           <PrimaryTextarea
             value={note}
             onChange={(e) => setNote(e.target.value)}
             className="h-[128px] mt-6"
-            placeholder="Thông tin bạn quan tâm"
+            placeholder={tranRes[4]}
           />
           <SecondaryBtn
             onClick={() => handleSubmitForm({ name, email, phoneNumber, note })}
             className="max-w-[216px] mt-6 text-white"
           >
-            Gửi thông tin
+            {tranRes[5]}
           </SecondaryBtn>
         </div>
         <div className="p-4 md:p-0">

@@ -1,13 +1,14 @@
+import useTranslation from '@/hooks/useTranslation'
 import { DialogOverlay } from '@reach/dialog'
 import { AnimatePresence, motion } from 'framer-motion'
+import Link from 'next/link'
 import { useState } from 'react'
 import MotionDialogContent from '../MotionDialogContent'
-import PlusIcon from '../icons/PlusIcon'
 import PrimaryBtn from '../PrimaryBtn'
-import UpRightArrow from '../icons/UpRightArrow'
-import CloseDialogIcon from '../icons/CloseDialogIcon'
 import CheckedIcon from '../icons/CheckedIcon'
-import Link from 'next/link'
+import CloseDialogIcon from '../icons/CloseDialogIcon'
+import PlusIcon from '../icons/PlusIcon'
+import UpRightArrow from '../icons/UpRightArrow'
 
 const pushtimizeAdvantage = [
   'Đa dạng loại hình quảng cáo, tiếp cận tối đa khách hàng',
@@ -20,6 +21,19 @@ function PushtimizeSolution() {
   const [showDialog, setShowDialog] = useState(false)
   const open = () => setShowDialog(true)
   const close = () => setShowDialog(false)
+
+  const translateRes = useTranslation([
+    'Giải pháp Pushtimize',
+    `Nền tảng quảng cáo tự động đầu tiên tại Đông Nam Á, giúp kết nối các nhà quảng cáo với
+    hàng triệu người dùng`,
+    'Opsrun - Giải pháp tư vấn, vận hành và thiết kế điện toán đám mây',
+    `Với hệ thống chuyên gia chất lượng cao có kinh nghiệm vận hành hệ thống lớn,
+    Opsrun mang lại các giải pháp cloud server giúp doanh nghiệp tối ưu chi phí và
+    dễ dàng quản trị.`,
+    'Tìm hiểu thêm',
+  ])
+
+  const advantageTransRes = useTranslation([...pushtimizeAdvantage])
 
   return (
     <div data-aos="fade-up" data-aos-duration="700" className="">
@@ -37,11 +51,8 @@ function PushtimizeSolution() {
           <PlusIcon />
           <img src="/images/pushtimize-icon.png" alt="cpa" className="w-[152px]" />
         </div>
-        <p className="mt-2 text-2xl text-right">Giải pháp Pushtimize</p>
-        <p className="mt-2 text-right">
-          Nền tảng quảng cáo tự động đầu tiên tại Đông Nam Á, giúp kết nối các nhà quảng cáo với
-          hàng triệu người dùng
-        </p>
+        <p className="mt-2 text-2xl text-right">{translateRes[0]}</p>
+        <p className="mt-2 text-right">{translateRes[1]}</p>
       </div>
       <AnimatePresence>
         {showDialog && (
@@ -67,16 +78,10 @@ function PushtimizeSolution() {
                 <div className="flex items-start">
                   <div className="">
                     <img src="/images/opsrun-img.png" alt="cpa" className="w-246" />
-                    <p className="text-[32px] font-medium mt-4">
-                      Opsrun - Giải pháp tư vấn, vận hành và thiết kế điện toán đám mây
-                    </p>
-                    <p className="mt-4">
-                      Với hệ thống chuyên gia chất lượng cao có kinh nghiệm vận hành hệ thống lớn,
-                      Opsrun mang lại các giải pháp cloud server giúp doanh nghiệp tối ưu chi phí và
-                      dễ dàng quản trị.
-                    </p>
+                    <p className="text-[32px] font-medium mt-4">{translateRes[2]}</p>
+                    <p className="mt-4">{translateRes[3]}</p>
                     <div className="flex flex-col gap-4 mt-8">
-                      {pushtimizeAdvantage.map((item, index) => (
+                      {advantageTransRes.map((item, index) => (
                         <div key={`opsrun-${index}`} className="flex items-center gap-3">
                           <CheckedIcon />
                           {item}
@@ -88,7 +93,7 @@ function PushtimizeSolution() {
                         <a>
                           <PrimaryBtn className="mt-8">
                             <div className="flex items-center gap-2">
-                              <p className="text-white">Tìm hiểu thêm </p>
+                              <p className="text-white">{translateRes[4]}</p>
                               <UpRightArrow />
                             </div>
                           </PrimaryBtn>

@@ -1,16 +1,17 @@
-import React, { ReactNode } from 'react'
-import Title from '../Title'
-import PrimaryBtn from '../PrimaryBtn'
-import UpRightArrow from '../icons/UpRightArrow'
-import CPUIcon from '../icons/CPUIcon'
-import StarIcon from '../icons/StarIcon'
-import PersonIcon from '../icons/PersonIcon'
-import TrophyIcon from '../icons/TrophyIcon'
-import CpuWithBgIcon from '../icons/CpuWithBgIcon'
-import PersonWithBgIcon from '../icons/PersonWithBgIcon'
-import StarWithBgIcon from '../icons/StarWithBgIcon'
-import TrophyWithBgIcon from '../icons/TrophyWithBgIcon'
+import useTranslation from '@/hooks/useTranslation'
+import { ReactNode } from 'react'
 import BriefUsModal from '../BriefUsModal'
+import PrimaryBtn from '../PrimaryBtn'
+import Title from '../Title'
+import CPUIcon from '../icons/CPUIcon'
+import CpuWithBgIcon from '../icons/CpuWithBgIcon'
+import PersonIcon from '../icons/PersonIcon'
+import PersonWithBgIcon from '../icons/PersonWithBgIcon'
+import StarIcon from '../icons/StarIcon'
+import StarWithBgIcon from '../icons/StarWithBgIcon'
+import TrophyIcon from '../icons/TrophyIcon'
+import TrophyWithBgIcon from '../icons/TrophyWithBgIcon'
+import UpRightArrow from '../icons/UpRightArrow'
 
 const ICON_ID = {
   CPU: 'cpu',
@@ -34,6 +35,8 @@ function Item({
   iconRight?: ReactNode
   className?: string
 }) {
+  const transRes = useTranslation([title, content])
+
   const handleMouseEnter = () => {
     const target = document.getElementById(focusId)
     if (target) {
@@ -59,8 +62,8 @@ function Item({
     >
       {iconLeft && <div className="w-10 md:w-14">{iconLeft}</div>}
       <div className="max-w-[246px] md:max-w-none">
-        <p className="text-xl md:text-2xl text-primary whitespace-nowrap">{title}</p>
-        <p className="mt-4 text-sm text-justify md:text-base">{content}</p>
+        <p className="text-xl md:text-2xl text-primary whitespace-nowrap">{transRes[0]}</p>
+        <p className="mt-4 text-sm text-justify md:text-base">{transRes[1]}</p>
       </div>
       {iconRight && <div className="w-10 md:w-14">{iconRight}</div>}
     </div>
@@ -68,12 +71,13 @@ function Item({
 }
 
 function WhyUs() {
+  const transRes = useTranslation(['Tại sao ', 'lựa chọn chúng tôi?'])
   const { CPU, PERSON, STAR, TROPHY } = ICON_ID
   return (
     <div className="max-w-maxContent mx-auto px-4 py-10 md:py-[120px] text-black">
       <div className="flex flex-col items-start justify-between md:items-center md:flex-row">
         <Title>
-          <span>Tại sao</span> lựa chọn chúng tôi?
+          <span>{transRes[0]}</span> {transRes[1]}
         </Title>
         <BriefUsModal>
           <div data-aos="fade-up" data-aos-duration="700">

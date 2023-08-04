@@ -1,13 +1,22 @@
-import React from 'react'
-import Title from '../Title'
+import useTranslation from '@/hooks/useTranslation'
+import BriefUsModal from '../BriefUsModal'
 import SecondaryBtn from '../SecondaryBtn'
-import RenewIcon from '../icons/RenewIcon'
+import Title from '../Title'
+import EffectiveIcon from '../icons/EffectiveIcon'
 import LikeIcon from '../icons/LikeIcon'
 import QualityIcon from '../icons/QualityIcon'
-import EffectiveIcon from '../icons/EffectiveIcon'
-import BriefUsModal from '../BriefUsModal'
+import RenewIcon from '../icons/RenewIcon'
 
 function Whyus() {
+  const tranRes = useTranslation([
+    'Lý do nên lựa chọn chúng tôi',
+    'Đăng ký ngay',
+    'Đổi mới',
+    'Chuyên nghiệp',
+    'Chất lượng',
+    'Hiệu quả',
+  ])
+
   return (
     <div
       style={{
@@ -20,10 +29,10 @@ function Whyus() {
       <div className="px-4 py-20 mx-auto max-w-maxContent">
         <div className="flex items-center justify-between">
           <div>
-            <Title className="!text-[28px] !md:text-[32px]">Lý do nên lựa chọn chúng tôi</Title>
+            <Title className="!text-[28px] !md:text-[32px]">{tranRes[0]}</Title>
             <div data-aos="fade-up" data-aos-duration="700">
               <BriefUsModal>
-                <SecondaryBtn className="mt-8">Đăng ký ngay</SecondaryBtn>
+                <SecondaryBtn className="mt-8">{tranRes[1]}</SecondaryBtn>
               </BriefUsModal>
             </div>
           </div>
@@ -39,7 +48,7 @@ function Whyus() {
             className="hidden md:flex flex-col justify-center items-center w-[312px] h-[144px]"
           >
             <RenewIcon />
-            <p className="mt-4 text-2xl">Đổi mới</p>
+            <p className="mt-4 text-2xl">{tranRes[2]}</p>
           </div>
         </div>
         <div className="items-center justify-end hidden grid-cols-2 gap-2 mt-2 md:flex">
@@ -56,7 +65,7 @@ function Whyus() {
             className="flex flex-col justify-center items-center w-[312px] h-[144px]"
           >
             <LikeIcon />
-            <p className="mt-4 text-2xl">Chuyên nghiệp</p>
+            <p className="mt-4 text-2xl">{tranRes[3]}</p>
           </div>
           <div
             data-aos="fade-up"
@@ -65,7 +74,7 @@ function Whyus() {
             className="flex flex-col justify-center items-center w-[312px] h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl"
           >
             <QualityIcon />
-            <p className="mt-4 text-2xl">Chất lượng</p>
+            <p className="mt-4 text-2xl">{tranRes[4]}</p>
           </div>
           <div
             data-aos="fade-up"
@@ -80,7 +89,7 @@ function Whyus() {
             className="flex flex-col justify-center items-center w-[312px] h-[144px]"
           >
             <EffectiveIcon />
-            <p className="mt-4 text-2xl">Hiệu quả</p>
+            <p className="mt-4 text-2xl">{tranRes[5]}</p>
           </div>
         </div>
 
@@ -92,7 +101,7 @@ function Whyus() {
             className="flex flex-col justify-center items-center w-auto h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl"
           >
             <LikeIcon />
-            <p className="mt-4 text-2xl">Chuyên nghiệp</p>
+            <p className="mt-4 text-2xl">{tranRes[2]}</p>
           </div>
           <div
             data-aos="fade-up"
@@ -101,7 +110,7 @@ function Whyus() {
             className="flex flex-col justify-center items-center w-auto h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl"
           >
             <RenewIcon />
-            <p className="mt-4 text-2xl">Đổi mới</p>
+            <p className="mt-4 text-2xl">{tranRes[3]}</p>
           </div>
           <div
             data-aos="fade-up"
@@ -110,7 +119,7 @@ function Whyus() {
             className="flex flex-col justify-center items-center w-auto h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl"
           >
             <QualityIcon />
-            <p className="mt-4 text-2xl">Chất lượng</p>
+            <p className="mt-4 text-2xl">{tranRes[4]}</p>
           </div>
           <div
             data-aos="fade-up"
@@ -119,7 +128,7 @@ function Whyus() {
             className="flex flex-col justify-center items-center w-auto h-[144px] bg-white bg-opacity-5 border border-white border-opacity-20 rounded-2xl"
           >
             <EffectiveIcon />
-            <p className="mt-4 text-2xl">Hiệu quả</p>
+            <p className="mt-4 text-2xl">{tranRes[5]}</p>
           </div>
         </div>
       </div>

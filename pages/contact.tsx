@@ -1,13 +1,13 @@
 import Contact from '@/components/Contact/Contact'
 import Layout from '@/components/Layout'
-import React from 'react'
+import { NextPageWithLayout } from './_app'
 
-function contact() {
-  return (
-    <Layout>
-      <Contact />
-    </Layout>
-  )
+const contact: NextPageWithLayout = () => {
+  return <Contact />
+}
+
+contact.getLayout = (page) => {
+  return <Layout>{page}</Layout>
 }
 
 export default contact

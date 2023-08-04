@@ -1,9 +1,10 @@
-import React from 'react'
-import Title from '../Title'
-import PrimaryBtn from '../PrimaryBtn'
+import useTranslation from '@/hooks/useTranslation'
 import BriefUsModal from '../BriefUsModal'
+import PrimaryBtn from '../PrimaryBtn'
+import Title from '../Title'
 
 function Banner() {
+  const tranRes = useTranslation(['Tăng ngay', 'tỉ lệ chuyển đổi', 'của bạn', 'Liên hệ tư vấn'])
   return (
     <div
       style={{
@@ -17,13 +18,13 @@ function Banner() {
       <div className="grid grid-cols-2 gap-10 max-w-[1150px] px-4 mx-auto items-center">
         <div>
           <Title>
-            Tăng ngay <br className="hidden md:block" />
-            tỉ lệ chuyển đổi <br className="hidden md:block" />
-            của bạn
+            {tranRes[0]} <br className="hidden md:block" />
+            {tranRes[1]} <br className="hidden md:block" />
+            {tranRes[2]}
           </Title>
           <div data-aos="fade-up" data-aos-duration="700">
             <BriefUsModal>
-              <PrimaryBtn className="mt-6">Liên hệ tư vấn</PrimaryBtn>
+              <PrimaryBtn className="mt-6">{tranRes[3]}</PrimaryBtn>
             </BriefUsModal>
           </div>
         </div>

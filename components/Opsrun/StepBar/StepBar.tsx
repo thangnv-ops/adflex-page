@@ -1,12 +1,14 @@
 import Line from '@/components/Line'
-import React from 'react'
+import VerticalLine from '@/components/VerticalLine'
+import useTranslation from '@/hooks/useTranslation'
 import DoneStep from './DoneStep'
 import Step from './Step'
-import VerticalLine from '@/components/VerticalLine'
 
 const steps = ['Phân tích', 'Lên kế hoạch', 'Triển khai', 'Bàn giao', 'Hỗ trợ sau bàn giao']
 
 function StepBar({ goToSlide, activatingSlide }: { goToSlide: any; activatingSlide: number }) {
+  const tranStep = useTranslation(steps)
+
   return (
     <div>
       <div className="hidden md:block">
@@ -21,7 +23,7 @@ function StepBar({ goToSlide, activatingSlide }: { goToSlide: any; activatingSli
           <Line className="h-[2px]" />
         </div>
         <div className="grid grid-cols-5 items-center max-w-[1005px] mx-auto -mt-[26px]">
-          {steps.map((step, index) => {
+          {tranStep.map((step, index) => {
             const isActive = index === activatingSlide
             const isDone = index < activatingSlide
             return (

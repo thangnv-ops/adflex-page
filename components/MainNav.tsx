@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import useTranslation from '@/hooks/useTranslation'
 import Link from 'next/link'
-import MobileNav from './MobileNav'
-import Logo from './Logo'
-import Line from './Line'
-import SecondaryBtn from './SecondaryBtn'
-import LogoBlack from './LogoBlack'
-import UpRightArrow from './icons/UpRightArrow'
+import { useEffect, useState } from 'react'
 import BriefUsModal from './BriefUsModal'
+import Line from './Line'
+import Logo from './Logo'
+import LogoBlack from './LogoBlack'
+import MobileNav from './MobileNav'
 import ProductDropdown from './ProductDropdown'
+import SecondaryBtn from './SecondaryBtn'
 import SelectLanguageDropDown from './SelectLanguageDropDown'
+import UpRightArrow from './icons/UpRightArrow'
 
 function Item({
   children,
@@ -34,6 +35,8 @@ function Item({
 
 function MainNav() {
   const [isChange, setIsChange] = useState(false)
+
+  const tranRes = useTranslation(['Trang chủ', 'Liên hệ'])
 
   function changeColorNav() {
     if (window.scrollY > 160) {
@@ -74,11 +77,11 @@ function MainNav() {
               }`}
             >
               <Item isChange={isChange} href="/">
-                Trang chủ
+                {tranRes[0]}
               </Item>
               <ProductDropdown color="#000000" />
               <Item isChange={isChange} href="/contact">
-                Liên hệ
+                {tranRes[1]}
               </Item>
             </div>
           </div>
@@ -128,9 +131,9 @@ function MainNav() {
           isChange ? 'hidden' : 'visible'
         }`}
       >
-        <Item href="/">Trang chủ</Item>
+        <Item href="/">{tranRes[0]}</Item>
         <ProductDropdown />
-        <Item href="/contact">Liên hệ</Item>
+        <Item href="/contact">{tranRes[1]}</Item>
       </div>
     </div>
   )

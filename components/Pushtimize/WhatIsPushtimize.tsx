@@ -1,8 +1,18 @@
-import React from 'react'
-import Title from '../Title'
+import useTranslation from '@/hooks/useTranslation'
 import SecondaryBtn from '../SecondaryBtn'
+import Title from '../Title'
 
 function WhatIsPushtimize() {
+  const tranRes = useTranslation([
+    'là gì?',
+    'Tìm hiểu thêm',
+    `PUSHTIMIZE là hệ thống quảng cáo tự động, giúp kết nối các nhà quảng cáo với hàng
+triệu người dùng cùng lúc. Chúng tôi cung cấp đa dạng các loại hình quảng cáo với công
+nghệ ưu việt cho phép target chuyên sâu đến đúng đối tượng khách hàng và tối ưu hiệu
+quả marketing. Nhà quảng cáo có thể chủ động khởi tạo và quản lý các chiến dịch. Nhà
+xuất bản có thể tự tích hợp website và quản lý doanh thu .`,
+  ])
+
   return (
     <div>
       <div
@@ -23,20 +33,16 @@ function WhatIsPushtimize() {
               src="/images/pushtimize-icon.png"
               alt="cpa"
             />
-            <Title>là gì?</Title>
+            <Title>{tranRes[0]}</Title>
             <div data-aos="fade-up" data-aos-duration="700">
-              <SecondaryBtn className="mt-8">Tìm hiểu thêm</SecondaryBtn>
+              <SecondaryBtn className="mt-8">{tranRes[1]}</SecondaryBtn>
             </div>
           </div>
           <div />
 
           <div>
             <p data-aos="fade-up" data-aos-duration="700" className="text-justify">
-              PUSHTIMIZE là hệ thống quảng cáo tự động, giúp kết nối các nhà quảng cáo với hàng
-              triệu người dùng cùng lúc. Chúng tôi cung cấp đa dạng các loại hình quảng cáo với công
-              nghệ ưu việt cho phép target chuyên sâu đến đúng đối tượng khách hàng và tối ưu hiệu
-              quả marketing. Nhà quảng cáo có thể chủ động khởi tạo và quản lý các chiến dịch. Nhà
-              xuất bản có thể tự tích hợp website và quản lý doanh thu .
+              {tranRes[2]}
             </p>
           </div>
         </div>
@@ -52,7 +58,7 @@ function WhatIsPushtimize() {
           />
           <Title>là gì?</Title>
           <div data-aos="fade-up" data-aos-duration="700">
-            <SecondaryBtn className="mt-8">Tìm hiểu thêm</SecondaryBtn>
+            <SecondaryBtn className="mt-8">{tranRes[1]}</SecondaryBtn>
           </div>
         </div>
         <div className="">
@@ -67,11 +73,7 @@ function WhatIsPushtimize() {
 
         <div className="px-4 pt-12 pb-20">
           <p data-aos="fade-up" data-aos-duration="700" className="text-justify">
-            PUSHTIMIZE là hệ thống quảng cáo tự động, giúp kết nối các nhà quảng cáo với hàng triệu
-            người dùng cùng lúc. Chúng tôi cung cấp đa dạng các loại hình quảng cáo với công nghệ ưu
-            việt cho phép target chuyên sâu đến đúng đối tượng khách hàng và tối ưu hiệu quả
-            marketing. Nhà quảng cáo có thể chủ động khởi tạo và quản lý các chiến dịch. Nhà xuất
-            bản có thể tự tích hợp website và quản lý doanh thu .
+            {tranRes[2]}
           </p>
         </div>
       </div>

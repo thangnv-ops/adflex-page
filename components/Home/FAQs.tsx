@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import Title from '../Title'
+import useTranslation from '@/hooks/useTranslation'
 import { AnimatePresence, motion } from 'framer-motion'
-import ArrowDownIcon from '../icons/ArrowDownIcon'
-import SecondaryBtn from '../SecondaryBtn'
-import UpRightArrow from '../icons/UpRightArrow'
+import { useState } from 'react'
 import BriefUsModal from '../BriefUsModal'
+import SecondaryBtn from '../SecondaryBtn'
+import Title from '../Title'
+import ArrowDownIcon from '../icons/ArrowDownIcon'
+import UpRightArrow from '../icons/UpRightArrow'
 
 const listFAQ = [
   {
@@ -47,6 +48,9 @@ const listFAQ = [
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [ispExpanded, setIspExpanded] = useState(false)
+
+  const tranRes = useTranslation([question, answer])
+
   return (
     <div className="py-6 border-b border-white border-opacity-20">
       <motion.header className="cursor-pointer" onClick={() => setIspExpanded(!ispExpanded)}>
@@ -56,7 +60,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
               ispExpanded ? 'text-primary' : 'text-white'
             }`}
           >
-            {question}
+            {tranRes[0]}
           </p>
           <ArrowDownIcon
             className={`${ispExpanded ? 'rotate-180' : 'rotate-0'} smooth-transform`}
@@ -87,7 +91,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
             }}
             className="pr-9"
           >
-            <p className="text-sm md:text-xl">{answer}</p>
+            <p className="text-sm md:text-xl">{tranRes[1]}</p>
           </motion.section>
         )}
       </AnimatePresence>
@@ -96,6 +100,8 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 function FAQs() {
+  const tranRes = useTranslation(['Có thể bạn quan tâm?', 'Đăng ký liên hệ hợp tác'])
+
   return (
     <div className="bg-[#0F0F0F] py-20 overflow-hidden">
       <div className="max-w-[910px] px-4 mx-auto relative">
@@ -104,7 +110,7 @@ function FAQs() {
           alt="faq"
           className="absolute -bottom-[300px] -right-[300px]"
         />
-        <Title>Có thể bạn quan tâm?</Title>
+        <Title>{tranRes[0]}</Title>
         <div className="relative z-10 mt-10">
           {listFAQ.map((faq) => (
             <div key={faq.id} data-aos="fade-up" data-aos-duration="700">
@@ -114,7 +120,7 @@ function FAQs() {
           <BriefUsModal>
             <SecondaryBtn data-aos="fade-up" data-aos-duration="700" className="mt-12">
               <div className="flex items-center gap-2">
-                <p className="text-white">Đăng ký liên hệ hợp tác</p>
+                <p className="text-white">{tranRes[1]}</p>
                 <UpRightArrow />
               </div>
             </SecondaryBtn>
