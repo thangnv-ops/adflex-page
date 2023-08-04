@@ -1,13 +1,14 @@
-import React from 'react'
+import useTranslation from '@/hooks/useTranslation'
 import Title from '../Title'
 import CPASolution from './CPASolution'
 import OpsRunSolution from './OpsRunSolution'
 import PushtimizeSolution from './PushtimizeSolution'
 
 function Solution() {
+  const result = useTranslation(['Giải pháp của chúng tôi'])
   return (
     <div className="px-4 mx-auto max-w-maxContent">
-      <Title className="mt-14">Giải pháp của chúng tôi</Title>
+      <Title className="mt-14">{result[0]}</Title>
       <div className="flex items-center justify-center mt-5">
         <div className="relative">
           <img

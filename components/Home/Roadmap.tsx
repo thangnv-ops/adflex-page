@@ -1,6 +1,6 @@
-import React from 'react'
-import Title from '../Title'
+import useTranslation from '@/hooks/useTranslation'
 import Line from '../Line'
+import Title from '../Title'
 
 function VerticalLine({ className = 'border-[#48444B]', ...props }: { className?: string }) {
   return <div {...props} className={`w-full h-10 border-r ${className}`} />
@@ -17,6 +17,7 @@ function RoadMapItem({
   isOutstanding?: boolean
   isAlignRight?: boolean
 }) {
+  const transRes = useTranslation([event])
   return (
     <div>
       <p
@@ -26,12 +27,16 @@ function RoadMapItem({
       >
         {timeline}
       </p>
-      <p className={`text-sm md:text-base ${isAlignRight ? 'text-right' : 'text-left'}`}>{event}</p>
+      <p className={`text-sm md:text-base ${isAlignRight ? 'text-right' : 'text-left'}`}>
+        {transRes[0]}
+      </p>
     </div>
   )
 }
 
 function Roadmap() {
+  const transRes = useTranslation(['Lịch sử', 'hình thành', '& phát triển'])
+
   return (
     <div className="bg-[#0F0F0F] px-4 pt-16 md:pt-28 pb-36 relative -mt-1">
       <img
@@ -46,7 +51,8 @@ function Roadmap() {
       />
       <div className="relative z-10 mx-auto max-w-maxContent">
         <Title className="text-center md:text-left">
-          <span>Lịch sử </span>hình thành <br className="block md:hidden" /> & phát triển
+          <span>{transRes[0]} </span>
+          {transRes[1]} <br className="block md:hidden" /> {transRes[2]}
         </Title>
         <div className="hidden overflow-x-auto overflow-y-hidden mt-14 md:mt-20 md:block">
           <div className="grid -ml-8 grid-cols-16 w-[933px] md:w-auto">

@@ -1,4 +1,4 @@
-import React from 'react'
+import useTranslation from '@/hooks/useTranslation'
 import Carousel from 'react-multi-carousel'
 import Label from './Label'
 
@@ -23,11 +23,12 @@ const responsiveCarouselTournaments = {
 }
 
 function Partner() {
+  const tranRes = useTranslation(['Đối tác của chúng tôi'])
   return (
     <div>
       <div data-aos="fade-up" data-aos-duration="700" className="px-4 mx-auto max-w-maxContent">
         <Label className="bg-[#EAECF0]" startColor="#EAECF0" stopColor="#EAECF0">
-          <p className="text-xl text-black uppercase">Đối tác của chúng tôi</p>
+          <p className="text-xl text-black uppercase">{tranRes[0]}</p>
         </Label>
       </div>
       <div className="bg-[#EAECF0]">

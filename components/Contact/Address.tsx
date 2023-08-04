@@ -1,5 +1,6 @@
-import Title from '../Title'
+import useTranslation from '@/hooks/useTranslation'
 import { ReactNode } from 'react'
+import Title from '../Title'
 
 function Icon({ ...props }) {
   return (
@@ -37,16 +38,18 @@ function Item({
 }
 
 function Address() {
+  const tranRes = useTranslation(['Trụ sở AdFlex', 'Địa chỉ'])
+
   return (
     <div className="max-w-[1126px] px-4 mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-[104px] text-black">
         <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={500}>
-          <Title className="">Trụ sở AdFlex</Title>
+          <Title className="">{tranRes[0]}</Title>
           <div className="flex flex-col gap-6 mt-20">
             <Item title="Email" content="info@adflex.vn" />
             <Item title="Hotline" content="0345 036 008" />
             <Item
-              title="Địa chỉ"
+              title={tranRes[1]}
               content={
                 <div className="flex flex-col gap-3 text-xl leading-normal">
                   <p>

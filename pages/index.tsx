@@ -1,13 +1,13 @@
 import Home from '@/components/Home/Home'
 import Layout from '@/components/Layout'
-import React from 'react'
+import { NextPageWithLayout } from './_app'
 
-function page() {
-  return (
-    <Layout>
-      <Home />
-    </Layout>
-  )
+const page: NextPageWithLayout = () => {
+  return <Home />
+}
+
+page.getLayout = (page) => {
+  return <Layout>{page}</Layout>
 }
 
 export default page

@@ -1,9 +1,18 @@
-/* eslint-disable @next/next/no-img-element */
-import React from 'react'
-import Title from '../Title'
 import Line from '../Line'
+import Title from '../Title'
+/* eslint-disable @next/next/no-img-element */
+import useTranslation from '@/hooks/useTranslation'
 
 function Hero() {
+  const result = useTranslation([
+    'Tối ưu hóa hoạt động',
+    'Marketing',
+    'và',
+    'Chuyển đổi số',
+    'cho doanh nghiệp',
+    'Với sức mạnh công nghệ vượt trội, AdFlex được xếp hạng Top 6 Mobile Marketing Agency về sản lượng và chất lượng dịch vụ trên toàn Đông Nam Á và được 100.000+ đối tác tin tưởng sử dụng giải pháp.',
+  ])
+
   return (
     <div
       data-aos="fade-up"
@@ -12,14 +21,12 @@ function Hero() {
     >
       <div className="max-w-[930px] px-4 flex flex-col items-center mx-auto">
         <Title className="text-center">
-          Tối ưu hóa hoạt động <span>Marketing</span> và&nbsp;
+          {result[0]} <span>{result[1]}</span> {result[2]}&nbsp;
           <br className="hidden md:block" />
-          <span>Chuyển đổi số</span> cho doanh nghiệp
+          <span>{result[3]}</span> {result[4]}
         </Title>
         <div className="max-w-[510px] mx-auto mt-5 text-sm md:text-base text-center md:text-left">
-          Với sức mạnh công nghệ vượt trội, AdFlex được xếp hạng Top 6 Mobile Marketing Agency về
-          sản lượng và chất lượng dịch vụ trên toàn Đông Nam Á và được 100.000+ đối tác tin tưởng sử
-          dụng giải pháp.
+          {result[5]}
         </div>
         <img className="hidden mt-16 md:block" src="/images/hero-img.png" alt="hero-img" />
       </div>

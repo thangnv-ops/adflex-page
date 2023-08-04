@@ -1,13 +1,14 @@
+import useTranslation from '@/hooks/useTranslation'
 import { DialogOverlay } from '@reach/dialog'
 import { AnimatePresence, motion } from 'framer-motion'
+import Link from 'next/link'
 import { useState } from 'react'
 import MotionDialogContent from '../MotionDialogContent'
-import PlusIcon from '../icons/PlusIcon'
 import PrimaryBtn from '../PrimaryBtn'
-import UpRightArrow from '../icons/UpRightArrow'
-import CloseDialogIcon from '../icons/CloseDialogIcon'
 import CheckedIcon from '../icons/CheckedIcon'
-import Link from 'next/link'
+import CloseDialogIcon from '../icons/CloseDialogIcon'
+import PlusIcon from '../icons/PlusIcon'
+import UpRightArrow from '../icons/UpRightArrow'
 
 const opsrunAdvantage = [
   'Thiết kế và xây dựng hệ thống',
@@ -21,6 +22,18 @@ function OpsRunSolution() {
   const [showDialog, setShowDialog] = useState(false)
   const open = () => setShowDialog(true)
   const close = () => setShowDialog(false)
+
+  const translateResult = useTranslation([
+    'Giải pháp Opsrun',
+    `Giải pháp tư vấn, thiết kế, triển khai, vận hành hệ thống CNTT trên nền tảng cloud server.`,
+    'Opsrun - Giải pháp tư vấn, vận hành và thiết kế điện toán đám mây',
+    ` Với hệ thống chuyên gia chất lượng cao có kinh nghiệm vận hành hệ thống lớn,
+    Opsrun mang lại các giải pháp cloud server giúp doanh nghiệp tối ưu chi phí và
+    dễ dàng quản trị.`,
+    'Tìm hiểu thêm',
+  ])
+
+  const adTranslateRes = useTranslation([...opsrunAdvantage])
 
   return (
     <div data-aos="fade-up" data-aos-duration="700" className="">
@@ -38,10 +51,8 @@ function OpsRunSolution() {
           <img src="/images/opsrun-icon.png" alt="cpa" className="w-[152px]" />
           <PlusIcon />
         </div>
-        <p className="mt-2 text-2xl">Giải pháp Opsrun</p>
-        <p className="mt-2 text-justify">
-          Giải pháp tư vấn, thiết kế, triển khai, vận hành hệ thống CNTT trên nền tảng cloud server.
-        </p>
+        <p className="mt-2 text-2xl">{translateResult[0]}</p>
+        <p className="mt-2 text-justify">{translateResult[1]}</p>
       </div>
       <AnimatePresence>
         {showDialog && (
@@ -67,16 +78,10 @@ function OpsRunSolution() {
                 <div className="flex items-start">
                   <div className="">
                     <img src="/images/opsrun-img.png" alt="cpa" className="w-246" />
-                    <p className="text-[32px] font-medium mt-4">
-                      Opsrun - Giải pháp tư vấn, vận hành và thiết kế điện toán đám mây
-                    </p>
-                    <p className="mt-4">
-                      Với hệ thống chuyên gia chất lượng cao có kinh nghiệm vận hành hệ thống lớn,
-                      Opsrun mang lại các giải pháp cloud server giúp doanh nghiệp tối ưu chi phí và
-                      dễ dàng quản trị.
-                    </p>
+                    <p className="text-[32px] font-medium mt-4">{translateResult[2]}</p>
+                    <p className="mt-4">{translateResult[3]}</p>
                     <div className="flex flex-col gap-4 mt-8">
-                      {opsrunAdvantage.map((item, index) => (
+                      {adTranslateRes.map((item, index) => (
                         <div key={`opsrun-${index}`} className="flex items-center gap-3">
                           <CheckedIcon />
                           {item}
@@ -87,7 +92,7 @@ function OpsRunSolution() {
                       <a>
                         <PrimaryBtn className="mt-8">
                           <div className="flex items-center gap-2">
-                            <p className="text-white">Tìm hiểu thêm </p>
+                            <p className="text-white">{translateResult[4]}</p>
                             <UpRightArrow />
                           </div>
                         </PrimaryBtn>
