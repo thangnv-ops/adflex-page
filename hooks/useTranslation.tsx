@@ -14,7 +14,12 @@ export default function useTranslation(text: string[]) {
   }, [])
 
   const getTranslatedText = async () => {
-    if (text.length > 0 && typeof window !== 'undefined') {
+    if (
+      text.length > 0 &&
+      typeof window !== 'undefined' &&
+      cookies.language &&
+      cookies.language !== 'vi'
+    ) {
       const q = text.map((item) => {
         return { Text: item }
       })
@@ -23,7 +28,7 @@ export default function useTranslation(text: string[]) {
           `${window.location.protocol}//${window.location.host}/api/translate`,
           {
             q,
-            language: cookies.language || 'en',
+            language: cookies.language || 'vi',
           }
         )
         setResult(
@@ -34,6 +39,8 @@ export default function useTranslation(text: string[]) {
       } catch (err) {
         // do smth
       }
+    } else {
+      setResult(text)
     }
   }
 

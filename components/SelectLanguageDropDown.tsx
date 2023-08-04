@@ -1,5 +1,7 @@
+import { LANGUAGE_COOKIE_KEY } from '@/lib'
 import { motion } from 'framer-motion'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useCookies } from 'react-cookie'
 import ArrowDropdownIcon from './icons/ArrowDropdownIcon'
 
 const languages = [
@@ -27,7 +29,9 @@ function SelectLanguageDropDown({
 }) {
   const node = useRef(null)
   const [isOpen, toggleOpen] = useState(false)
-  const [languageSelected, setLanguageSelected] = useState(languages[0])
+  const [languageSelected, setLanguageSelected] = useState(languages[1])
+
+  const [, setCookies] = useCookies([LANGUAGE_COOKIE_KEY])
 
   const toggleOpenMenu = () => {
     toggleOpen(!isOpen)
@@ -103,7 +107,13 @@ function SelectLanguageDropDown({
       >
         <div className="flex flex-col gap-4 py-4">
           {languages.map((lang) => (
-            <div key={lang.language} onClick={() => setLanguageSelected(lang)}>
+            <div
+              key={lang.language}
+              onClick={() => {
+                setCookies(LANGUAGE_COOKIE_KEY, lang.language)
+                setLanguageSelected(lang)
+              }}
+            >
               <DropDownItem flag={lang.icon} label={lang.name} />
             </div>
           ))}

@@ -1,14 +1,15 @@
+import useTranslation from '@/hooks/useTranslation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { ReactNode, useEffect, useRef, useState } from 'react'
+import BriefUsModal from './BriefUsModal'
+import LogoBlack from './LogoBlack'
+import SecondaryBtn from './SecondaryBtn'
+import SelectLanguageDropDown from './SelectLanguageDropDown'
 import CloseDialogIcon from './icons/CloseDialogIcon'
 import IconHamburger from './icons/IconHamburger'
-import LogoBlack from './LogoBlack'
-import { useRouter } from 'next/router'
-import BriefUsModal from './BriefUsModal'
-import SecondaryBtn from './SecondaryBtn'
 import UpRightArrow from './icons/UpRightArrow'
-import SelectLanguageDropDown from './SelectLanguageDropDown'
 
 const variants = {
   open: {
@@ -111,6 +112,14 @@ function MobileNav() {
     },
   }
 
+  const tranRes = useTranslation([
+    'Trang chủ',
+    'Giải pháp CPA',
+    'Giải pháp Pushtimize',
+    'Giải pháp Opsrun',
+    'Liên hệ',
+  ])
+
   return (
     <div ref={node} className="relative">
       <motion.div className="w-full">
@@ -144,24 +153,24 @@ function MobileNav() {
               </Link>
 
               <div className="flex flex-col gap-6 mt-16">
-                <MobileMenuItem label="Trang chủ" href="/" isActive={router?.asPath === '/'} />
+                <MobileMenuItem label={tranRes[0]} href="/" isActive={router?.asPath === '/'} />
                 <MobileMenuItem
-                  label="Giải pháp CPA"
+                  label={tranRes[1]}
                   href="/cpa"
                   isActive={router?.asPath.includes('/cpa')}
                 />
                 <MobileMenuItem
-                  label="Giải pháp Pushtimize"
+                  label={tranRes[2]}
                   href="/pushtimize"
                   isActive={router?.asPath.includes('/pushtimize')}
                 />
                 <MobileMenuItem
-                  label="Giải pháp Opsrun"
+                  label={tranRes[3]}
                   href="/opsrun"
                   isActive={router?.asPath.includes('/opsrun')}
                 />
                 <MobileMenuItem
-                  label="Liên hệ"
+                  label={tranRes[4]}
                   href="/contact"
                   isActive={router?.asPath.includes('/contact')}
                 />
