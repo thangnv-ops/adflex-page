@@ -1,12 +1,13 @@
+import useTranslation from '@/hooks/useTranslation'
+import { handleSubmitForm } from '@/lib/submitFormToGoogleSheet'
 import { DialogOverlay } from '@reach/dialog'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ReactNode, useState } from 'react'
 import MotionDialogContent from './MotionDialogContent'
+import PrimaryBtn from './PrimaryBtn'
 import PrimaryInput from './PrimaryInput'
 import PrimaryTextarea from './PrimaryTextarea'
-import PrimaryBtn from './PrimaryBtn'
 import CloseDialogIcon from './icons/CloseDialogIcon'
-import { handleSubmitForm } from '@/lib/submitFormToGoogleSheet'
 
 function BriefUsModal({ children }: { children: ReactNode }) {
   const [showDialog, setShowDialog] = useState(false)
@@ -17,6 +18,16 @@ function BriefUsModal({ children }: { children: ReactNode }) {
   const [email, setEmail] = useState('')
   const [phoneNumber, setPhoneNumber] = useState<number>()
   const [note, setNote] = useState('')
+
+  const tranRes = useTranslation([
+    'Đăng ký liên hệ hợp tác',
+    'Hãy cho chúng tôi biết vấn đề bạn đang gặp phải',
+    'Họ và tên',
+    'Số điện thoại',
+    'Giải pháp bạn quan tâm',
+    'Nhận thông tin từ AdFlex',
+    'Gửi thông tin',
+  ])
 
   return (
     <div className="">
@@ -40,18 +51,16 @@ function BriefUsModal({ children }: { children: ReactNode }) {
                 method="post"
               >
                 <div className="flex items-center justify-between">
-                  <p className="text-[24px] md:text-[40px]">Đăng ký liên hệ hợp tác</p>
+                  <p className="text-[24px] md:text-[40px]">{tranRes[0]}</p>
                   <CloseDialogIcon className="w-8 cursor-pointer md:w-10" onClick={close} />
                 </div>
-                <p className="mt-2 text-sm md:text-xl">
-                  Hãy cho chúng tôi biết vấn đề bạn đang gặp phải
-                </p>
+                <p className="mt-2 text-sm md:text-xl">{tranRes[1]}</p>
                 <div className="grid grid-cols-1 gap-8 mt-6 md:grid-cols-2">
                   <div className="flex flex-col gap-6">
                     <PrimaryInput
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      placeholder="Họ và tên"
+                      placeholder={tranRes[2]}
                       className="w-full"
                     />
                     <PrimaryInput
@@ -63,7 +72,7 @@ function BriefUsModal({ children }: { children: ReactNode }) {
                     <PrimaryInput
                       value={String(phoneNumber)}
                       onChange={(e) => setPhoneNumber(Number(e.target.value))}
-                      placeholder="Số điện thoại"
+                      placeholder={tranRes[3]}
                       className="w-full"
                       type="number"
                     />
@@ -72,20 +81,20 @@ function BriefUsModal({ children }: { children: ReactNode }) {
                     <PrimaryTextarea
                       value={note}
                       onChange={(e) => setNote(e.target.value)}
-                      placeholder="Giải pháp bạn quan tâm"
+                      placeholder={tranRes[4]}
                     />
                   </div>
                 </div>
                 <div className="flex flex-col items-center justify-between gap-8 mt-6 md:flex-row">
                   <div className="flex items-center gap-4">
                     <input type="checkbox" />
-                    <p>Nhận thông tin từ AdFlex</p>
+                    <p>{tranRes[5]}</p>
                   </div>
                   <PrimaryBtn
                     type="submit"
                     onClick={() => handleSubmitForm({ name, email, phoneNumber, note })}
                   >
-                    Gửi thông tin
+                    {tranRes[6]}
                   </PrimaryBtn>
                 </div>
               </motion.form>
