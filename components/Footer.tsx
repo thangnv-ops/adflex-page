@@ -1,8 +1,8 @@
-import React from 'react'
-import LogoBlack from './LogoBlack'
+import useTranslation from '@/hooks/useTranslation'
 import Link from 'next/link'
-import PrimaryInput from './PrimaryInput'
+import LogoBlack from './LogoBlack'
 import PrimaryBtn from './PrimaryBtn'
+import PrimaryInput from './PrimaryInput'
 
 function FooterItem({ text, href }: { text: string; href: string }) {
   return (
@@ -13,6 +13,15 @@ function FooterItem({ text, href }: { text: string; href: string }) {
 }
 
 function Footer() {
+  const tranRes = useTranslation([
+    'Giải pháp CPA',
+    'Giải pháp Pushtimize',
+    'Giải pháp Opsrun',
+    'Liên hệ',
+    'Nhập email của bạn',
+    'Nhận thông tin',
+  ])
+
   return (
     <div className="px-4 pb-28 pt-28">
       <div data-aos="fade-up" data-aos-duration="700" className="flex justify-center">
@@ -26,17 +35,17 @@ function Footer() {
         >
           <div className="grid items-center grid-cols-2 gap-8">
             <div className="flex flex-col gap-8 md:flex-row">
-              <FooterItem text="Giải pháp CPA" href="/cpa" />
-              <FooterItem text="Giải pháp Pushtimize" href="/pustimize" />
-              <FooterItem text="Giải pháp Opsrun" href="/opsrun" />
+              <FooterItem text={tranRes[0]} href="/cpa" />
+              <FooterItem text={tranRes[1]} href="/pushtimize" />
+              <FooterItem text={tranRes[2]} href="/opsrun" />
             </div>
             <div className="flex flex-col gap-8 md:flex-row">
-              <FooterItem text="Liên hệ" href="/" />
+              <FooterItem text={tranRes[3]} href="/" />
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <PrimaryInput placeholder="Nhập email của bạn" />
-            <PrimaryBtn>Nhận thông tin</PrimaryBtn>
+            <PrimaryInput placeholder={tranRes[4]} />
+            <PrimaryBtn>{tranRes[5]}</PrimaryBtn>
           </div>
         </div>
       </div>
