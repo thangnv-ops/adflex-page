@@ -1,4 +1,5 @@
 import useTranslation from '@/hooks/useTranslation'
+import Image from 'next/image'
 import BriefUsModal from '../BriefUsModal'
 import SecondaryBtn from '../SecondaryBtn'
 import CheckedIcon from '../icons/CheckedIcon'
@@ -31,7 +32,9 @@ function Solution() {
       <div className="px-4 mx-auto max-w-maxContent">
         <div className="grid items-center grid-cols-1 gap-8 md:grid-cols-2">
           <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={300}>
-            <img src="/images/opsrun/devops-solution.png" alt="devops" />
+            <div className="w-full aspect-[1.1/1] relative">
+              <Image layout="fill" src="/images/opsrun/devops-solution.png" alt="devops" />
+            </div>
           </div>
           <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={500}>
             <p className="text-[30px] md:text-5xl">
@@ -81,7 +84,9 @@ function Solution() {
               </BriefUsModal>
             </div>
             <div className="block md:hidden">
-              <img src="/images/opsrun/cloud-computing-mobile.png" alt="mobile" />
+              <div className="w-full aspect-ratio relative">
+                <Image layout="fill" src="/images/opsrun/cloud-computing-mobile.png" alt="mobile" />
+              </div>
             </div>
           </div>
         </div>

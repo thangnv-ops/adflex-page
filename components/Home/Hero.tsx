@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Line from '../Line'
 import Title from '../Title'
 /* eslint-disable @next/next/no-img-element */
@@ -28,10 +29,18 @@ function Hero() {
         <div className="max-w-[510px] mx-auto mt-5 text-sm md:text-base text-center md:text-left">
           {result[5]}
         </div>
-        <img className="hidden mt-16 md:block" src="/images/hero-img.png" alt="hero-img" />
+        <div className="w-full aspect-[2/1] relative">
+          <Image
+            layout="fill"
+            className="hidden mt-16 md:block"
+            src="/images/hero-img.png"
+            alt="hero-img"
+          />
+        </div>
       </div>
       <Line className="mx-auto mt-24 max-w-maxContent" />
-      <img
+      <Image
+        layout="fill"
         src="/images/hero-decor.png"
         alt="decor"
         className="absolute top-0 left-0 right-0 w-screen h-screen"

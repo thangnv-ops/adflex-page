@@ -1,9 +1,7 @@
-import React from 'react'
-import StarFeedBackIcon from '../icons/StarFeedBackIcon'
-
+import Line from '../Line'
 import BackBtnBlack from '../icons/BackBtnBlack'
 import NextBtnBlack from '../icons/NextBtnBlack'
-import Line from '../Line'
+import StarFeedBackIcon from '../icons/StarFeedBackIcon'
 
 const effectives = [
   {
@@ -29,7 +27,7 @@ function CustomerReviews() {
       <div className="px-4 mx-auto max-w-maxContent">
         <div className="grid items-center grid-cols-1 gap-8 md:grid-cols-64">
           <div className="flex justify-center">
-            <img src="/images/cpa/feedback-img.png" alt="feedback" />
+            {/* <img src="/images/cpa/feedback-img.png" alt="feedback" /> */}
           </div>
           <div>
             <div className="flex gap-2">
@@ -45,11 +43,11 @@ function CustomerReviews() {
             </p>
             <div className="flex items-center justify-between mt-12">
               <div className="flex gap-4">
-                <img
+                {/* <img
                   src="/images/cpa/customer-ava.png"
                   alt="avatar"
                   className="rounded-full w-14 h-1/4"
-                />
+                /> */}
                 <div>
                   <p className="text-xl">Katherine Moss</p>
                   <p className="text-[#667085] text-sm">Project Manager, Layers</p>

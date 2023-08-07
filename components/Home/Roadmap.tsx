@@ -1,4 +1,5 @@
 import useTranslation from '@/hooks/useTranslation'
+import Image from 'next/image'
 import Line from '../Line'
 import Title from '../Title'
 
@@ -39,12 +40,14 @@ function Roadmap() {
 
   return (
     <div className="bg-[#0F0F0F] px-4 pt-16 md:pt-28 pb-36 relative -mt-1">
-      <img
+      <Image
+        layout="fill"
         src="/images/roadmap-decor-1.png"
         alt="decor"
         className="absolute -top-[450px] -left-[500px]"
       />
-      <img
+      <Image
+        layout="fill"
         src="/images/roadmap-decor-2.png"
         alt="decor"
         className="absolute -top-[250px] -right-[350px]"

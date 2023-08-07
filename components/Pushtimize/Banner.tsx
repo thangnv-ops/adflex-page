@@ -1,4 +1,5 @@
 import useTranslation from '@/hooks/useTranslation'
+import Image from 'next/image'
 import BriefUsModal from '../BriefUsModal'
 import RedBtn from '../RedBtn'
 
@@ -37,7 +38,8 @@ function Banner() {
           </BriefUsModal>
         </div>
         <div className="block md:hidden">
-          <img
+          <Image
+            layout="fill"
             src="/images/pushtimize/pushtimize-banner-img.png"
             alt="img"
             className="rounded-b-2xl"

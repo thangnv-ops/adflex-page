@@ -1,11 +1,11 @@
-import React from 'react'
+import Image from 'next/image'
+import PrimaryBtn from '../PrimaryBtn'
+import PrimaryInput from '../PrimaryInput'
 import CopyIcon from '../icons/CopyIcon'
-import TwitterIcon from '../icons/TwitterIcon'
 import FacebookIcon from '../icons/FacebookIcon'
 import LinkedInIcon from '../icons/LinkedInIcon'
 import SubcribeIcon from '../icons/SubcribeIcon'
-import PrimaryInput from '../PrimaryInput'
-import PrimaryBtn from '../PrimaryBtn'
+import TwitterIcon from '../icons/TwitterIcon'
 import { NewsItem } from './NewsItem'
 
 const featuredNews = [
@@ -100,13 +100,16 @@ function BlogDetail() {
         <p className="mt-2 text-[30px] md:text-5xl">Bill Walsh leadership lessons</p>
       </div>
       <div className="px-4 pt-12 mx-auto text-black max-w-maxContent">
-        <img
-          data-aos="fade-up"
-          data-aos-duration="700"
-          src="https://i1-sohoa.vnecdn.net/2023/07/18/cloudfront-us-east-2-images-ar-8152-9755-1689668007.png?w=680&h=0&q=100&dpr=2&fit=crop&s=xOpOyzzM7wTabgrJMMO63Q"
-          alt="thumbnail"
-          className="w-full max-h-[516px] object-cover"
-        />
+        <div className="w-full aspect-[2/1] max-h-[516px] relative">
+          <Image
+            data-aos="fade-up"
+            data-aos-duration="700"
+            src="https://i1-sohoa.vnecdn.net/2023/07/18/cloudfront-us-east-2-images-ar-8152-9755-1689668007.png?w=680&h=0&q=100&dpr=2&fit=crop&s=xOpOyzzM7wTabgrJMMO63Q"
+            alt="thumbnail"
+            layout="fill"
+          />
+        </div>
+
         <div
           data-aos="fade-up"
           data-aos-duration="700"

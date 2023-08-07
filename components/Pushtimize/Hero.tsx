@@ -1,4 +1,5 @@
 import useTranslation from '@/hooks/useTranslation'
+import Image from 'next/image'
 import BriefUsModal from '../BriefUsModal'
 import QuaternaryBtn from '../QuaternaryBtn'
 import SecondaryBtn from '../SecondaryBtn'
@@ -26,15 +27,18 @@ function Hero() {
       className="h-auto pb-32 pt-44"
     >
       <div className="grid items-center h-full grid-cols-1 px-4 mx-auto md:grid-cols-2 max-w-maxContent">
-        <div>
-          <img
+        <div className="w-full aspect-square relative">
+          <Image
+            layout="fill"
             src="/images/pushtimize/pushtimize-hero-img.png"
             alt="img"
             className="mix-blend-screen"
           />
         </div>
         <div className="flex flex-col items-start justify-center h-full md:items-end">
-          <img className="w-[214px] md:w-[334px]" src="/images/pushtimize-icon.png" alt="cpa" />
+          <div className="w-[214px] md:w-[334px] aspect-[2/0.5] relative">
+            <Image layout="fill" src="/images/pushtimize-icon.png" alt="cpa" />
+          </div>
           <p className="mt-5 text-left md:text-right text-[32px]">
             {tranRes[0]} <br className="hidden md:block" /> {tranRes[1]}
           </p>

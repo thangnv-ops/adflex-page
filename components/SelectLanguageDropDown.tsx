@@ -1,6 +1,8 @@
+import { useEffect, useRef, useState } from 'react'
+
 import { LANGUAGE_COOKIE_KEY } from '@/lib'
 import { motion } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import { useCookies } from 'react-cookie'
 import ArrowDropdownIcon from './icons/ArrowDropdownIcon'
 
@@ -12,8 +14,8 @@ const languages = [
 function DropDownItem({ label = '', flag }: { label: string; flag: string }) {
   return (
     <div className="flex items-center gap-3 px-4">
-      <div className="">
-        <img src={flag} className="w-8" alt="flag-icon" />
+      <div className="relative  aspect-square w-8">
+        <Image src={flag} layout="fill" alt="flag-icon" />
       </div>
       <div className="cursor-pointer hover:text-primary whitespace-nowrap">{label}</div>
     </div>
@@ -86,8 +88,8 @@ function SelectLanguageDropDown({
         onClick={toggleOpenMenu}
         className="flex items-center gap-3 p-2 cursor-pointer"
       >
-        <div className="w-8">
-          <img src={languageSelected.icon} alt={languageSelected.name} />
+        <div className="w-8 aspect-square relative">
+          <Image layout="fill" src={languageSelected.icon} alt={languageSelected.name} />
         </div>
         <div className={`${isOpen && 'rotate-180'} smooth-transform `}>
           <ArrowDropdownIcon color={color} />

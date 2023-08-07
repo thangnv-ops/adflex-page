@@ -1,4 +1,5 @@
 import useTranslation from '@/hooks/useTranslation'
+import Image from 'next/image'
 import { ReactNode } from 'react'
 import BriefUsModal from '../BriefUsModal'
 import PrimaryBtn from '../PrimaryBtn'
@@ -106,7 +107,7 @@ function WhyUs() {
           />
         </div>
         <div data-aos="fade-up" data-aos-duration="700" className="relative hidden md:block">
-          <img src="/images/whyus-img.png" alt="whyus" />
+          <Image layout="fill" src="/images/whyus-img.png" alt="whyus" />
           <CpuWithBgIcon className="smooth-transform grayscale-[0.4] w-12 md:w-16 absolute top-[70px] left-[70px] md:top-[98px] md:left-[98px]" />
           <PersonWithBgIcon className="smooth-transform grayscale-[0.4] w-12 md:w-16 absolute top-[70px] right-[85px] md:top-[98px] md:right-[110px]" />
           <StarWithBgIcon className="smooth-transform grayscale-[0.4] w-12 md:w-16 absolute bottom-[145px] left-[70px] md:bottom-[198px]  md:left-[98px]" />
