@@ -1,4 +1,5 @@
 import useTranslation from '@/hooks/useTranslation'
+import Image from 'next/image'
 import { ReactNode } from 'react'
 import Line from '../Line'
 import AfiliateIcon from '../icons/AfiliateIcon'
@@ -84,12 +85,14 @@ function Solutions() {
 
   return (
     <div className="bg-[#1A1A1A] pt-28 pb-28 relative overflow-hidden">
-      <img
+      <Image
+        layout="fill"
         src="/images/cpa/solutions-decor1.png"
         alt="decor"
         className="absolute -top-10 -right-[100px] md:-top-[300px] md:-right-[300px]"
       />
-      <img
+      <Image
+        layout="fill"
         src="/images/cpa/solutions-decor2.png"
         alt="decor"
         className="absolute -bottom-11 -left-14 md:-bottom-[500px] md:-left-[700px]"

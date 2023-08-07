@@ -1,4 +1,5 @@
 import useTranslation from '@/hooks/useTranslation'
+import Image from 'next/image'
 import Carousel from 'react-multi-carousel'
 import Label from '../Home/Label'
 
@@ -49,11 +50,13 @@ function Partner() {
           >
             {partners.map((partner) => (
               <div className="px-4" key={partner}>
-                <img
-                  className="w-44"
-                  src={`/images/pushtimize/partners/${partner}.png`}
-                  alt={partner}
-                />
+                <div className="w-44 aspect-[2/1.5] relative">
+                  <Image
+                    layout="fill"
+                    src={`/images/pushtimize/partners/${partner}.png`}
+                    alt={partner}
+                  />
+                </div>
               </div>
             ))}
           </Carousel>

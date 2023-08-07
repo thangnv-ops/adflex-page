@@ -1,6 +1,8 @@
+import { AnimatePresence, motion } from 'framer-motion'
+
 import useTranslation from '@/hooks/useTranslation'
 import { DialogOverlay } from '@reach/dialog'
-import { AnimatePresence, motion } from 'framer-motion'
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import MotionDialogContent from '../MotionDialogContent'
@@ -48,7 +50,9 @@ function OpsRunSolution() {
         className="cursor-pointer max-w-[488px] px-4 py-4 md:py-6 md:px-8"
       >
         <div className="flex items-center justify-between">
-          <img src="/images/opsrun-icon.png" alt="cpa" className="w-[152px]" />
+          <div className="w-[152px] aspect-[2/0.5] relative">
+            <Image layout="fill" src="/images/opsrun-icon.png" alt="cpa" />
+          </div>
           <PlusIcon />
         </div>
         <p className="mt-2 text-2xl">{translateResult[0]}</p>
@@ -77,7 +81,9 @@ function OpsRunSolution() {
               >
                 <div className="flex items-start">
                   <div className="">
-                    <img src="/images/opsrun-img.png" alt="cpa" className="w-246" />
+                    <div className="w-[30%] aspect-[2/0.5] relative">
+                      <Image layout="fill" src="/images/opsrun-img.png" alt="cpa" />
+                    </div>
                     <p className="text-[32px] font-medium mt-4">{translateResult[2]}</p>
                     <p className="mt-4">{translateResult[3]}</p>
                     <div className="flex flex-col gap-4 mt-8">

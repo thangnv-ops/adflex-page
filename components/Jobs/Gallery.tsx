@@ -1,5 +1,5 @@
 import useDevice from '@/hooks/useDevice'
-import React from 'react'
+import Image from 'next/image'
 
 const images = [1, 2, 3, 4, 5]
 
@@ -14,7 +14,7 @@ function Gallery() {
     >
       {listRender.map((img) => (
         <div>
-          <img src={`images/jobs/gallery/${img}.png`} alt="img" />
+          <Image layout="fill" src={`/images/jobs/gallery/${img}.png`} alt="img" />
         </div>
       ))}
     </div>

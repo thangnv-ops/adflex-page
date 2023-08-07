@@ -1,4 +1,4 @@
-import React from 'react'
+import Image from 'next/image'
 import Map from '../Map'
 import { NewsItem } from './NewsItem'
 import { Tag } from './Tag'
@@ -131,8 +131,8 @@ function Blog() {
           </div>
           {featuredNews.slice(1, featuredNews.length).map((news) => (
             <div key={news.id} className="grid items-center gap-6 grid-cols-46">
-              <div className="h-full">
-                <img src={news.thumbnail} alt="thumbnail" className="object-cover w-full h-full" />
+              <div className="w-full aspect-[2/1.5] relative">
+                <Image layout="fill" src={news.thumbnail} alt="thumbnail" />
               </div>
               <div>
                 <p className="text-sm text-[#667085]">{news.date}</p>

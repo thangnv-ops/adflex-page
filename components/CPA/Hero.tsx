@@ -1,4 +1,5 @@
 import useTranslation from '@/hooks/useTranslation'
+import Image from 'next/image'
 import BriefUsModal from '../BriefUsModal'
 import SecondaryBtn from '../SecondaryBtn'
 
@@ -28,11 +29,18 @@ function Hero() {
       className="h-auto pb-32 pt-44"
     >
       <div className="grid items-center h-full grid-cols-1 gap-20 px-4 mx-auto md:grid-cols-2 md:gap-0 max-w-maxContent">
-        <div>
-          <img src="/images/cpa/cpa-hero-img.png" alt="img" className="mix-blend-screen" />
+        <div className="w-[100%] relative aspect-square">
+          <Image
+            layout="fill"
+            src="/images/cpa/cpa-hero-img.png"
+            alt="img"
+            className="mix-blend-screen"
+          />
         </div>
         <div className="flex flex-col items-start justify-center h-full md:items-end">
-          <img className="w-[81px]" src="/images/cpa-icon.png" alt="cpa" />
+          <div className="w-[81px] aspect-square relative">
+            <Image layout="fill" src="/images/cpa-icon.png" alt="cpa" />
+          </div>
           <p className="mt-5 text-left md:text-right text-[28px] md:text-[32px]">
             {tranRes[0]}
             <br className="hidden md:block" /> {tranRes[1]}

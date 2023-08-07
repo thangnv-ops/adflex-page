@@ -1,5 +1,7 @@
-import useTranslation from '@/hooks/useTranslation'
 import { AnimatePresence, motion } from 'framer-motion'
+
+import useTranslation from '@/hooks/useTranslation'
+import Image from 'next/image'
 import { useState } from 'react'
 import BriefUsModal from '../BriefUsModal'
 import SecondaryBtn from '../SecondaryBtn'
@@ -105,7 +107,8 @@ function FAQs() {
   return (
     <div className="bg-[#0F0F0F] py-20 overflow-hidden">
       <div className="max-w-[910px] px-4 mx-auto relative">
-        <img
+        <Image
+          layout="fill"
           src="/images/faq-decor.png"
           alt="faq"
           className="absolute -bottom-[300px] -right-[300px]"

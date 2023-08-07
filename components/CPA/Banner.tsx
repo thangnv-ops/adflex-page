@@ -1,7 +1,8 @@
-import useTranslation from '@/hooks/useTranslation'
 import BriefUsModal from '../BriefUsModal'
+import Image from 'next/image'
 import PrimaryBtn from '../PrimaryBtn'
 import Title from '../Title'
+import useTranslation from '@/hooks/useTranslation'
 
 function Banner() {
   const tranRes = useTranslation(['Tăng ngay', 'tỉ lệ chuyển đổi', 'của bạn', 'Liên hệ tư vấn'])
@@ -29,7 +30,9 @@ function Banner() {
           </div>
         </div>
         <div data-aos="fade-up" data-aos-duration="700" className="flex justify-center">
-          <img src="/images/cpa/ava.png" alt="ava" className="" />
+          <div className="w-[60%] aspect-[1/1.5] relative">
+            <Image layout="fill" src="/images/cpa/ava.png" alt="ava" className="" />
+          </div>
         </div>
       </div>
     </div>

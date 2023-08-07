@@ -1,13 +1,15 @@
-import useTranslation from '@/hooks/useTranslation'
-import { DialogOverlay } from '@reach/dialog'
 import { AnimatePresence, motion } from 'framer-motion'
-import Link from 'next/link'
-import { useState } from 'react'
-import MotionDialogContent from '../MotionDialogContent'
-import PrimaryBtn from '../PrimaryBtn'
+
 import CloseDialogIcon from '../icons/CloseDialogIcon'
+import { DialogOverlay } from '@reach/dialog'
+import Image from 'next/image'
+import Link from 'next/link'
+import MotionDialogContent from '../MotionDialogContent'
 import PlusIcon from '../icons/PlusIcon'
+import PrimaryBtn from '../PrimaryBtn'
 import UpRightArrow from '../icons/UpRightArrow'
+import { useState } from 'react'
+import useTranslation from '@/hooks/useTranslation'
 
 function CPASolution() {
   const [showDialog, setShowDialog] = useState(false)
@@ -34,7 +36,9 @@ AppsFlyer xếp hạng top 6 trên toàn Đông Nam Á về chất lượng CPA.
         className="cursor-pointer max-w-[488px] px-4 py-4 md:py-6 md:px-8"
       >
         <div className="flex items-center justify-between">
-          <img src="/images/cpa-icon.png" alt="cpa" className="w-11" />
+          <div className="w-11 aspect-square relative">
+            <Image layout="fill" src="/images/cpa-icon.png" alt="cpa" />
+          </div>
           <PlusIcon />
         </div>
         <p className="mt-2 text-2xl">{translationResult[0]}</p>
@@ -63,7 +67,9 @@ AppsFlyer xếp hạng top 6 trên toàn Đông Nam Á về chất lượng CPA.
               >
                 <div className="flex items-start">
                   <div className="">
-                    <img src="/images/cpa-icon.png" alt="cpa" className="w-11" />
+                    <div className="w-11 aspect-square relative">
+                      <Image layout="fill" src="/images/cpa-icon.png" alt="cpa" />
+                    </div>
                     <p className="text-[32px] font-medium mt-4">{translationResult[0]}</p>
                     <p className="mt-4">{translationResult[2]}</p>
                     <Link href="/cpa">

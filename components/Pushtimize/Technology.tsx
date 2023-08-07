@@ -1,5 +1,7 @@
-import useTranslation from '@/hooks/useTranslation'
 import React, { useState } from 'react'
+
+import useTranslation from '@/hooks/useTranslation'
+import Image from 'next/image'
 import BriefUsModal from '../BriefUsModal'
 import PrimaryBtn from '../PrimaryBtn'
 import Title from '../Title'
@@ -127,12 +129,15 @@ function Technology() {
           </div>
         </div>
         <div className="row-start-1 md:row-auto">
-          <img
-            data-aos="fade-up"
-            data-aos-duration="700"
-            src="/images/pushtimize/tech.png"
-            alt="tech"
-          />
+          <div className="w-full aspect-[2/1.3] relative">
+            <Image
+              layout="fill"
+              data-aos="fade-up"
+              data-aos-duration="700"
+              src="/images/pushtimize/tech.png"
+              alt="tech"
+            />
+          </div>
         </div>
       </div>
     </div>

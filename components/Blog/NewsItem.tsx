@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { Tag } from './Tag'
 
@@ -15,7 +16,9 @@ export function NewsItem({ news }: { news: News }) {
     <Link href="/blog/1">
       <a>
         <div className="cursor-pointer">
-          <img src={news.thumbnail} alt="thumbnail" className="max-h-[230px] w-full object-cover" />
+          <div className="max-h-[230px] w-full aspect-[2/1.5] relative">
+            <Image src={news.thumbnail} alt="thumbnail" layout="fill" />
+          </div>
           <p className="text-sm text-[#667085] mt-8">{news.date}</p>
           <p className="mt-3 text-xl font-medium md:text-2xl">{news.title}</p>
           <p className="text-sm md:text-báe mt-3 text-[#878A99]">{news.shortDescription}</p>

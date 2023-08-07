@@ -1,4 +1,5 @@
 import useTranslation from '@/hooks/useTranslation'
+import Image from 'next/image'
 import Carousel from 'react-multi-carousel'
 
 const partners = ['alibaba', 'aws', 'azure', 'gg', 'huawei', 'tencent']
@@ -48,11 +49,13 @@ function Partner() {
           >
             {partners.map((partner) => (
               <div key={partner} className="px-4 md:px-0">
-                <img
-                  className="w-44"
-                  src={`/images/opsrun/partners/${partner}.png`}
-                  alt={partner}
-                />
+                <div className="w-44 relative aspect-[2/1.5]">
+                  <Image
+                    layout="fill"
+                    src={`/images/opsrun/partners/${partner}.png`}
+                    alt={partner}
+                  />
+                </div>
               </div>
             ))}
           </Carousel>

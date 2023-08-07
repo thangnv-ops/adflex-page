@@ -1,8 +1,9 @@
-import useTranslation from '@/hooks/useTranslation'
 import Title from '../Title'
 import CPASolution from './CPASolution'
 import OpsRunSolution from './OpsRunSolution'
 import PushtimizeSolution from './PushtimizeSolution'
+/* eslint-disable @next/next/no-img-element */
+import useTranslation from '@/hooks/useTranslation'
 
 function Solution() {
   const result = useTranslation(['Giải pháp của chúng tôi'])
