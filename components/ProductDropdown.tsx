@@ -1,15 +1,14 @@
-import useTranslation from '@/hooks/useTranslation'
-import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
+
 import ArrowDropdownIcon from './icons/ArrowDropdownIcon'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import useTranslation from '@/hooks/useTranslation'
 
 function DropDownItem({ label = '', href = '' }: { label: string; href: string }) {
   return (
     <Link href={href || '/'}>
-      <a>
-        <div className="px-2 hover:text-primary">{label}</div>
-      </a>
+      <div className="px-2 hover:text-primary">{label}</div>
     </Link>
   )
 }

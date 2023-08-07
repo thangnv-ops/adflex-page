@@ -96,14 +96,12 @@ function PushtimizeSolution() {
                     </div>
                     <div className="flex justify-end">
                       <Link href="/pushtimize">
-                        <a>
-                          <PrimaryBtn className="mt-8">
-                            <div className="flex items-center gap-2">
-                              <p className="text-white">{translateRes[4]}</p>
-                              <UpRightArrow />
-                            </div>
-                          </PrimaryBtn>
-                        </a>
+                        <PrimaryBtn className="mt-8">
+                          <div className="flex items-center gap-2">
+                            <p className="text-white">{translateRes[4]}</p>
+                            <UpRightArrow />
+                          </div>
+                        </PrimaryBtn>
                       </Link>
                     </div>
                   </div>

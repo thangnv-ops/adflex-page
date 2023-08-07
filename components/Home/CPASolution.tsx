@@ -73,14 +73,12 @@ AppsFlyer xếp hạng top 6 trên toàn Đông Nam Á về chất lượng CPA.
                     <p className="text-[32px] font-medium mt-4">{translationResult[0]}</p>
                     <p className="mt-4">{translationResult[2]}</p>
                     <Link href="/cpa">
-                      <a>
-                        <PrimaryBtn className="mt-8 md:mt-24">
-                          <div className="flex items-center gap-2">
-                            <p className="text-white">{translationResult[3]}</p>
-                            <UpRightArrow />
-                          </div>
-                        </PrimaryBtn>
-                      </a>
+                      <PrimaryBtn className="mt-8 md:mt-24">
+                        <div className="flex items-center gap-2">
+                          <p className="text-white">{translationResult[3]}</p>
+                          <UpRightArrow />
+                        </div>
+                      </PrimaryBtn>
                     </Link>
                   </div>
                   <div onClick={close} className="w-10 cursor-pointer">

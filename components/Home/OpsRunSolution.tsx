@@ -95,14 +95,12 @@ function OpsRunSolution() {
                       ))}
                     </div>
                     <Link href="/opsrun">
-                      <a>
-                        <PrimaryBtn className="mt-8">
-                          <div className="flex items-center gap-2">
-                            <p className="text-white">{translateResult[4]}</p>
-                            <UpRightArrow />
-                          </div>
-                        </PrimaryBtn>
-                      </a>
+                      <PrimaryBtn className="mt-8">
+                        <div className="flex items-center gap-2">
+                          <p className="text-white">{translateResult[4]}</p>
+                          <UpRightArrow />
+                        </div>
+                      </PrimaryBtn>
                     </Link>
                   </div>
                   <div onClick={close} className="w-10 cursor-pointer">

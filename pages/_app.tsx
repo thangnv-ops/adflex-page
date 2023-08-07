@@ -1,20 +1,20 @@
-import store from '@/redux/store'
-import { NextPage } from 'next'
-import type { AppProps } from 'next/app'
-import { ReactElement, ReactNode } from 'react'
-import { CookiesProvider } from 'react-cookie'
-import { Provider } from 'react-redux'
-import { ToastContainer } from 'react-toastify'
-
-import '../styles/globals.css'
-import '../styles/blog-detail.css'
-
 import '@reach/dialog/styles.css'
 import 'aos/dist/aos.css'
 import 'react-multi-carousel/lib/styles.css'
 import 'react-toastify/dist/ReactToastify.css'
+import '../styles/blog-detail.css'
+import '../styles/globals.css'
 
+import { ReactElement, ReactNode } from 'react'
+
+import store from '@/redux/store'
+import { NextUIProvider } from '@nextui-org/react'
+import { NextPage } from 'next'
+import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import { CookiesProvider } from 'react-cookie'
+import { Provider } from 'react-redux'
+import { ToastContainer } from 'react-toastify'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -55,7 +55,9 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
       <Provider store={store}>
         <ToastContainer autoClose={3000} position="top-center" style={{ zIndex: 1000000 }} />
-        <CookiesProvider>{getLayout(<Component {...pageProps} />)}</CookiesProvider>
+        <CookiesProvider>
+          <NextUIProvider>{getLayout(<Component {...pageProps} />)}</NextUIProvider>
+        </CookiesProvider>
       </Provider>
     </>
   )

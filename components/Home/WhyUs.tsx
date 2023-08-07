@@ -106,7 +106,11 @@ function WhyUs() {
             focusId={STAR}
           />
         </div>
-        <div data-aos="fade-up" data-aos-duration="700" className="relative hidden md:block">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="700"
+          className="relative w-full aspect-square hidden md:block"
+        >
           <Image layout="fill" src="/images/whyus-img.png" alt="whyus" />
           <CpuWithBgIcon className="smooth-transform grayscale-[0.4] w-12 md:w-16 absolute top-[70px] left-[70px] md:top-[98px] md:left-[98px]" />
           <PersonWithBgIcon className="smooth-transform grayscale-[0.4] w-12 md:w-16 absolute top-[70px] right-[85px] md:top-[98px] md:right-[110px]" />

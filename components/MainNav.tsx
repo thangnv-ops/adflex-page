@@ -1,8 +1,8 @@
-import useTranslation from '@/hooks/useTranslation'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
+
 import BriefUsModal from './BriefUsModal'
 import Line from './Line'
+import Link from 'next/link'
 import Logo from './Logo'
 import LogoBlack from './LogoBlack'
 import MobileNav from './MobileNav'
@@ -10,6 +10,7 @@ import ProductDropdown from './ProductDropdown'
 import SecondaryBtn from './SecondaryBtn'
 import SelectLanguageDropDown from './SelectLanguageDropDown'
 import UpRightArrow from './icons/UpRightArrow'
+import useTranslation from '@/hooks/useTranslation'
 
 function Item({
   children,
@@ -22,13 +23,9 @@ function Item({
 }) {
   return (
     <Link href={href || '/'}>
-      <a>
-        <p
-          className={`${isChange ? 'text-black' : 'text-white'} hover:text-primary cursor-pointer`}
-        >
-          {children}
-        </p>
-      </a>
+      <p className={`${isChange ? 'text-black' : 'text-white'} hover:text-primary cursor-pointer`}>
+        {children}
+      </p>
     </Link>
   )
 }
@@ -62,13 +59,11 @@ function MainNav() {
         >
           <div className="flex items-center gap-10">
             <Link href="/">
-              <a>
-                {isChange ? (
-                  <LogoBlack className="w-[127px] h-10" />
-                ) : (
-                  <Logo className="w-[127px] h-10" />
-                )}
-              </a>
+              {isChange ? (
+                <LogoBlack className="w-[127px] h-10" />
+              ) : (
+                <Logo className="w-[127px] h-10" />
+              )}
             </Link>
 
             <div

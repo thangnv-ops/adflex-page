@@ -1,8 +1,7 @@
-import React from 'react'
-import Title from '../Title'
-import PrimaryBtn from '../PrimaryBtn'
-import Line from '../Line'
 import Link from 'next/link'
+import Line from '../Line'
+import PrimaryBtn from '../PrimaryBtn'
+import Title from '../Title'
 import SubmitCVModal from './SubmitCVModal'
 
 const listJobs = [
@@ -85,9 +84,7 @@ function ListJobs() {
                   </p>
                 </div>
                 <Link href="/jobs/1">
-                  <a>
-                    <PrimaryBtn className="w-[160px] h-10">Chi tiết</PrimaryBtn>
-                  </a>
+                  <PrimaryBtn className="w-[160px] h-10">Chi tiết</PrimaryBtn>
                 </Link>
               </div>
               <Line data-aos="fade-up" data-aos-duration="700" className="bg-[#D0D5DD] mt-10" />
