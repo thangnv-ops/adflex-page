@@ -10,7 +10,9 @@ import {
   NavbarMenuToggle,
 } from '@nextui-org/react'
 
+import { TOKEN_COOKIE_KEY } from '@/lib'
 import React from 'react'
+import { useCookies } from 'react-cookie'
 import LogoBlack from '../LogoBlack'
 
 export const NavbarAdmin = () => {
@@ -34,6 +36,12 @@ export const NavbarAdmin = () => {
       link: '/admin/jobs',
     },
   ]
+
+  const [, , removeCookie] = useCookies([TOKEN_COOKIE_KEY])
+
+  const handleSignOut = () => {
+    removeCookie(TOKEN_COOKIE_KEY)
+  }
 
   return (
     <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
@@ -60,8 +68,8 @@ export const NavbarAdmin = () => {
 
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} href="#" variant="flat">
-            Sign Up
+          <Button onPress={handleSignOut} href="#" variant="flat">
+            Sign out
           </Button>
         </NavbarItem>
       </NavbarContent>

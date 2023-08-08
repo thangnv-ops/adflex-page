@@ -55,6 +55,18 @@ const slides = [
   },
 ]
 
+const TextItem = ({ slide }: { slide: { title: string; description: string } }) => {
+  const tranTitle = useTranslation([slide.title])
+  const tranDes = useTranslation([slide.description])
+
+  return (
+    <>
+      <p className="text-2xl md:text-[40px] text-center">{tranTitle}</p>
+      <p className="text-sm md:text-lg max-w-[604px] text-center">{tranDes}</p>
+    </>
+  )
+}
+
 function Plant() {
   const carouselRef = useRef(null)
   const [activatingSlide, setActivatingSlide] = useState(0)
@@ -65,13 +77,6 @@ function Plant() {
   }
 
   const tranRes = useTranslation(['Đăng ký ngay'])
-
-  const transTitle = useTranslation(slides.map((item) => item.title))
-  const transDes = useTranslation(slides.map((item) => item.description))
-
-  const afterTranSlide = slides.map((item, index) => {
-    return { ...item, title: transTitle[index], description: transDes[index] }
-  })
 
   return (
     <div
@@ -106,7 +111,7 @@ function Plant() {
             setActivatingSlide(indexNextSlide)
           }}
         >
-          {afterTranSlide.map((slide, index) => (
+          {slides.map((slide, index) => (
             <div
               key={`plant-${index}`}
               style={{
@@ -118,8 +123,7 @@ function Plant() {
               className="flex items-center justify-center min-h-[320px] rounded-2xl"
             >
               <div className="flex flex-col items-center gap-4">
-                <p className="text-2xl md:text-[40px] text-center">{slide.title}</p>
-                <p className="text-sm md:text-lg max-w-[604px] text-center">{slide.description}</p>
+                <TextItem slide={slide} />
                 <BriefUsModal>
                   <SecondaryBtn className="w-[180px]">{tranRes[0]}</SecondaryBtn>
                 </BriefUsModal>
