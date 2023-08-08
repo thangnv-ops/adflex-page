@@ -27,7 +27,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const response = getTranslate.data
     res.status(200).send(response)
   } catch (err) {
-    console.log(err)
     res.status(400).send(err)
   }
 }

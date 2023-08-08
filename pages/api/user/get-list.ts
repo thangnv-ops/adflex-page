@@ -11,6 +11,6 @@ import { wrapperEndpoint } from 'common-abstract-fares-system'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const service = new UserService()
-  const result = await wrapperEndpoint(req, 'POST', service.getListUsers(req))
+  const result = await wrapperEndpoint(req, 'GET', service.getListUsers(req))
   res.status(200).json(result)
 }

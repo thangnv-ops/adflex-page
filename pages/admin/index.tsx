@@ -1,8 +1,9 @@
-import { MainLayout } from '@/components/Admin'
+import { AdminDashboard, MainLayout } from '@/components/Admin'
+
 import { NextPageWithLayout } from '../_app'
 
 const admin: NextPageWithLayout = () => {
-  return <>admin</>
+  return <AdminDashboard />
 }
 
 admin.getLayout = (page) => {

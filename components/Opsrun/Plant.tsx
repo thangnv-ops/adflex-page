@@ -1,5 +1,6 @@
-import useTranslation from '@/hooks/useTranslation'
 import { useRef, useState } from 'react'
+
+import useTranslation from '@/hooks/useTranslation'
 import Carousel from 'react-multi-carousel'
 import BriefUsModal from '../BriefUsModal'
 import SecondaryBtn from '../SecondaryBtn'
@@ -59,7 +60,6 @@ function Plant() {
   const [activatingSlide, setActivatingSlide] = useState(0)
 
   const goToSlide = (slideIndex: number) => {
-    console.log('oke')
     setActivatingSlide(slideIndex)
     carouselRef.current?.goToSlide(slideIndex + 2, true)
   }

@@ -4,7 +4,8 @@ import { NavbarAdmin } from './NavbarAdmin'
 export const MainLayout = ({ children }: { children: ReactNode }) => {
   return (
     <>
-      <NavbarAdmin /> {children}
+      <NavbarAdmin />
+      <div className="p-10">{children}</div>
     </>
   )
 }
