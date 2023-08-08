@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -48,10 +49,13 @@ const listFAQ = [
   },
 ]
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
+function FAQItem({ question, answer, id }: { question: string; answer: string; id: string }) {
   const [ispExpanded, setIspExpanded] = useState(false)
-
-  const tranRes = useTranslation([question, answer])
+  const content = useGetContent({
+    componentName: `${FAQItem.name}-${id}`,
+    defaultValue: [question, answer],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div className="py-6 border-b border-white border-opacity-20">
@@ -102,7 +106,11 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 function FAQs() {
-  const tranRes = useTranslation(['Có thể bạn quan tâm?', 'Đăng ký liên hệ hợp tác'])
+  const content = useGetContent({
+    componentName: FAQs.name,
+    defaultValue: ['Có thể bạn quan tâm?', 'Đăng ký liên hệ hợp tác'],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div className="bg-[#0F0F0F] py-20 overflow-hidden">
@@ -117,7 +125,7 @@ function FAQs() {
         <div className="relative z-10 mt-10">
           {listFAQ.map((faq) => (
             <div key={faq.id} data-aos="fade-up" data-aos-duration="700">
-              <FAQItem question={faq.question} answer={faq.answer} />
+              <FAQItem question={faq.question} answer={faq.answer} id={faq.id} />
             </div>
           ))}
           <BriefUsModal>

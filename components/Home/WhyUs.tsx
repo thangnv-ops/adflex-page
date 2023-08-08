@@ -1,3 +1,4 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
 import { ReactNode } from 'react'
@@ -72,7 +73,11 @@ function Item({
 }
 
 function WhyUs() {
-  const transRes = useTranslation(['Tại sao ', 'lựa chọn chúng tôi?'])
+  const content = useGetContent({
+    componentName: WhyUs.name,
+    defaultValue: ['Tại sao ', 'lựa chọn chúng tôi?'],
+  })
+  const transRes = useTranslation(content)
   const { CPU, PERSON, STAR, TROPHY } = ICON_ID
   return (
     <div className="max-w-maxContent mx-auto px-4 py-10 md:py-[120px] text-black">

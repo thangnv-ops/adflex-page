@@ -15,6 +15,17 @@ export const userEndpoints: EndPointObject = {
   },
 }
 
+export const contentEndpoints: EndPointObject = {
+  baseUrl: '/api/content',
+  child: {
+    authLogin: '/login',
+    getList: '/get-list',
+    add: '/add-new',
+    update: '/update-content',
+    delete: '/delete-content',
+  },
+}
+
 export const getEndpoint = (
   endpointObject: EndPointObject,
   target: keyof typeof endpointObject.child

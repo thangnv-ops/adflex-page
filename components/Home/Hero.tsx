@@ -1,3 +1,4 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import Image from 'next/image'
 import Line from '../Line'
 import Title from '../Title'
@@ -5,14 +6,19 @@ import Title from '../Title'
 import useTranslation from '@/hooks/useTranslation'
 
 function Hero() {
-  const result = useTranslation([
-    'Tối ưu hóa hoạt động',
-    'Marketing',
-    'và',
-    'Chuyển đổi số',
-    'cho doanh nghiệp',
-    'Với sức mạnh công nghệ vượt trội, AdFlex được xếp hạng Top 6 Mobile Marketing Agency về sản lượng và chất lượng dịch vụ trên toàn Đông Nam Á và được 100.000+ đối tác tin tưởng sử dụng giải pháp.',
-  ])
+  const content = useGetContent({
+    componentName: Hero.name,
+    defaultValue: [
+      'Tối ưu hóa hoạt động',
+      'Marketing',
+      'và',
+      'Chuyển đổi số',
+      'cho doanh nghiệp',
+      'Với sức mạnh công nghệ vượt trội, AdFlex được xếp hạng Top 6 Mobile Marketing Agency về sản lượng và chất lượng dịch vụ trên toàn Đông Nam Á và được 100.000+ đối tác tin tưởng sử dụng giải pháp.',
+    ],
+  })
+
+  const result = useTranslation(content)
 
   return (
     <div

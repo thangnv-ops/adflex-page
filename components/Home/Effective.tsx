@@ -1,3 +1,4 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import BriefUsModal from '../BriefUsModal'
 import Line from '../Line'
@@ -29,15 +30,24 @@ const effectives = [
 ]
 
 function Effective() {
-  const tranRes = useTranslation([
-    'Hiệu quả AdFlex',
-    'mang lại cho khách hàng',
-    ` Với khả năng làm việc chuyên nghiệp cùng công nghệ vượt trội cho phép AdFlex giải quyết
-    mọi vấn đề khó khăn nhất trong quá trình chinh phục KPI tiếp cận khách hàng cũng như
-    quản trị doanh nghiệp của đối tác trên mọi lĩnh vực`,
-  ])
+  const content = useGetContent({
+    componentName: Effective.name,
+    defaultValue: [
+      'Hiệu quả AdFlex',
+      'mang lại cho khách hàng',
+      ` Với khả năng làm việc chuyên nghiệp cùng công nghệ vượt trội cho phép AdFlex giải quyết
+      mọi vấn đề khó khăn nhất trong quá trình chinh phục KPI tiếp cận khách hàng cũng như
+      quản trị doanh nghiệp của đối tác trên mọi lĩnh vực`,
+    ],
+  })
+  const tranRes = useTranslation(content)
 
-  const transEffRes = useTranslation([...effectives.map((item) => item.description)])
+  const contentEffective = useGetContent({
+    componentName: `${Effective.name}-Content`,
+    defaultValue: [...effectives.map((item) => item.description)],
+  })
+
+  const transEffRes = useTranslation(contentEffective)
 
   const afterTrans = effectives.map((item, index) => {
     return { ...item, description: transEffRes[index] }

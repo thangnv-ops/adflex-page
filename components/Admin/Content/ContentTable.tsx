@@ -1,5 +1,7 @@
-import { getEndpoint, userEndpoints } from '@/lib/endpoints'
+import { contentEndpoints, getEndpoint } from '@/lib/endpoints'
 import {
+  Button,
+  ButtonGroup,
   Card,
   CardBody,
   Divider,
@@ -15,39 +17,37 @@ import {
 } from '@nextui-org/react'
 import { useEffect, useState } from 'react'
 
-import { UserReq } from '@/backend/service/user-service/user-req'
-import { UserRes } from '@/backend/service/user-service/user-res'
+import { ContentReq } from '@/backend/service/content-service/content-req'
+import { ContentRes } from '@/backend/service/content-service/content-res'
 import { useApiCall } from '@/hooks/useCallApi'
 import axios from 'axios'
 import { CommonListResult } from 'common-abstract-fares-system'
 import { toast } from 'react-toastify'
-import { CreateUser } from './CreateUser'
-import { UpdateUser } from './UpdateUser'
+import { CreateContent } from './CreateContent'
+import { UpdateContent } from './UpdateContent'
 
 const columns = [
   {
-    key: 'name',
-    label: 'NAME',
+    key: 'route',
+    label: 'Route',
   },
   {
-    key: 'username',
-    label: 'USERNAME',
+    key: 'componentName',
+    label: 'Component name',
   },
   {
-    key: 'phone',
-    label: 'PHONE',
-  },
-  {
-    key: 'email',
-    label: 'EMAIL',
+    key: 'content',
+    label: 'Content',
   },
 ]
-
-export const UserTable = () => {
-  const [selected, setSelected] = useState<UserRes | undefined>()
+export const ContentTable = () => {
+  const [selected, setSelected] = useState<ContentRes | undefined>()
+  const [route, setRoute] = useState('/')
   const [page, setPage] = useState(1)
-  const getList = useApiCall<CommonListResult<UserRes>, string>({
-    callApi: () => axios.get(`${getEndpoint(userEndpoints, 'getList')}?page=${page}&size=10`),
+
+  const getList = useApiCall<CommonListResult<ContentRes>, string>({
+    callApi: () =>
+      axios.get(`${getEndpoint(contentEndpoints, 'getList')}?route=${route}&page=${page}&size=10`),
     handleError(status, message) {
       toast.error(message)
     },
@@ -61,44 +61,48 @@ export const UserTable = () => {
 
   useEffect(() => {
     handleCallList()
-  }, [page])
+  }, [route, page])
 
   const handleSelected = (keys: Selection) => {
     const id = Array.from(keys)[0]
     setSelected(data.result.data.find((item) => item._id === id))
   }
 
-  const getSelectedReq = (): UserReq => {
+  const getSelectedReq = (): ContentReq => {
     if (selected) {
       return {
-        username: selected.username,
-        name: selected.name,
-        email: selected.email,
-        phone: selected.phone,
+        route: selected.route,
+        componentName: selected.componentName,
+        content: selected.content,
       }
     }
     return {
-      name: '',
-      username: '',
-      email: '',
-      phone: '',
+      route: '',
+      componentName: '',
+      content: [],
     }
   }
 
-  const selectedUser = getSelectedReq()
+  const selectedContent = getSelectedReq()
 
   return (
     <>
       <div className="flex h-5 items-center space-x-4 text-small">
-        <CreateUser callList={handleCallList} />
+        <CreateContent callList={handleCallList} />
         <Divider orientation="vertical" />
-        <UpdateUser
+        <UpdateContent
           id={selected?._id}
           callList={handleCallList}
-          userState={selectedUser}
-          disable={!selected || !selectedUser.email}
+          contentState={selectedContent}
+          disable={!selected || !selectedContent.content}
         />
       </div>
+      <Divider className="my-4" />
+      <ButtonGroup>
+        <Button onPress={() => setRoute('/')}>Home</Button>
+        <Button onPress={() => setRoute('/cpa')}>Cpa</Button>
+        <Button>Three</Button>
+      </ButtonGroup>
       <Divider className="my-4" />
       <Table
         color="primary"
@@ -109,7 +113,7 @@ export const UserTable = () => {
         <TableHeader columns={columns}>
           {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
         </TableHeader>
-        <TableBody items={data?.result?.data || []} emptyContent="No users">
+        <TableBody items={data?.result?.data || []} emptyContent="No contents">
           {(item) => (
             <TableRow key={item._id}>
               {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}

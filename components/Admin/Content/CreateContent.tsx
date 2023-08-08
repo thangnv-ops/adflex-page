@@ -1,5 +1,5 @@
-import { UserReq, UserReqError } from '@/backend/service/user-service/user-req'
-import { getEndpoint, userEndpoints } from '@/lib/endpoints'
+import { ContentReq, ContentReqError } from '@/backend/service/content-service/content-req'
+import { contentEndpoints, getEndpoint } from '@/lib/endpoints'
 import {
   Button,
   Modal,
@@ -14,24 +14,23 @@ import { useApiCall } from '@/hooks/useCallApi'
 import axios from 'axios'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { UserFrom } from './UserFrom'
+import { ContentForm } from './ContentFrom'
 
-interface ICreateUser {
+interface ICreateContent {
   callList: () => void
 }
 
-export const CreateUser = ({ callList }: ICreateUser) => {
+export const CreateContent = ({ callList }: ICreateContent) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
-  const [user, setUser] = useState<UserReq>({
-    name: '',
-    username: '',
-    email: '',
-    phone: '',
+  const [content, setContent] = useState<ContentReq>({
+    route: '',
+    componentName: '',
+    content: [],
   })
 
-  const addUser = useApiCall<string, UserReqError>({
-    callApi: () => axios.post(getEndpoint(userEndpoints, 'add'), user),
+  const addContent = useApiCall<string, ContentReqError>({
+    callApi: () => axios.post(getEndpoint(contentEndpoints, 'add'), content),
     handleError(status, message) {
       if (status !== 400) {
         toast.error(message)
@@ -40,30 +39,33 @@ export const CreateUser = ({ callList }: ICreateUser) => {
     handleSuccess(message) {
       toast.success(message)
       onOpenChange()
-      setUser({
-        name: '',
-        username: '',
-        email: '',
-        phone: '',
+      setContent({
+        route: '',
+        componentName: '',
+        content: [],
       })
       callList()
     },
   })
 
   const handleCreate = () => {
-    addUser.setLetCall(true)
+    addContent.setLetCall(true)
   }
 
   return (
     <>
-      <Button onPress={onOpen}>Create user</Button>
+      <Button onPress={onOpen}>Create content</Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">Create user</ModalHeader>
+              <ModalHeader className="flex flex-col gap-1">Create content</ModalHeader>
               <ModalBody>
-                <UserFrom user={user} setUser={setUser} error={addUser.error?.result} />
+                <ContentForm
+                  content={content}
+                  setContent={setContent}
+                  error={addContent.error?.result}
+                />
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onClick={onClose}>

@@ -1,3 +1,4 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import Title from '../Title'
 import CPASolution from './CPASolution'
 import OpsRunSolution from './OpsRunSolution'
@@ -6,7 +7,11 @@ import PushtimizeSolution from './PushtimizeSolution'
 import useTranslation from '@/hooks/useTranslation'
 
 function Solution() {
-  const result = useTranslation(['Giải pháp của chúng tôi'])
+  const content = useGetContent({
+    componentName: Solution.name,
+    defaultValue: ['Giải pháp của chúng tôi'],
+  })
+  const result = useTranslation(content)
   return (
     <div className="px-4 mx-auto max-w-maxContent">
       <Title className="mt-14">{result[0]}</Title>

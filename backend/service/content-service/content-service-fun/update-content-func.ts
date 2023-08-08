@@ -43,7 +43,9 @@ export const updateContentFunc = async (
       status: 404,
     }
   }
-  const { error } = await repository.insert([{ ...findContent.result, ...req }])
+  const { error } = await repository.update([
+    { ...findContent.result, ...req, content: req.content.filter((item) => item.length > 0) },
+  ])
   if (error) {
     return {
       status: 500,

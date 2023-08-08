@@ -33,7 +33,15 @@ function SelectLanguageDropDown({
   const [isOpen, toggleOpen] = useState(false)
   const [languageSelected, setLanguageSelected] = useState(languages[1])
 
-  const [, setCookies] = useCookies([LANGUAGE_COOKIE_KEY])
+  const [cookies, setCookies] = useCookies([LANGUAGE_COOKIE_KEY])
+
+  useEffect(() => {
+    if (cookies.language && cookies.language === 'en') {
+      setLanguageSelected(languages[0])
+    } else {
+      setLanguageSelected(languages[1])
+    }
+  }, [])
 
   const toggleOpenMenu = () => {
     toggleOpen(!isOpen)

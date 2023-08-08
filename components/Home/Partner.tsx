@@ -1,3 +1,4 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
 import Carousel from 'react-multi-carousel'
@@ -24,7 +25,11 @@ const responsiveCarouselTournaments = {
 }
 
 function Partner() {
-  const tranRes = useTranslation(['Đối tác của chúng tôi'])
+  const content = useGetContent({
+    componentName: Partner.name,
+    defaultValue: ['Đối tác của chúng tôi'],
+  })
+  const tranRes = useTranslation(content)
   return (
     <div>
       <div data-aos="fade-up" data-aos-duration="700" className="px-4 mx-auto max-w-maxContent">
@@ -49,12 +54,7 @@ function Partner() {
           >
             {partners.map((partner) => (
               <div className="w-44 relative aspect-[2/1.5]">
-                <Image
-                  layout="fill"
-                  key={partner}
-                  src={`/images/partners/${partner}.png`}
-                  alt={partner}
-                />
+                <Image fill key={partner} src={`/images/partners/${partner}.png`} alt={partner} />
               </div>
             ))}
           </Carousel>

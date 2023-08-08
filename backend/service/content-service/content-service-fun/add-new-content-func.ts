@@ -19,7 +19,9 @@ export const addNewContentFunc = async (
     }
   }
   const entity = convertValue<Content>(req, new Content())
-  const { error } = await repository.insert([{ ...entity }])
+  const { error } = await repository.insert([
+    { ...entity, content: req.content.filter((item) => item.length > 0) },
+  ])
   if (error) {
     return {
       status: 500,
