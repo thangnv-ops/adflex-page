@@ -117,6 +117,7 @@ function MobileNav() {
     'Giải pháp Pushtimize',
     'Giải pháp Opsrun',
     'Liên hệ',
+    'Tuyển dụng',
   ])
 
   return (
@@ -175,6 +176,11 @@ function MobileNav() {
                   label="Blogs"
                   href="/blog"
                   isActive={router?.asPath.includes('/blog')}
+                />
+                <MobileMenuItem
+                  label={tranRes[5]}
+                  href="/jobs"
+                  isActive={router?.asPath.includes('/jobs')}
                 />
                 <BriefUsModal>
                   <SecondaryBtn>

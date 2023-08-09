@@ -33,7 +33,7 @@ function Item({
 function MainNav() {
   const [isChange, setIsChange] = useState(false)
 
-  const tranRes = useTranslation(['Trang chủ', 'Liên hệ'])
+  const tranRes = useTranslation(['Trang chủ', 'Liên hệ', 'Tuyển dụng'])
 
   function changeColorNav() {
     if (window.scrollY > 160) {
@@ -80,6 +80,9 @@ function MainNav() {
               </Item>
               <Item isChange={isChange} href="/blog">
                 Blogs
+              </Item>
+              <Item isChange={isChange} href="/jobs">
+                {tranRes[2]}
               </Item>
             </div>
           </div>
@@ -134,6 +137,9 @@ function MainNav() {
         <Item href="/contact">{tranRes[1]}</Item>
         <Item isChange={isChange} href="/blog">
           Blogs
+        </Item>
+        <Item isChange={isChange} href="/jobs">
+          {tranRes[2]}
         </Item>
       </div>
     </div>

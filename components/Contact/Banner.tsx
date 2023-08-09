@@ -1,5 +1,6 @@
 import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
+import { useRouter } from 'next/router'
 import SecondaryBtn from '../SecondaryBtn'
 
 function Banner() {
@@ -12,6 +13,8 @@ function Banner() {
     ],
   })
   const tranRes = useTranslation(content)
+
+  const router = useRouter()
 
   return (
     <div className="px-4 mx-auto mt-32 max-w-maxContent">
@@ -29,7 +32,9 @@ function Banner() {
         <div className="flex flex-col items-center gap-4">
           <p className="text-[30px] md:text-[40px] text-center">{tranRes[0]}</p>
           <p className="text-sm md:text-lg max-w-[604px] text-center">{tranRes[1]}</p>
-          <SecondaryBtn className="w-[180px]">{tranRes[2]}</SecondaryBtn>
+          <SecondaryBtn className="w-[180px]" onClick={() => router.push('/jobs')}>
+            {tranRes[2]}
+          </SecondaryBtn>
         </div>
       </div>
     </div>
