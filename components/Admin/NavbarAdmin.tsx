@@ -68,7 +68,7 @@ export const NavbarAdmin = () => {
 
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button onPress={handleSignOut} href="#" variant="flat">
+          <Button onClick={handleSignOut} variant="flat">
             Sign out
           </Button>
         </NavbarItem>

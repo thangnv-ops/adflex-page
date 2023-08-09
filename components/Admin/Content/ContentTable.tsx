@@ -88,30 +88,34 @@ export const ContentTable = () => {
 
   return (
     <>
-      <div className="flex h-5 items-center space-x-4 text-small">
-        <CreateContent callList={handleCallList} />
-        <Divider orientation="vertical" />
-        <UpdateContent
-          id={selected?._id}
-          callList={handleCallList}
-          contentState={selectedContent}
-          disable={!selected || !selectedContent.content}
-        />
-        <Divider orientation="vertical" />
-        <DeleteContent
-          id={selected?._id}
-          callList={handleCallList}
-          disable={!selected || !selectedContent.content}
-        />
+      <div className="flex h-14 items-center text-small min-w-[300px] overflow-auto">
+        <div className="flex items-center gap-4 w-content h-full">
+          <CreateContent callList={handleCallList} />
+          <Divider orientation="vertical" />
+          <UpdateContent
+            id={selected?._id}
+            callList={handleCallList}
+            contentState={selectedContent}
+            disable={!selected || !selectedContent.content}
+          />
+          <Divider orientation="vertical" />
+          <DeleteContent
+            id={selected?._id}
+            callList={handleCallList}
+            disable={!selected || !selectedContent.content}
+          />
+        </div>
       </div>
       <Divider className="my-4" />
-      <ButtonGroup>
-        <Button onPress={() => setRoute('/')}>Home</Button>
-        <Button onPress={() => setRoute('/cpa')}>Cpa</Button>
-        <Button onPress={() => setRoute('/pushtimize')}>Pushtimize</Button>
-        <Button onPress={() => setRoute('/opsrun')}>OpsRun</Button>
-        <Button onPress={() => setRoute('/contact')}>Contact</Button>
-      </ButtonGroup>
+      <div className="min-w-[300px] h-14 overflow-x-auto">
+        <ButtonGroup>
+          <Button onPress={() => setRoute('/')}>Home</Button>
+          <Button onPress={() => setRoute('/cpa')}>Cpa</Button>
+          <Button onPress={() => setRoute('/pushtimize')}>Pushtimize</Button>
+          <Button onPress={() => setRoute('/opsrun')}>OpsRun</Button>
+          <Button onPress={() => setRoute('/contact')}>Contact</Button>
+        </ButtonGroup>
+      </div>
       <Divider className="my-4" />
       <Table
         color="primary"

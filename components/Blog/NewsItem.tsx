@@ -15,8 +15,10 @@ export function NewsItem({ news }: { news: News }) {
   return (
     <Link href="/blog/1">
       <div className="cursor-pointer">
-        <div className="max-h-[230px] w-full aspect-[2/1.5] relative">
-          <Image src={news.thumbnail} alt="thumbnail" fill />
+        <div className="max-h-[230px] w-full aspect-[2/1.5] overflow-hidden">
+          <div className=" relative">
+            <Image src={news.thumbnail} alt="thumbnail" width={500} height={500} />
+          </div>
         </div>
         <p className="text-sm text-[#667085] mt-8">{news.date}</p>
         <p className="mt-3 text-xl font-medium md:text-2xl">{news.title}</p>

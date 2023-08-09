@@ -1,13 +1,13 @@
 import Blog from '@/components/Blog/Blog'
 import Layout from '@/components/Layout'
-import React from 'react'
+import { NextPageWithLayout } from '../_app'
 
-function index() {
-  return (
-    <Layout>
-      <Blog />
-    </Layout>
-  )
+const index: NextPageWithLayout = () => {
+  return <Blog />
+}
+
+index.getLayout = (page) => {
+  return <Layout>{page}</Layout>
 }
 
 export default index
