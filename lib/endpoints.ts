@@ -35,6 +35,16 @@ export const blogEndpoints: EndPointObject = {
   },
 }
 
+export const jobEndpoints: EndPointObject = {
+  baseUrl: '/api/job',
+  child: {
+    getList: '/get-list',
+    add: '/add-new',
+    update: '/update-job',
+    delete: '/delete-job',
+  },
+}
+
 export const getEndpoint = (
   endpointObject: EndPointObject,
   target: keyof typeof endpointObject.child

@@ -1,13 +1,13 @@
 import JobDetails from '@/components/Jobs/JobDetails'
 import Layout from '@/components/Layout'
-import React from 'react'
+import { NextPageWithLayout } from '../_app'
 
-function index() {
-  return (
-    <Layout>
-      <JobDetails />
-    </Layout>
-  )
+const jobDetail: NextPageWithLayout = () => {
+  return <JobDetails />
 }
 
-export default index
+jobDetail.getLayout = (page) => {
+  return <Layout>{page}</Layout>
+}
+
+export default jobDetail

@@ -25,11 +25,16 @@ const RichTextEditor = ({
   editorState: string
   disable?: boolean
 }) => {
+  const [mounted, setMounted] = useState(false)
   const getHtmlFromState = (state: EditorState) => {
     const raw = convertToRaw(state.getCurrentContent())
     const markup = draftToHtml(raw)
     return markup
   }
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const getStateFromHtml = (html: string) => {
     const blocksFromHtml = htmlToDraft(html)
@@ -42,16 +47,16 @@ const RichTextEditor = ({
   const [stateEdit, setStateEdit] = useState(EditorState.createEmpty())
 
   useEffect(() => {
-    if (!disable && getHtmlFromState(stateEdit) !== editorState) {
+    if (mounted && !disable && getHtmlFromState(stateEdit) !== editorState) {
       handleChange(getHtmlFromState(stateEdit))
     }
   }, [stateEdit])
 
   useEffect(() => {
-    if (editorState !== getHtmlFromState(stateEdit)) {
+    if (mounted && editorState !== getHtmlFromState(stateEdit)) {
       setStateEdit(getStateFromHtml(editorState))
     }
-  }, [editorState])
+  }, [editorState, mounted])
 
   return (
     <Editor

@@ -57,6 +57,7 @@ export const BlogTable = () => {
   const { data } = getList
 
   const handleCallList = () => {
+    setSelected(undefined)
     getList.setLetCall(true)
   }
 

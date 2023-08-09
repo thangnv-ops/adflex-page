@@ -1,5 +1,4 @@
-import { UserReq, UserReqError } from '@/backend/service/user-service/user-req'
-import { getEndpoint, userEndpoints } from '@/lib/endpoints'
+import { getEndpoint, jobEndpoints } from '@/lib/endpoints'
 import {
   Button,
   Modal,
@@ -11,30 +10,32 @@ import {
 } from '@nextui-org/react'
 import { useEffect, useState } from 'react'
 
+import { JobReq, JobReqError } from '@/backend/service/job-service/job-req'
 import { useApiCall } from '@/hooks/useCallApi'
 import axios from 'axios'
 import { toast } from 'react-toastify'
-import { UserFrom } from './UserForm'
+import { JobForm } from './JobForm'
 
-interface IUpdateUser {
+interface IUpdateJob {
   callList: () => void
-  userState: UserReq
+  jobState: JobReq
   disable: boolean
   id?: string
 }
 
-export const UpdateUser = ({ callList, disable, userState, id }: IUpdateUser) => {
+export const UpdateJob = ({ callList, disable, jobState, id }: IUpdateJob) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure()
 
-  const [user, setUser] = useState<UserReq>({
-    name: '',
-    username: '',
-    email: '',
-    phone: '',
+  const [job, setJob] = useState<JobReq>({
+    title: '',
+    quantity: 0,
+    content: '',
+    deadline: '',
+    salary: '',
   })
 
-  const updateUser = useApiCall<string, UserReqError>({
-    callApi: () => axios.put(`${getEndpoint(userEndpoints, 'update')}?id=${id}`, user),
+  const updateJob = useApiCall<string, JobReqError>({
+    callApi: () => axios.put(`${getEndpoint(jobEndpoints, 'update')}?id=${id}`, job),
     handleError(status, message) {
       if (status !== 400) {
         toast.error(message)
@@ -43,32 +44,41 @@ export const UpdateUser = ({ callList, disable, userState, id }: IUpdateUser) =>
     handleSuccess(message) {
       toast.success(message)
       onOpenChange()
+      setJob({
+        title: '',
+        quantity: 0,
+        content: '',
+        deadline: '',
+        salary: '',
+      })
       callList()
     },
   })
 
   useEffect(() => {
-    setUser(userState)
-    updateUser.handleReset()
-  }, [userState])
+    updateJob.handleReset()
+    setJob(jobState)
+  }, [jobState])
 
   const handleUpdate = () => {
-    updateUser.setLetCall(true)
+    updateJob.setLetCall(true)
   }
 
   return (
     <>
       <Button isDisabled={disable} onPress={onOpen}>
-        Update user
+        Update job
       </Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+      <Modal size="full" isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">Update user</ModalHeader>
-              <ModalBody>
-                <UserFrom user={user} setUser={setUser} error={updateUser.error?.result} />
-              </ModalBody>
+              <ModalHeader className="flex flex-col gap-1">Update job</ModalHeader>
+              <div className="min-w-[300px] w-auto h-[90%] overflow-auto">
+                <ModalBody>
+                  <JobForm job={job} setJob={setJob} error={updateJob.error?.result} />
+                </ModalBody>
+              </div>
               <ModalFooter>
                 <Button color="danger" variant="light" onClick={onClose}>
                   Close

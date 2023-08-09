@@ -1,4 +1,5 @@
 import { IS_REQUIRED, ObjectValidator } from 'common-abstract-fares-system'
+import { IS_TITLE } from './custom-validation/IS_TITLE'
 
 export class JobReq {
   title: string = ''
@@ -13,7 +14,7 @@ export class JobReq {
 }
 
 export const JobReqValidation: ObjectValidator<JobReq> = {
-  title: IS_REQUIRED,
+  title: IS_TITLE,
   quantity: IS_REQUIRED,
   content: IS_REQUIRED,
   deadline: IS_REQUIRED,

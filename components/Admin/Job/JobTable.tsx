@@ -1,4 +1,4 @@
-import { getEndpoint, userEndpoints } from '@/lib/endpoints'
+import { getEndpoint, jobEndpoints } from '@/lib/endpoints'
 import {
   Card,
   CardBody,
@@ -15,39 +15,40 @@ import {
 } from '@nextui-org/react'
 import { useEffect, useState } from 'react'
 
-import { UserReq } from '@/backend/service/user-service/user-req'
-import { UserRes } from '@/backend/service/user-service/user-res'
+import { JobReq } from '@/backend/service/job-service/job-req'
+import { JobRes } from '@/backend/service/job-service/job-res'
 import { useApiCall } from '@/hooks/useCallApi'
 import axios from 'axios'
 import { CommonListResult } from 'common-abstract-fares-system'
 import { toast } from 'react-toastify'
-import { CreateUser } from './CreateUser'
-import { UpdateUser } from './UpdateUser'
+import { CreateJob } from './CreateJob'
+import { DeleteJob } from './DeleteJob'
+import { UpdateJob } from './UpdateJob'
 
 const columns = [
   {
-    key: 'name',
-    label: 'NAME',
+    key: 'title',
+    label: 'Title',
   },
   {
-    key: 'username',
-    label: 'USERNAME',
+    key: 'deadline',
+    label: 'Deadline',
   },
   {
-    key: 'phone',
-    label: 'PHONE',
+    key: 'quantity',
+    label: 'Quantity',
   },
   {
-    key: 'email',
-    label: 'EMAIL',
+    key: 'salary',
+    label: 'Salary',
   },
 ]
 
-export const UserTable = () => {
-  const [selected, setSelected] = useState<UserRes | undefined>()
+export const JobTable = () => {
+  const [selected, setSelected] = useState<JobRes | undefined>()
   const [page, setPage] = useState(1)
-  const getList = useApiCall<CommonListResult<UserRes>, string>({
-    callApi: () => axios.get(`${getEndpoint(userEndpoints, 'getList')}?page=${page}&size=10`),
+  const getList = useApiCall<CommonListResult<JobRes>, string>({
+    callApi: () => axios.get(`${getEndpoint(jobEndpoints, 'getList')}?page=${page}&size=10`),
     handleError(status, message) {
       toast.error(message)
     },
@@ -69,48 +70,56 @@ export const UserTable = () => {
     setSelected(data.result.data.find((item) => item._id === id))
   }
 
-  const getSelectedReq = (): UserReq => {
+  const getSelectedReq = (): JobReq => {
     if (selected) {
       return {
-        username: selected.username,
-        name: selected.name,
-        email: selected.email,
-        phone: selected.phone,
+        title: selected.title,
+        quantity: selected.quantity,
+        content: selected.content,
+        deadline: selected.deadline,
+        salary: selected.salary,
       }
     }
     return {
-      name: '',
-      username: '',
-      email: '',
-      phone: '',
+      title: '',
+      quantity: 0,
+      content: '',
+      deadline: '',
+      salary: '',
     }
   }
 
-  const selectedUser = getSelectedReq()
+  const selectedJob = getSelectedReq()
 
   return (
     <>
       <div className="flex h-5 items-center space-x-4 text-small">
-        <CreateUser callList={handleCallList} />
+        <CreateJob callList={handleCallList} />
         <Divider orientation="vertical" />
-        <UpdateUser
+        <UpdateJob
           id={selected?._id}
           callList={handleCallList}
-          userState={selectedUser}
-          disable={!selected || !selectedUser.email}
+          jobState={selectedJob}
+          disable={!selected || !selectedJob.title}
+        />
+        <Divider orientation="vertical" />
+        <DeleteJob
+          id={selected?._id}
+          callList={handleCallList}
+          disable={!selected || !selectedJob.title}
         />
       </div>
       <Divider className="my-4" />
       <Table
         color="primary"
         selectionMode="single"
-        aria-label="UserTable"
+        aria-label="JobTable"
         onSelectionChange={handleSelected}
       >
         <TableHeader columns={columns}>
           {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
         </TableHeader>
-        <TableBody items={data?.result?.data || []} emptyContent="No users">
+        <TableBody items={data?.result?.data || []} emptyContent="No jobs">
           {(item) => (
             <TableRow key={item._id}>
               {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}

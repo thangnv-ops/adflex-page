@@ -14,7 +14,7 @@ import { useApiCall } from '@/hooks/useCallApi'
 import axios from 'axios'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { UserFrom } from './UserFrom'
+import { UserFrom } from './UserForm'
 
 interface ICreateUser {
   callList: () => void
