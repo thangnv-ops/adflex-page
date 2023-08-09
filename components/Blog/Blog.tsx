@@ -132,7 +132,7 @@ function Blog() {
           {featuredNews.slice(1, featuredNews.length).map((news) => (
             <div key={news.id} className="grid items-center gap-6 grid-cols-46">
               <div className="w-full aspect-[2/1.5] relative">
-                <Image layout="fill" src={news.thumbnail} alt="thumbnail" />
+                <Image fill src={news.thumbnail} alt="thumbnail" />
               </div>
               <div>
                 <p className="text-sm text-[#667085]">{news.date}</p>

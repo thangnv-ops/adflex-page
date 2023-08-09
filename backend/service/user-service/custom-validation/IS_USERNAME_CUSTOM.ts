@@ -22,13 +22,13 @@ export const IS_USERNAME_CUSTOM: TValidateFunction = async <T extends object>(
     if (!!params?.id && params?.id !== findUsername.result._id.toString()) {
       return {
         ...error,
-        username: 'username exited',
+        username: 'username existed',
       }
     }
     if (!params?.id) {
       return {
         ...error,
-        username: 'username exited',
+        username: 'username existed',
       }
     }
   }

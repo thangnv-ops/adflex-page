@@ -51,7 +51,7 @@ function OpsRunSolution() {
       >
         <div className="flex items-center justify-between">
           <div className="w-[152px] aspect-[2/0.5] relative">
-            <Image layout="fill" src="/images/opsrun-icon.png" alt="cpa" />
+            <Image fill src="/images/opsrun-icon.png" alt="cpa" />
           </div>
           <PlusIcon />
         </div>
@@ -82,7 +82,7 @@ function OpsRunSolution() {
                 <div className="flex items-start">
                   <div className="">
                     <div className="w-[30%] aspect-[2/0.5] relative">
-                      <Image layout="fill" src="/images/opsrun-img.png" alt="cpa" />
+                      <Image fill src="/images/opsrun-img.png" alt="cpa" />
                     </div>
                     <p className="text-[32px] font-medium mt-4">{translateResult[2]}</p>
                     <p className="mt-4">{translateResult[3]}</p>

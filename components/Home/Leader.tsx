@@ -58,7 +58,7 @@ function Leader() {
                 key={leader.id}
               >
                 <div className="w-full aspect-square relative">
-                  <Image layout="fill" src={leader.avatar} alt="avatar" />
+                  <Image fill src={leader.avatar} alt="avatar" />
                 </div>
                 <div className="px-0 py-2 text-black md:px-6">
                   <p className="text-lg font-bold md:text-2xl">{leader.name}</p>

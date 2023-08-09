@@ -53,11 +53,7 @@ function Partner() {
             {partners.map((partner) => (
               <div key={partner} className="px-4 md:px-0">
                 <div className="w-44 relative aspect-[2/1.5]">
-                  <Image
-                    layout="fill"
-                    src={`/images/opsrun/partners/${partner}.png`}
-                    alt={partner}
-                  />
+                  <Image fill src={`/images/opsrun/partners/${partner}.png`} alt={partner} />
                 </div>
               </div>
             ))}

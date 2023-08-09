@@ -21,13 +21,13 @@ export const IS_PHONE_CUSTOM: TValidateFunction = async <T extends object>(
     if (!!params?.id && params?.id !== findPhone.result._id.toString()) {
       return {
         ...error,
-        phone: 'phone exited',
+        phone: 'phone existed',
       }
     }
     if (!params?.id) {
       return {
         ...error,
-        phone: 'phone exited',
+        phone: 'phone existed',
       }
     }
   }

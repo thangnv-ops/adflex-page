@@ -34,7 +34,7 @@ function WhatIsPushtimize() {
           <div className="flex flex-col items-end">
             <div className="w-[334px] aspect-[2/0.6] relative">
               <Image
-                layout="fill"
+                fill
                 data-aos="fade-up"
                 data-aos-duration="700"
                 src="/images/pushtimize-icon.png"
@@ -59,7 +59,7 @@ function WhatIsPushtimize() {
         <div className="flex flex-col items-end px-4">
           <div className="w-[214px] md:w-[334px] aspect-square relative">
             <Image
-              layout="fill"
+              fill
               data-aos="fade-up"
               data-aos-duration="700"
               src="/images/pushtimize-icon.png"
@@ -74,7 +74,7 @@ function WhatIsPushtimize() {
         <div className="">
           <div className="h-[462px] w-[1060px] aspect-square">
             <Image
-              layout="fill"
+              fill
               data-aos="fade-up"
               data-aos-duration="700"
               src="/images/pushtimize/what-is-pushtimize-bg.png"

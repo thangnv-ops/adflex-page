@@ -44,7 +44,7 @@ function Banner() {
         </div>
         <div className="block md:hidden">
           <Image
-            layout="fill"
+            fill
             src="/images/pushtimize/pushtimize-banner-img.png"
             alt="img"
             className="rounded-b-2xl"

@@ -50,13 +50,13 @@ function Roadmap() {
   return (
     <div className="bg-[#0F0F0F] px-4 pt-16 md:pt-28 pb-36 relative -mt-1">
       <Image
-        layout="fill"
+        fill
         src="/images/roadmap-decor-1.png"
         alt="decor"
         className="absolute -top-[450px] -left-[500px]"
       />
       <Image
-        layout="fill"
+        fill
         src="/images/roadmap-decor-2.png"
         alt="decor"
         className="absolute -top-[250px] -right-[350px]"

@@ -52,7 +52,7 @@ function PushtimizeSolution() {
         <div className="flex items-center justify-between">
           <PlusIcon />
           <div className="w-[152px] relative aspect-[2/0.65]">
-            <Image src="/images/pushtimize-icon.png" alt="cpa" layout="fill" />
+            <Image src="/images/pushtimize-icon.png" alt="cpa" fill />
           </div>
         </div>
         <p className="mt-2 text-2xl text-right">{translateRes[0]}</p>
@@ -82,7 +82,7 @@ function PushtimizeSolution() {
                 <div className="flex items-start">
                   <div className="">
                     <div className="w-[30%] aspect-[2/0.65] relative">
-                      <Image layout="fill" src="/images/pushtimize-icon.png" alt="pushtimize" />
+                      <Image fill src="/images/pushtimize-icon.png" alt="pushtimize" />
                     </div>
                     <p className="text-[32px] font-medium mt-4">{translateRes[2]}</p>
                     <p className="mt-4">{translateRes[3]}</p>

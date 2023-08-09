@@ -47,7 +47,7 @@ function Solution() {
         <div className="grid items-center grid-cols-1 gap-8 md:grid-cols-2">
           <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={300}>
             <div className="w-full aspect-[1.1/1] relative">
-              <Image layout="fill" src="/images/opsrun/devops-solution.png" alt="devops" />
+              <Image fill src="/images/opsrun/devops-solution.png" alt="devops" />
             </div>
           </div>
           <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={500}>
@@ -99,7 +99,7 @@ function Solution() {
             </div>
             <div className="block md:hidden">
               <div className="w-full aspect-ratio relative">
-                <Image layout="fill" src="/images/opsrun/cloud-computing-mobile.png" alt="mobile" />
+                <Image fill src="/images/opsrun/cloud-computing-mobile.png" alt="mobile" />
               </div>
             </div>
           </div>

@@ -36,7 +36,7 @@ function Banner() {
         </div>
         <div data-aos="fade-up" data-aos-duration="700" className="flex justify-center">
           <div className="w-[60%] aspect-[1/1.5] relative">
-            <Image layout="fill" src="/images/cpa/ava.png" alt="ava" className="" />
+            <Image fill src="/images/cpa/ava.png" alt="ava" className="" />
           </div>
         </div>
       </div>

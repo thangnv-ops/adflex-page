@@ -36,17 +36,12 @@ function Hero() {
           {result[5]}
         </div>
         <div className="w-full aspect-[2/1] relative">
-          <Image
-            layout="fill"
-            className="hidden mt-16 md:block"
-            src="/images/hero-img.png"
-            alt="hero-img"
-          />
+          <Image fill className="hidden mt-16 md:block" src="/images/hero-img.png" alt="hero-img" />
         </div>
       </div>
       <Line className="mx-auto mt-24 max-w-maxContent" />
       <Image
-        layout="fill"
+        fill
         src="/images/hero-decor.png"
         alt="decor"
         className="absolute top-0 left-0 right-0 w-screen h-screen"

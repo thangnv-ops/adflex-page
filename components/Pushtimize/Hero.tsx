@@ -34,7 +34,7 @@ function Hero() {
       <div className="grid items-center h-full grid-cols-1 px-4 mx-auto md:grid-cols-2 max-w-maxContent">
         <div className="w-full aspect-square relative">
           <Image
-            layout="fill"
+            fill
             src="/images/pushtimize/pushtimize-hero-img.png"
             alt="img"
             className="mix-blend-screen"
@@ -42,7 +42,7 @@ function Hero() {
         </div>
         <div className="flex flex-col items-start justify-center h-full md:items-end">
           <div className="w-[214px] md:w-[334px] aspect-[2/0.5] relative">
-            <Image layout="fill" src="/images/pushtimize-icon.png" alt="cpa" />
+            <Image fill src="/images/pushtimize-icon.png" alt="cpa" />
           </div>
           <p className="mt-5 text-left md:text-right text-[32px]">
             {tranRes[0]} <br className="hidden md:block" /> {tranRes[1]}

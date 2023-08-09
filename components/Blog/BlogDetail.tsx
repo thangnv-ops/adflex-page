@@ -106,7 +106,7 @@ function BlogDetail() {
             data-aos-duration="700"
             src="https://i1-sohoa.vnecdn.net/2023/07/18/cloudfront-us-east-2-images-ar-8152-9755-1689668007.png?w=680&h=0&q=100&dpr=2&fit=crop&s=xOpOyzzM7wTabgrJMMO63Q"
             alt="thumbnail"
-            layout="fill"
+            fill
           />
         </div>
 

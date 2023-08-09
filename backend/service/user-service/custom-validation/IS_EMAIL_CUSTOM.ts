@@ -23,13 +23,13 @@ export const IS_EMAIL_CUSTOM: TValidateFunction = async <T extends object>(
     if (!!params?.id && params?.id !== findEmail.result._id.toString()) {
       return {
         ...error,
-        email: 'email exited',
+        email: 'email existed',
       }
     }
     if (!params?.id) {
       return {
         ...error,
-        email: 'email exited',
+        email: 'email existed',
       }
     }
   }

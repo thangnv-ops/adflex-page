@@ -15,7 +15,7 @@ function DropDownItem({ label = '', flag }: { label: string; flag: string }) {
   return (
     <div className="flex items-center gap-3 px-4">
       <div className="relative  aspect-square w-8">
-        <Image src={flag} layout="fill" alt="flag-icon" />
+        <Image src={flag} fill alt="flag-icon" />
       </div>
       <div className="cursor-pointer hover:text-primary whitespace-nowrap">{label}</div>
     </div>
@@ -97,7 +97,7 @@ function SelectLanguageDropDown({
         className="flex items-center gap-3 p-2 cursor-pointer"
       >
         <div className="w-8 aspect-square relative">
-          <Image layout="fill" src={languageSelected.icon} alt={languageSelected.name} />
+          <Image fill src={languageSelected.icon} alt={languageSelected.name} />
         </div>
         <div className={`${isOpen && 'rotate-180'} smooth-transform `}>
           <ArrowDropdownIcon color={color} />

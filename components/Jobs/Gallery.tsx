@@ -14,7 +14,7 @@ function Gallery() {
     >
       {listRender.map((img) => (
         <div>
-          <Image layout="fill" src={`/images/jobs/gallery/${img}.png`} alt="img" />
+          <Image fill src={`/images/jobs/gallery/${img}.png`} alt="img" />
         </div>
       ))}
     </div>

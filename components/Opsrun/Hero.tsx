@@ -32,7 +32,7 @@ function Hero() {
       <div className="grid items-start h-full grid-cols-1 px-4 mx-auto md:grid-cols-64 max-w-maxContent">
         <div className="flex flex-col justify-center h-full">
           <div className="w-[186px] md:w-[334px] aspect-[2/0.5] relative">
-            <Image layout="fill" src="/images/opsrun-icon.png" alt="cpa" />
+            <Image fill src="/images/opsrun-icon.png" alt="cpa" />
           </div>
           <p className="mt-5 !text-[28px] !md:text-[32px]">
             {tranRes[0]} <br className="hidden md:block" /> {tranRes[1]} <br /> {tranRes[2]}
@@ -47,7 +47,7 @@ function Hero() {
         <div className="">
           <div className="static md:absolute -top-16 right-28 w-auto md:w-[900px] pt-24">
             <div className="w-full mix-blend-screen relative aspect-square">
-              <Image layout="fill" src="/images/opsrun/opsrun-hero-img.png" alt="img" />
+              <Image fill src="/images/opsrun/opsrun-hero-img.png" alt="img" />
             </div>
           </div>
         </div>

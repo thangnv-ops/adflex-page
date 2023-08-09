@@ -153,7 +153,7 @@ function Technology() {
         <div className="row-start-1 md:row-auto">
           <div className="w-full aspect-[2/1.3] relative">
             <Image
-              layout="fill"
+              fill
               data-aos="fade-up"
               data-aos-duration="700"
               src="/images/pushtimize/tech.png"
