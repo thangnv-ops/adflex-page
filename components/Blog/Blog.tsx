@@ -5,6 +5,7 @@ import { Card, CardBody, Pagination } from '@nextui-org/react'
 import axios from 'axios'
 import { CommonListResult } from 'common-abstract-fares-system'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import Map from '../Map'
@@ -70,21 +71,27 @@ function Blog() {
             </div>
           )}
           {headList.slice(1, headList.length).map((news) => (
-            <div key={news._id} className="grid items-center gap-6 grid-cols-46">
-              <div className="w-full aspect-[2/1.5] relative">
-                <Image fill src={news.thumbnail} alt="thumbnail" />
-              </div>
-              <div>
-                <p className="text-sm text-[#667085]">{news.createdDate}</p>
-                <p className="mt-3 text-xl font-medium md:text-lg">{news.title}</p>
-                <p className="text-sm md:text-báe mt-2 text-[#878A99]">{news.shortDescription}</p>
-                <div className="flex flex-wrap items-center gap-3 mt-4">
-                  {news.tags.map((tag, index) => (
-                    <Tag key={`tag-${index}`} tag={tag} />
-                  ))}
+            <Link
+              href={`/blog/${news.slug}`}
+              key={news._id}
+              className="grid items-center gap-6 grid-cols-46"
+            >
+              <>
+                <div className="w-full aspect-[2/1.5] relative">
+                  <Image fill src={news.thumbnail} alt="thumbnail" />
                 </div>
-              </div>
-            </div>
+                <div>
+                  <p className="text-sm text-[#667085]">{news.createdDate}</p>
+                  <p className="mt-3 text-xl font-medium md:text-lg">{news.title}</p>
+                  <p className="text-sm md:text-báe mt-2 text-[#878A99]">{news.shortDescription}</p>
+                  <div className="flex flex-wrap items-center gap-3 mt-4">
+                    {news.tags.map((tag, index) => (
+                      <Tag key={`tag-${index}`} tag={tag} />
+                    ))}
+                  </div>
+                </div>
+              </>
+            </Link>
           ))}
         </div>
 

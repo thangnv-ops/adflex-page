@@ -8,7 +8,7 @@ export function NewsItem({ news }: { news: BlogRes }) {
     <Link href={`/blog/${news.slug}`}>
       <div className="cursor-pointer">
         <div className="max-h-[230px] w-full aspect-[2/1.5] overflow-hidden">
-          <div className=" relative">
+          <div className="w-full aspect-[2/1.5] relative">
             <Image src={news.thumbnail} alt="thumbnail" width={500} height={500} />
           </div>
         </div>

@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 
+import useTranslation from '@/hooks/useTranslation'
+import Link from 'next/link'
 import BriefUsModal from './BriefUsModal'
 import Line from './Line'
-import Link from 'next/link'
 import Logo from './Logo'
 import LogoBlack from './LogoBlack'
 import MobileNav from './MobileNav'
@@ -10,7 +11,6 @@ import ProductDropdown from './ProductDropdown'
 import SecondaryBtn from './SecondaryBtn'
 import SelectLanguageDropDown from './SelectLanguageDropDown'
 import UpRightArrow from './icons/UpRightArrow'
-import useTranslation from '@/hooks/useTranslation'
 
 function Item({
   children,
@@ -78,6 +78,9 @@ function MainNav() {
               <Item isChange={isChange} href="/contact">
                 {tranRes[1]}
               </Item>
+              <Item isChange={isChange} href="/blog">
+                Blogs
+              </Item>
             </div>
           </div>
 
@@ -129,6 +132,9 @@ function MainNav() {
         <Item href="/">{tranRes[0]}</Item>
         <ProductDropdown />
         <Item href="/contact">{tranRes[1]}</Item>
+        <Item isChange={isChange} href="/blog">
+          Blogs
+        </Item>
       </div>
     </div>
   )

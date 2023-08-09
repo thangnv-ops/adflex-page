@@ -1,16 +1,16 @@
 import { ReactNode, useEffect, useRef, useState } from 'react'
 
-import BriefUsModal from './BriefUsModal'
-import CloseDialogIcon from './icons/CloseDialogIcon'
-import IconHamburger from './icons/IconHamburger'
+import useTranslation from '@/hooks/useTranslation'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import BriefUsModal from './BriefUsModal'
 import LogoBlack from './LogoBlack'
 import SecondaryBtn from './SecondaryBtn'
 import SelectLanguageDropDown from './SelectLanguageDropDown'
+import CloseDialogIcon from './icons/CloseDialogIcon'
+import IconHamburger from './icons/IconHamburger'
 import UpRightArrow from './icons/UpRightArrow'
-import { motion } from 'framer-motion'
-import { useRouter } from 'next/router'
-import useTranslation from '@/hooks/useTranslation'
 
 const variants = {
   open: {
@@ -170,6 +170,11 @@ function MobileNav() {
                   label={tranRes[4]}
                   href="/contact"
                   isActive={router?.asPath.includes('/contact')}
+                />
+                <MobileMenuItem
+                  label="Blogs"
+                  href="/blog"
+                  isActive={router?.asPath.includes('/blog')}
                 />
                 <BriefUsModal>
                   <SecondaryBtn>
