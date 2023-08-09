@@ -1,7 +1,12 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 
 function Hero() {
-  const tranRes = useTranslation(['Liên hệ', 'Kết nối với chúng tôi'])
+  const content = useGetContent({
+    componentName: Hero.name,
+    defaultValue: ['Liên hệ', 'Kết nối với chúng tôi'],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div

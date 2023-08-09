@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
 import BriefUsModal from '../BriefUsModal'
@@ -35,9 +36,18 @@ function Advertisers() {
     'Dịch vụ 5 sao: hỗ trợ khách hàng 1:1',
     'Báo cáo chủ động, linh hoạt - real time',
   ]
-  const tranRes = useTranslation(advantage)
+  const content = useGetContent({
+    componentName: `${Advertisers.name}-content`,
+    defaultValue: advantage,
+  })
+  const tranRes = useTranslation(content)
 
-  const tranTitle = useTranslation(['Giải pháp tối ưu hiệu quả marketing'])
+  const title = useGetContent({
+    componentName: `${Advertisers.name}-title`,
+    defaultValue: ['Giải pháp tối ưu hiệu quả marketing'],
+  })
+
+  const tranTitle = useTranslation(title)
   return (
     <div>
       <p data-aos="fade-up" data-aos-duration="700" className="text-xl font-medium">
@@ -68,10 +78,18 @@ function PublishingCompany() {
     'Vận hành tối ưu',
     'Thanh toán linh hoạt',
   ]
+  const content = useGetContent({
+    componentName: `${PublishingCompany.name}-content`,
+    defaultValue: advantage,
+  })
 
-  const tranRes = useTranslation(advantage)
+  const tranRes = useTranslation(content)
 
-  const tranTitle = useTranslation(['Giải pháp kiếm tiền tốt nhất dành cho nhà xuất bản'])
+  const title = useGetContent({
+    componentName: `${Advertisers.name}-title`,
+    defaultValue: ['Giải pháp kiếm tiền tốt nhất dành cho nhà xuất bản'],
+  })
+  const tranTitle = useTranslation(title)
 
   return (
     <div>
@@ -89,14 +107,18 @@ function PublishingCompany() {
 }
 
 function Technology() {
-  const tranRes = useTranslation([
-    'Với nhà quảng cáo',
-    'Nền tảng công nghệ vượt trội tối ưu',
-    'hiệu quả cho nhà quảng cáo,',
-    'tối ưu doanh thu cho nhà xuất bản',
-    'Với nhà xuất bản',
-    'Đăng ký ngay',
-  ])
+  const content = useGetContent({
+    componentName: Technology.name,
+    defaultValue: [
+      'Với nhà quảng cáo',
+      'Nền tảng công nghệ vượt trội tối ưu',
+      'hiệu quả cho nhà quảng cáo,',
+      'tối ưu doanh thu cho nhà xuất bản',
+      'Với nhà xuất bản',
+      'Đăng ký ngay',
+    ],
+  })
+  const tranRes = useTranslation(content)
 
   const [tab, setTab] = useState(tranRes[0])
 
@@ -131,7 +153,7 @@ function Technology() {
         <div className="row-start-1 md:row-auto">
           <div className="w-full aspect-[2/1.3] relative">
             <Image
-              layout="fill"
+              fill
               data-aos="fade-up"
               data-aos-duration="700"
               src="/images/pushtimize/tech.png"

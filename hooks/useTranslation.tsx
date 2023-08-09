@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { LANGUAGE_COOKIE_KEY } from '@/lib'
 import axios from 'axios'
@@ -20,24 +20,18 @@ export default function useTranslation(text: string[]) {
       cookies.language &&
       cookies.language !== 'vi'
     ) {
-      const q = text.map((item) => {
-        return { Text: item }
-      })
       try {
         const translate = await axios.post(
           `${window.location.protocol}//${window.location.host}/api/translate`,
           {
-            q,
+            text,
             language: cookies.language || 'vi',
           }
         )
-        setResult(
-          translate.data.map((item: any) => {
-            return item.translations[0].text
-          })
-        )
+        setResult(translate.data)
       } catch (err) {
         // do smth
+        setResult(text)
       }
     } else {
       setResult(text)
@@ -48,7 +42,11 @@ export default function useTranslation(text: string[]) {
     if (text.length > 0 && mounted) {
       getTranslatedText()
     }
-  }, [cookies.language, mounted])
+  }, [cookies.language, mounted, JSON.stringify(text)])
 
-  return result
+  const output = useMemo(() => {
+    return result
+  }, [result])
+
+  return output
 }

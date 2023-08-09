@@ -1,8 +1,9 @@
+import { ReactNode, useEffect, useRef, useState } from 'react'
+
 import useTranslation from '@/hooks/useTranslation'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { ReactNode, useEffect, useRef, useState } from 'react'
 import BriefUsModal from './BriefUsModal'
 import LogoBlack from './LogoBlack'
 import SecondaryBtn from './SecondaryBtn'
@@ -42,10 +43,8 @@ function MobileMenuItem({
   return (
     <motion.div variants={variants} whileTap={{ scale: 0.95 }} className="w-full">
       <Link href={href || '/'}>
-        <a>
-          <div className="icon-active">{icon}</div>
-          <p className={`text-2xl ${isActive ? 'font-bold' : 'text-primaryDark'}`}>{label}</p>
-        </a>
+        <div className="icon-active">{icon}</div>
+        <p className={`text-2xl ${isActive ? 'font-bold' : 'text-primaryDark'}`}>{label}</p>
       </Link>
     </motion.div>
   )
@@ -118,6 +117,7 @@ function MobileNav() {
     'Giải pháp Pushtimize',
     'Giải pháp Opsrun',
     'Liên hệ',
+    'Tuyển dụng',
   ])
 
   return (
@@ -147,9 +147,7 @@ function MobileNav() {
             </div>
             <div onClick={toggleOpenMobileNav} className="px-8">
               <Link href="/">
-                <a>
-                  <LogoBlack />
-                </a>
+                <LogoBlack />
               </Link>
 
               <div className="flex flex-col gap-6 mt-16">
@@ -173,6 +171,16 @@ function MobileNav() {
                   label={tranRes[4]}
                   href="/contact"
                   isActive={router?.asPath.includes('/contact')}
+                />
+                <MobileMenuItem
+                  label="Blogs"
+                  href="/blog"
+                  isActive={router?.asPath.includes('/blog')}
+                />
+                <MobileMenuItem
+                  label={tranRes[5]}
+                  href="/jobs"
+                  isActive={router?.asPath.includes('/jobs')}
                 />
                 <BriefUsModal>
                   <SecondaryBtn>

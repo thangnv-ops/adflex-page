@@ -1,3 +1,4 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
 import BriefUsModal from '../BriefUsModal'
@@ -15,17 +16,30 @@ const cloudComputingAdvantage = [
 ]
 
 function Solution() {
-  const tranRes = useTranslation([
-    'Giải pháp Devops',
-    'cho doanh nghiệp',
-    'Tư vấn, thiết kế & triển khai hệ thống',
-    'Liên hệ ngay với chúng tôi',
-    'Dịch vụ Cloud Computing',
-    'Liên hệ ngay với chúng tôi',
-  ])
+  const content = useGetContent({
+    componentName: `${Solution.name}-main`,
+    defaultValue: [
+      'Giải pháp Devops',
+      'cho doanh nghiệp',
+      'Tư vấn, thiết kế & triển khai hệ thống',
+      'Liên hệ ngay với chúng tôi',
+      'Dịch vụ Cloud Computing',
+      'Liên hệ ngay với chúng tôi',
+    ],
+  })
+  const tranRes = useTranslation(content)
 
-  const tranDevopsRes = useTranslation([...devopsAdvantage])
-  const tranCloudRes = useTranslation([...cloudComputingAdvantage])
+  const contentDevops = useGetContent({
+    componentName: `${Solution.name}-devops`,
+    defaultValue: devopsAdvantage,
+  })
+  const tranDevopsRes = useTranslation(contentDevops)
+
+  const contentCloud = useGetContent({
+    componentName: `${Solution.name}-cloud`,
+    defaultValue: cloudComputingAdvantage,
+  })
+  const tranCloudRes = useTranslation(contentCloud)
 
   return (
     <div className="pt-24 bg-black">
@@ -33,7 +47,7 @@ function Solution() {
         <div className="grid items-center grid-cols-1 gap-8 md:grid-cols-2">
           <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={300}>
             <div className="w-full aspect-[1.1/1] relative">
-              <Image layout="fill" src="/images/opsrun/devops-solution.png" alt="devops" />
+              <Image fill src="/images/opsrun/devops-solution.png" alt="devops" />
             </div>
           </div>
           <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={500}>
@@ -85,7 +99,7 @@ function Solution() {
             </div>
             <div className="block md:hidden">
               <div className="w-full aspect-ratio relative">
-                <Image layout="fill" src="/images/opsrun/cloud-computing-mobile.png" alt="mobile" />
+                <Image fill src="/images/opsrun/cloud-computing-mobile.png" alt="mobile" />
               </div>
             </div>
           </div>

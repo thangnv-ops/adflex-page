@@ -1,7 +1,11 @@
+import { ShareStoreTypes } from '@/types'
 import { configureStore } from '@reduxjs/toolkit'
+import ShareStoreSlice from './share-store/slice'
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    shareStore: ShareStoreSlice.reducer,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
@@ -10,4 +14,6 @@ const store = configureStore({
 
 export default store
 
-export type RootState = {}
+export type RootState = {
+  shareStore: ShareStoreTypes
+}

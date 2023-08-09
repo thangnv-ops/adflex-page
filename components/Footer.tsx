@@ -5,11 +5,7 @@ import PrimaryBtn from './PrimaryBtn'
 import PrimaryInput from './PrimaryInput'
 
 function FooterItem({ text, href }: { text: string; href: string }) {
-  return (
-    <Link href={href || '/'}>
-      <a>{text}</a>
-    </Link>
-  )
+  return <Link href={href || '/'}>{text}</Link>
 }
 
 function Footer() {

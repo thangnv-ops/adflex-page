@@ -22,7 +22,7 @@ export const handleSubmitForm = ({ name, email, phoneNumber, note }) => {
       method: 'POST',
       body: formData,
       mode: 'no-cors',
-    }).catch((err) => console.log(err))
+    }).catch((err) => err)
   }
   toast.promise(finish(), {
     pending: 'Your request is being processed...',

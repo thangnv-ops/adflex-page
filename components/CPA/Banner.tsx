@@ -1,11 +1,16 @@
-import BriefUsModal from '../BriefUsModal'
+import { useGetContent } from '@/hooks/useGetContent'
+import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
+import BriefUsModal from '../BriefUsModal'
 import PrimaryBtn from '../PrimaryBtn'
 import Title from '../Title'
-import useTranslation from '@/hooks/useTranslation'
 
 function Banner() {
-  const tranRes = useTranslation(['Tăng ngay', 'tỉ lệ chuyển đổi', 'của bạn', 'Liên hệ tư vấn'])
+  const content = useGetContent({
+    componentName: Banner.name,
+    defaultValue: ['Tăng ngay', 'tỉ lệ chuyển đổi', 'của bạn', 'Liên hệ tư vấn'],
+  })
+  const tranRes = useTranslation(content)
   return (
     <div
       style={{
@@ -31,7 +36,7 @@ function Banner() {
         </div>
         <div data-aos="fade-up" data-aos-duration="700" className="flex justify-center">
           <div className="w-[60%] aspect-[1/1.5] relative">
-            <Image layout="fill" src="/images/cpa/ava.png" alt="ava" className="" />
+            <Image fill src="/images/cpa/ava.png" alt="ava" className="" />
           </div>
         </div>
       </div>

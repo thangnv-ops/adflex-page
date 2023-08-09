@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react'
+
 import useTranslation from '@/hooks/useTranslation'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
 import BriefUsModal from './BriefUsModal'
 import Line from './Line'
 import Logo from './Logo'
@@ -22,13 +23,9 @@ function Item({
 }) {
   return (
     <Link href={href || '/'}>
-      <a>
-        <p
-          className={`${isChange ? 'text-black' : 'text-white'} hover:text-primary cursor-pointer`}
-        >
-          {children}
-        </p>
-      </a>
+      <p className={`${isChange ? 'text-black' : 'text-white'} hover:text-primary cursor-pointer`}>
+        {children}
+      </p>
     </Link>
   )
 }
@@ -36,7 +33,7 @@ function Item({
 function MainNav() {
   const [isChange, setIsChange] = useState(false)
 
-  const tranRes = useTranslation(['Trang chủ', 'Liên hệ'])
+  const tranRes = useTranslation(['Trang chủ', 'Liên hệ', 'Tuyển dụng'])
 
   function changeColorNav() {
     if (window.scrollY > 160) {
@@ -62,13 +59,11 @@ function MainNav() {
         >
           <div className="flex items-center gap-10">
             <Link href="/">
-              <a>
-                {isChange ? (
-                  <LogoBlack className="w-[127px] h-10" />
-                ) : (
-                  <Logo className="w-[127px] h-10" />
-                )}
-              </a>
+              {isChange ? (
+                <LogoBlack className="w-[127px] h-10" />
+              ) : (
+                <Logo className="w-[127px] h-10" />
+              )}
             </Link>
 
             <div
@@ -82,6 +77,12 @@ function MainNav() {
               <ProductDropdown color="#000000" />
               <Item isChange={isChange} href="/contact">
                 {tranRes[1]}
+              </Item>
+              <Item isChange={isChange} href="/blog">
+                Blogs
+              </Item>
+              <Item isChange={isChange} href="/jobs">
+                {tranRes[2]}
               </Item>
             </div>
           </div>
@@ -134,6 +135,12 @@ function MainNav() {
         <Item href="/">{tranRes[0]}</Item>
         <ProductDropdown />
         <Item href="/contact">{tranRes[1]}</Item>
+        <Item isChange={isChange} href="/blog">
+          Blogs
+        </Item>
+        <Item isChange={isChange} href="/jobs">
+          {tranRes[2]}
+        </Item>
       </div>
     </div>
   )

@@ -51,11 +51,7 @@ function Partner() {
             {partners.map((partner) => (
               <div className="px-4" key={partner}>
                 <div className="w-44 aspect-[2/1.5] relative">
-                  <Image
-                    layout="fill"
-                    src={`/images/pushtimize/partners/${partner}.png`}
-                    alt={partner}
-                  />
+                  <Image fill src={`/images/pushtimize/partners/${partner}.png`} alt={partner} />
                 </div>
               </div>
             ))}

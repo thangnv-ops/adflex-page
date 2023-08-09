@@ -1,5 +1,6 @@
 import Line from '@/components/Line'
 import VerticalLine from '@/components/VerticalLine'
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import DoneStep from './DoneStep'
 import Step from './Step'
@@ -7,7 +8,11 @@ import Step from './Step'
 const steps = ['Phân tích', 'Lên kế hoạch', 'Triển khai', 'Bàn giao', 'Hỗ trợ sau bàn giao']
 
 function StepBar({ goToSlide, activatingSlide }: { goToSlide: any; activatingSlide: number }) {
-  const tranStep = useTranslation(steps)
+  const content = useGetContent({
+    componentName: StepBar.name,
+    defaultValue: steps,
+  })
+  const tranStep = useTranslation(content)
 
   return (
     <div>
@@ -58,7 +63,7 @@ function StepBar({ goToSlide, activatingSlide }: { goToSlide: any; activatingSli
           <VerticalLine className="h-16 w-[2px] bg-[#98A2B3]" />
         </div>
         <div className="flex flex-col -mt-[24px] -ml-5 text-black gap-9">
-          {steps.map((step, index) => {
+          {tranStep.map((step, index) => {
             const isActive = index === activatingSlide
             const isDone = index < activatingSlide
             return (

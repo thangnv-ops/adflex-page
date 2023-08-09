@@ -1,3 +1,4 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import { ReactNode } from 'react'
 import Line from '../Line'
@@ -54,18 +55,24 @@ const solutions = [
   },
 ]
 
-function Item({
+function ItemWhyus({
+  id,
   title,
   description,
   icon,
   isAlignRight = false,
 }: {
+  id: string
   title: string
   description: string
   icon: ReactNode
   isAlignRight?: boolean
 }) {
-  const tranRes = useTranslation([title, description])
+  const content = useGetContent({
+    componentName: `${ItemWhyus.name}-${id}`,
+    defaultValue: [title, description],
+  })
+  const tranRes = useTranslation(content)
   return (
     <div
       className={`p-4 md:p-6 bg-white border border-white bg-opacity-5 rounded-2xl border-opacity-20 flex flex-col ${
@@ -82,13 +89,17 @@ function Item({
 }
 
 function WhyUs() {
-  const tranRes = useTranslation([
-    'Tại sao',
-    'nên',
-    'lựa chọn chúng tôi?',
-    `Nền tảng tự động Pushtimize luôn được khách hàng công nhận và đánh giá cao với hệ thống
-vận hành tối ưu và đem lại trải nghiệm tốt nhất cho khách hàng và người dùng.`,
-  ])
+  const content = useGetContent({
+    componentName: WhyUs.name,
+    defaultValue: [
+      'Tại sao',
+      'nên',
+      'lựa chọn chúng tôi?',
+      `Nền tảng tự động Pushtimize luôn được khách hàng công nhận và đánh giá cao với hệ thống
+  vận hành tối ưu và đem lại trải nghiệm tốt nhất cho khách hàng và người dùng.`,
+    ],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div className="bg-black pt-[106px] pb-[123px]">
@@ -115,7 +126,8 @@ vận hành tối ưu và đem lại trải nghiệm tốt nhất cho khách hà
               data-aos-delay={300 + 100 * index}
               className="flex"
             >
-              <Item
+              <ItemWhyus
+                id={item.id}
                 key={item.id}
                 icon={item.icon}
                 title={item.title}
@@ -133,7 +145,8 @@ vận hành tối ưu và đem lại trải nghiệm tốt nhất cho khách hà
               data-aos-delay={300 + 100 * index}
               className="flex"
             >
-              <Item
+              <ItemWhyus
+                id={item.id}
                 key={item.id}
                 icon={item.icon}
                 title={item.title}
@@ -150,7 +163,8 @@ vận hành tối ưu và đem lại trải nghiệm tốt nhất cho khách hà
               data-aos-delay={300 + 100 * index}
               className="flex"
             >
-              <Item
+              <ItemWhyus
+                id={item.id}
                 key={item.id}
                 icon={item.icon}
                 title={item.title}

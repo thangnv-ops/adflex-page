@@ -1,3 +1,4 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import { ReactNode } from 'react'
 import Line from '../Line'
@@ -30,18 +31,24 @@ const solutions = [
   },
 ]
 
-function Item({
+function ItemWhyus({
+  id,
   title,
   description,
   icon,
   isAlignRight = false,
 }: {
+  id: string
   title: string
   description: string
   icon: ReactNode
   isAlignRight?: boolean
 }) {
-  const tranRes = useTranslation([title, description])
+  const content = useGetContent({
+    componentName: `${ItemWhyus.name}-${id}`,
+    defaultValue: [title, description],
+  })
+  const tranRes = useTranslation(content)
   return (
     <div
       className={`p-4 bg-white border border-white bg-opacity-5 rounded-2xl border-opacity-20 flex flex-col ${
@@ -56,14 +63,18 @@ function Item({
 }
 
 function Whyus() {
-  const tranRes = useTranslation([
-    'Tại sao',
-    'nên',
-    'lựa chọn chúng tôi?',
-    'Tổng chi phí Opsrun tiết kiệm mỗi năm cho khách hàng',
-    'Khách hàng tái sử dụng dịch vụ',
-    'Khách hàng hài lòng',
-  ])
+  const content = useGetContent({
+    componentName: Whyus.name,
+    defaultValue: [
+      'Tại sao',
+      'nên',
+      'lựa chọn chúng tôi?',
+      'Tổng chi phí Opsrun tiết kiệm mỗi năm cho khách hàng',
+      'Khách hàng tái sử dụng dịch vụ',
+      'Khách hàng hài lòng',
+    ],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div className="bg-[#262626] py-28">
@@ -83,7 +94,8 @@ function Whyus() {
               data-aos-delay={300 + 100 * index}
               className="flex"
             >
-              <Item
+              <ItemWhyus
+                id={i.id}
                 key={i.id}
                 title={i.title}
                 description={i.description}

@@ -15,7 +15,7 @@ function DropDownItem({ label = '', flag }: { label: string; flag: string }) {
   return (
     <div className="flex items-center gap-3 px-4">
       <div className="relative  aspect-square w-8">
-        <Image src={flag} layout="fill" alt="flag-icon" />
+        <Image src={flag} fill alt="flag-icon" />
       </div>
       <div className="cursor-pointer hover:text-primary whitespace-nowrap">{label}</div>
     </div>
@@ -33,7 +33,15 @@ function SelectLanguageDropDown({
   const [isOpen, toggleOpen] = useState(false)
   const [languageSelected, setLanguageSelected] = useState(languages[1])
 
-  const [, setCookies] = useCookies([LANGUAGE_COOKIE_KEY])
+  const [cookies, setCookies] = useCookies([LANGUAGE_COOKIE_KEY])
+
+  useEffect(() => {
+    if (cookies.language && cookies.language === 'en') {
+      setLanguageSelected(languages[0])
+    } else {
+      setLanguageSelected(languages[1])
+    }
+  }, [])
 
   const toggleOpenMenu = () => {
     toggleOpen(!isOpen)
@@ -89,7 +97,7 @@ function SelectLanguageDropDown({
         className="flex items-center gap-3 p-2 cursor-pointer"
       >
         <div className="w-8 aspect-square relative">
-          <Image layout="fill" src={languageSelected.icon} alt={languageSelected.name} />
+          <Image fill src={languageSelected.icon} alt={languageSelected.name} />
         </div>
         <div className={`${isOpen && 'rotate-180'} smooth-transform `}>
           <ArrowDropdownIcon color={color} />

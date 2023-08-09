@@ -1,33 +1,36 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import axios from 'axios'
+import logger from 'common-abstract-fares-system/lib/logger'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { q, language } = req.body
-  const options = {
-    method: 'POST',
-    url: 'https://microsoft-translator-text.p.rapidapi.com/translate',
-    params: {
-      'to[0]': language,
-      'api-version': '3.0',
-      profanityAction: 'NoAction',
-      textType: 'plain',
-    },
-    headers: {
-      'Content-Type': 'application/json',
-      'X-RapidAPI-Key': process.env.RAPID_KEY,
-      'X-RapidAPI-Host': process.env.RAPID_HOST,
-      'Accept-Encoding': 'deflate',
-    },
-    data: q,
-  }
-
+  const { text, language } = req.body
   try {
-    const getTranslate = await axios.request(options)
-    const response = getTranslate.data
+    const getTran = await Promise.all(
+      text.map(async (item: string) => {
+        const encodedParams = new URLSearchParams()
+        encodedParams.set('lang', language)
+        encodedParams.set('text', item)
+
+        const url =
+          `https://translate.googleapis.com/translate_a/single?client=gtx&sl=` +
+          `vi` +
+          `&tl=${language}&dt=t&q=${encodeURI(item)}`
+
+        try {
+          const response = await fetch(url)
+          const tranRes = await response.text()
+          return JSON.parse(tranRes)[0][0][0]
+        } catch (err) {
+          logger.error([err as any])
+          // do smth
+          return item
+        }
+      })
+    )
+    const response = getTran
     res.status(200).send(response)
   } catch (err) {
-    console.log(err)
+    logger.error([err as any])
     res.status(400).send(err)
   }
 }

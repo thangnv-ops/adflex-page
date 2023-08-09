@@ -1,3 +1,4 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
 import Carousel from 'react-multi-carousel'
@@ -23,9 +24,11 @@ const responsiveCarouselTournaments = {
 }
 
 function Partner() {
-  const tranRes = useTranslation([
-    'Opsrun tự hào là đại lý phân phối của top nhà cung cấp đứng đầu thế giới',
-  ])
+  const content = useGetContent({
+    componentName: Partner.name,
+    defaultValue: ['Opsrun tự hào là đại lý phân phối của top nhà cung cấp đứng đầu thế giới'],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div className="bg-[#EAECF0]">
@@ -50,11 +53,7 @@ function Partner() {
             {partners.map((partner) => (
               <div key={partner} className="px-4 md:px-0">
                 <div className="w-44 relative aspect-[2/1.5]">
-                  <Image
-                    layout="fill"
-                    src={`/images/opsrun/partners/${partner}.png`}
-                    alt={partner}
-                  />
+                  <Image fill src={`/images/opsrun/partners/${partner}.png`} alt={partner} />
                 </div>
               </div>
             ))}

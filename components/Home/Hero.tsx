@@ -1,3 +1,4 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import Image from 'next/image'
 import Line from '../Line'
 import Title from '../Title'
@@ -5,14 +6,19 @@ import Title from '../Title'
 import useTranslation from '@/hooks/useTranslation'
 
 function Hero() {
-  const result = useTranslation([
-    'Tối ưu hóa hoạt động',
-    'Marketing',
-    'và',
-    'Chuyển đổi số',
-    'cho doanh nghiệp',
-    'Với sức mạnh công nghệ vượt trội, AdFlex được xếp hạng Top 6 Mobile Marketing Agency về sản lượng và chất lượng dịch vụ trên toàn Đông Nam Á và được 100.000+ đối tác tin tưởng sử dụng giải pháp.',
-  ])
+  const content = useGetContent({
+    componentName: Hero.name,
+    defaultValue: [
+      'Tối ưu hóa hoạt động',
+      'Marketing',
+      'và',
+      'Chuyển đổi số',
+      'cho doanh nghiệp',
+      'Với sức mạnh công nghệ vượt trội, AdFlex được xếp hạng Top 6 Mobile Marketing Agency về sản lượng và chất lượng dịch vụ trên toàn Đông Nam Á và được 100.000+ đối tác tin tưởng sử dụng giải pháp.',
+    ],
+  })
+
+  const result = useTranslation(content)
 
   return (
     <div
@@ -30,17 +36,12 @@ function Hero() {
           {result[5]}
         </div>
         <div className="w-full aspect-[2/1] relative">
-          <Image
-            layout="fill"
-            className="hidden mt-16 md:block"
-            src="/images/hero-img.png"
-            alt="hero-img"
-          />
+          <Image fill className="hidden mt-16 md:block" src="/images/hero-img.png" alt="hero-img" />
         </div>
       </div>
       <Line className="mx-auto mt-24 max-w-maxContent" />
       <Image
-        layout="fill"
+        fill
         src="/images/hero-decor.png"
         alt="decor"
         className="absolute top-0 left-0 right-0 w-screen h-screen"
