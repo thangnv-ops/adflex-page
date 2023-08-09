@@ -9,6 +9,14 @@ import { wrapperEndpoint } from 'common-abstract-fares-system'
     put your explanation here
 */
 
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: '30mb',
+    },
+  },
+}
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const service = new BlogService()
   const result = await wrapperEndpoint(

@@ -18,11 +18,20 @@ export const userEndpoints: EndPointObject = {
 export const contentEndpoints: EndPointObject = {
   baseUrl: '/api/content',
   child: {
-    authLogin: '/login',
     getList: '/get-list',
     add: '/add-new',
     update: '/update-content',
     delete: '/delete-content',
+  },
+}
+
+export const blogEndpoints: EndPointObject = {
+  baseUrl: '/api/blog',
+  child: {
+    getList: '/get-list',
+    add: '/add-new',
+    update: '/update-blog',
+    delete: '/delete-blog',
   },
 }
 
