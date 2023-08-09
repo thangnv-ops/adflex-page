@@ -1,21 +1,26 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import BriefUsModal from '../BriefUsModal'
-import SecondaryBtn from '../SecondaryBtn'
-import Title from '../Title'
 import EffectiveIcon from '../icons/EffectiveIcon'
 import LikeIcon from '../icons/LikeIcon'
 import QualityIcon from '../icons/QualityIcon'
 import RenewIcon from '../icons/RenewIcon'
+import SecondaryBtn from '../SecondaryBtn'
+import Title from '../Title'
 
 function Whyus() {
-  const tranRes = useTranslation([
-    'Lý do nên lựa chọn chúng tôi',
-    'Đăng ký ngay',
-    'Đổi mới',
-    'Chuyên nghiệp',
-    'Chất lượng',
-    'Hiệu quả',
-  ])
+  const content = useGetContent({
+    componentName: Whyus.name,
+    defaultValue: [
+      'Lý do nên lựa chọn chúng tôi',
+      'Đăng ký ngay',
+      'Đổi mới',
+      'Chuyên nghiệp',
+      'Chất lượng',
+      'Hiệu quả',
+    ],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div

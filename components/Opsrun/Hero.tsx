@@ -1,16 +1,21 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
 import BriefUsModal from '../BriefUsModal'
 import SecondaryBtn from '../SecondaryBtn'
 
 function Hero() {
-  const tranRes = useTranslation([
-    'Giải pháp thiết kế, triển khai, vận hành',
-    'hệ thống công nghệ thông tin trên',
-    'nền tảng cloud server',
-    'Hỗ trợ doanh nghiệp trong quá trình chuyển đổi số.',
-    'Bắt đầu',
-  ])
+  const content = useGetContent({
+    componentName: Hero.name,
+    defaultValue: [
+      'Giải pháp thiết kế, triển khai, vận hành',
+      'hệ thống công nghệ thông tin trên',
+      'nền tảng cloud server',
+      'Hỗ trợ doanh nghiệp trong quá trình chuyển đổi số.',
+      'Bắt đầu',
+    ],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div

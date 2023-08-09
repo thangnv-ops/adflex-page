@@ -1,7 +1,13 @@
-import { useRef, useState } from 'react'
+import { contentEndpoints, getEndpoint } from '@/lib/endpoints'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
+import { ContentRes } from '@/backend/service/content-service/content-res'
+import { useApiCall } from '@/hooks/useCallApi'
 import useTranslation from '@/hooks/useTranslation'
+import axios from 'axios'
+import { CommonListResult } from 'common-abstract-fares-system'
 import Carousel from 'react-multi-carousel'
+import { toast } from 'react-toastify'
 import BriefUsModal from '../BriefUsModal'
 import SecondaryBtn from '../SecondaryBtn'
 import StepBar from './StepBar/StepBar'
@@ -24,45 +30,55 @@ const responsiveCarousel = {
   },
 }
 
-const slides = [
+const slides: ContentRes[] = [
   {
-    id: '1',
-    title: 'Rà soát, phân tích hiện trạng',
-    description:
+    _id: '1',
+    route: '',
+    componentName: '',
+    content: [
+      'Rà soát, phân tích hiện trạng',
       'Opsrun rà soát và đánh giá hiện trạng hệ thống thông tin hiện tại của doanh nghiệp. Sau đó tiến hành phân tích chuyên sâu và chỉ ra các lỗ hổng tài nguyên doanh nghiệp đang gặp phải',
+    ],
   },
   {
-    id: '2',
-    title: 'Lên kế hoạch triển khai',
-    description:
+    _id: '2',
+    route: '',
+    componentName: '',
+    content: [
+      'Lên kế hoạch triển khai',
       'Lập kế hoạch chi tiết tối ưu tài nguyên thừa, phân bổ không hợp lý hoặc kế hoạch chuyển đổi hệ thống công nghệ thông tin lên Cloud.',
+    ],
   },
   {
-    id: '3',
-    title: 'Triển khai',
-    description:
+    _id: '3',
+    route: '',
+    componentName: '',
+    content: [
+      'Triển khai',
       'Triển khai bởi đội ngũ chuyên gia chất lượng cao giàu kinh nghiệm: liên tục đo lường và tối ưu giải pháp',
+    ],
   },
   {
-    id: '4',
-    title: 'Bàn giao',
-    description: 'Bàn giao và đào tạo đội ngũ vận hành',
+    _id: '4',
+    route: '',
+    componentName: '',
+    content: ['Bàn giao', 'Bàn giao và đào tạo đội ngũ vận hành'],
   },
   {
-    id: '5',
-    title: 'Hỗ trợ sau bàn giao',
-    description: 'Hỗ trợ 24/7 với các vấn đề phát sinh',
+    _id: '5',
+    route: '',
+    componentName: '',
+    content: ['Hỗ trợ sau bàn giao', 'Hỗ trợ 24/7 với các vấn đề phát sinh'],
   },
 ]
 
-const TextItem = ({ slide }: { slide: { title: string; description: string } }) => {
-  const tranTitle = useTranslation([slide.title])
-  const tranDes = useTranslation([slide.description])
+const TextItem = ({ slide }: { slide: ContentRes }) => {
+  const tranDes = useTranslation(slide.content)
 
   return (
     <>
-      <p className="text-2xl md:text-[40px] text-center">{tranTitle}</p>
-      <p className="text-sm md:text-lg max-w-[604px] text-center">{tranDes}</p>
+      <p className="text-2xl md:text-[40px] text-center">{tranDes[0]}</p>
+      <p className="text-sm md:text-lg max-w-[604px] text-center">{tranDes[1]}</p>
     </>
   )
 }
@@ -77,6 +93,35 @@ function Plant() {
   }
 
   const tranRes = useTranslation(['Đăng ký ngay'])
+
+  const contentList = useApiCall<CommonListResult<ContentRes>, string>({
+    callApi: () =>
+      axios.get(
+        `${getEndpoint(
+          contentEndpoints,
+          'getList'
+        )}?route=/opsrun&componentName=TextItem&page=1&size=5`
+      ),
+    handleError(status, message) {
+      toast.error(message)
+    },
+  })
+
+  useEffect(() => {
+    contentList.setLetCall(true)
+  }, [])
+
+  const listMap = useMemo(() => {
+    if (contentList.data?.result.data.length < slides.length) {
+      return [
+        ...contentList.data.result.data,
+        ...slides.filter(
+          (item, index) => index >= contentList.data?.result.data.length && index < slides.length
+        ),
+      ]
+    }
+    return contentList.data?.result.data || slides
+  }, [contentList.data?.result])
 
   return (
     <div
@@ -104,18 +149,18 @@ function Plant() {
           autoPlaySpeed={3000}
           infinite
           beforeChange={(nextSlide) => {
-            let indexNextSlide = (nextSlide - 2) % slides.length
+            let indexNextSlide = (nextSlide - 2) % listMap.length
             if (indexNextSlide < 0) {
-              indexNextSlide = slides.length - 1
+              indexNextSlide = listMap.length - 1
             }
             setActivatingSlide(indexNextSlide)
           }}
         >
-          {slides.map((slide, index) => (
+          {listMap.map((slide, index) => (
             <div
               key={`plant-${index}`}
               style={{
-                backgroundImage: `url(/images/opsrun/step-bg/${slide.id}.png)`,
+                backgroundImage: `url(/images/opsrun/step-bg/${slides[index]._id}.png)`,
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',

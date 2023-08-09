@@ -1,3 +1,4 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
 import Carousel from 'react-multi-carousel'
@@ -23,9 +24,11 @@ const responsiveCarouselTournaments = {
 }
 
 function Partner() {
-  const tranRes = useTranslation([
-    'Opsrun tự hào là đại lý phân phối của top nhà cung cấp đứng đầu thế giới',
-  ])
+  const content = useGetContent({
+    componentName: Partner.name,
+    defaultValue: ['Opsrun tự hào là đại lý phân phối của top nhà cung cấp đứng đầu thế giới'],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div className="bg-[#EAECF0]">

@@ -1,35 +1,96 @@
+import { contentEndpoints, getEndpoint } from '@/lib/endpoints'
+import { useEffect, useId, useMemo } from 'react'
+
+import { ContentRes } from '@/backend/service/content-service/content-res'
+import { useApiCall } from '@/hooks/useCallApi'
 import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
+import axios from 'axios'
+import { CommonListResult } from 'common-abstract-fares-system'
+import { toast } from 'react-toastify'
 import BriefUsModal from '../BriefUsModal'
 import Line from '../Line'
 import PrimaryBtn from '../PrimaryBtn'
 import Title from '../Title'
 import UpRightArrow from '../icons/UpRightArrow'
 
-const effectives = [
+const effectives: ContentRes[] = [
   {
-    id: 'contentment',
-    percent: '98%',
-    description: 'Tỉ lệ khách hàng hài lòng',
+    route: '',
+    componentName: '',
+    _id: 'contentment',
+    content: ['98%', 'Tỉ lệ khách hàng hài lòng'],
   },
   {
-    id: 'expense',
-    percent: '30%',
-    description: 'Tỉ lệ chi phí tiết kiệm',
+    route: '',
+    componentName: '',
+    _id: 'expense',
+    content: ['30%', 'Tỉ lệ chi phí tiết kiệm'],
   },
   {
-    id: 'Optimal',
-    percent: '25%',
-    description: 'Tỉ lệ tối ưu hiệu quả quảng cáo',
+    route: '',
+    componentName: '',
+    _id: 'Optimal',
+    content: ['25%', 'Tỉ lệ tối ưu hiệu quả quảng cáo'],
   },
   {
-    id: 'kpi',
-    percent: '100%',
-    description: 'Tỉ lệ hoàn thành KPI',
+    route: '',
+    componentName: '',
+    _id: 'kpi',
+    content: ['100%', 'Tỉ lệ hoàn thành KPI'],
   },
 ]
 
+const EffectiveItem = ({ item, index }: { index: number; item: ContentRes }) => {
+  const tranRes = useTranslation([item.content[1]])
+
+  const id = useId()
+
+  return (
+    <div
+      data-aos="fade-up"
+      data-aos-duration="700"
+      data-aos-delay={300 + 100 * index}
+      key={id}
+      className="py-4 md:py-6 bg-white rounded-2xl smooth-transform bg-opacity-5 hover:bg-opacity-25 effective-item h-[233px] md:h-[312px] flex flex-col justify-between backdrop-blur-xl"
+    >
+      <div>
+        <p className="px-4 text-[40px] font-bold md:px-6 md:text-[56px]">{item.content[0]}</p>
+        <Line className="my-4" />
+        <p className="px-4 text-base md:text-xl md:px-6">{tranRes[0]}</p>
+      </div>
+      <div className="px-4 md:px-6 effective-btn">
+        <BriefUsModal>
+          <PrimaryBtn className="w-full mt-4 md:mt-8">
+            <div className="flex items-center justify-center gap-2">
+              <p className="text-white">Brief us</p>
+              <UpRightArrow />
+            </div>
+          </PrimaryBtn>
+        </BriefUsModal>
+      </div>
+    </div>
+  )
+}
+
 function Effective() {
+  const contentList = useApiCall<CommonListResult<ContentRes>, string>({
+    callApi: () =>
+      axios.get(
+        `${getEndpoint(
+          contentEndpoints,
+          'getList'
+        )}?route=/&componentName=Effective-Content&page=1&size=4`
+      ),
+    handleError(status, message) {
+      toast.error(message)
+    },
+  })
+
+  useEffect(() => {
+    contentList.setLetCall(true)
+  }, [])
+
   const content = useGetContent({
     componentName: Effective.name,
     defaultValue: [
@@ -42,16 +103,17 @@ function Effective() {
   })
   const tranRes = useTranslation(content)
 
-  const contentEffective = useGetContent({
-    componentName: `${Effective.name}-Content`,
-    defaultValue: [...effectives.map((item) => item.description)],
-  })
-
-  const transEffRes = useTranslation(contentEffective)
-
-  const afterTrans = effectives.map((item, index) => {
-    return { ...item, description: transEffRes[index] }
-  })
+  const lists = useMemo(() => {
+    if (contentList?.data?.result.data.length < effectives.length) {
+      return [
+        ...contentList.data.result.data,
+        ...effectives.filter(
+          (item, index) => index >= contentList.data.result.data.length && index < effectives.length
+        ),
+      ]
+    }
+    return contentList?.data?.result.data || effectives
+  }, [contentList.data?.result.data])
 
   return (
     <div
@@ -74,30 +136,8 @@ function Effective() {
           </p>
         </div>
         <div className="relative z-10 grid grid-cols-2 gap-4 mt-16 md:gap-8 md:grid-cols-4">
-          {afterTrans.map((item, index) => (
-            <div
-              data-aos="fade-up"
-              data-aos-duration="700"
-              data-aos-delay={300 + 100 * index}
-              key={item.id}
-              className="py-4 md:py-6 bg-white rounded-2xl smooth-transform bg-opacity-5 hover:bg-opacity-25 effective-item h-[233px] md:h-[312px] flex flex-col justify-between backdrop-blur-xl"
-            >
-              <div>
-                <p className="px-4 text-[40px] font-bold md:px-6 md:text-[56px]">{item.percent}</p>
-                <Line className="my-4" />
-                <p className="px-4 text-base md:text-xl md:px-6">{item.description}</p>
-              </div>
-              <div className="px-4 md:px-6 effective-btn">
-                <BriefUsModal>
-                  <PrimaryBtn className="w-full mt-4 md:mt-8">
-                    <div className="flex items-center justify-center gap-2">
-                      <p className="text-white">Brief us</p>
-                      <UpRightArrow />
-                    </div>
-                  </PrimaryBtn>
-                </BriefUsModal>
-              </div>
-            </div>
+          {lists.map((item, index) => (
+            <EffectiveItem item={item} index={index} />
           ))}
         </div>
       </div>

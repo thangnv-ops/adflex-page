@@ -1,16 +1,21 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
 import BriefUsModal from '../BriefUsModal'
 import RedBtn from '../RedBtn'
 
 function Banner() {
-  const tranRes = useTranslation([
-    'Bạn muốn tối ưu hiệu quả quảng cáo',
-    'hoặc đẩy mạnh thu nhập?',
-    'Đừng chần chừ, hãy để lại thông tin, chúng tôi sẽ liên hệ ngay với bạn',
-    'trong vòng 24h',
-    'Đăng ký ngay',
-  ])
+  const content = useGetContent({
+    componentName: Banner.name,
+    defaultValue: [
+      'Bạn muốn tối ưu hiệu quả quảng cáo',
+      'hoặc đẩy mạnh thu nhập?',
+      'Đừng chần chừ, hãy để lại thông tin, chúng tôi sẽ liên hệ ngay với bạn',
+      'trong vòng 24h',
+      'Đăng ký ngay',
+    ],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div className="px-4 mx-auto mt-12 max-w-maxContent">

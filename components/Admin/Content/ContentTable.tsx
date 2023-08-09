@@ -24,6 +24,7 @@ import axios from 'axios'
 import { CommonListResult } from 'common-abstract-fares-system'
 import { toast } from 'react-toastify'
 import { CreateContent } from './CreateContent'
+import { DeleteContent } from './DeleteContent'
 import { UpdateContent } from './UpdateContent'
 
 const columns = [
@@ -96,12 +97,20 @@ export const ContentTable = () => {
           contentState={selectedContent}
           disable={!selected || !selectedContent.content}
         />
+        <Divider orientation="vertical" />
+        <DeleteContent
+          id={selected?._id}
+          callList={handleCallList}
+          disable={!selected || !selectedContent.content}
+        />
       </div>
       <Divider className="my-4" />
       <ButtonGroup>
         <Button onPress={() => setRoute('/')}>Home</Button>
         <Button onPress={() => setRoute('/cpa')}>Cpa</Button>
-        <Button>Three</Button>
+        <Button onPress={() => setRoute('/pushtimize')}>Pushtimize</Button>
+        <Button onPress={() => setRoute('/opsrun')}>OpsRun</Button>
+        <Button onPress={() => setRoute('/contact')}>Contact</Button>
       </ButtonGroup>
       <Divider className="my-4" />
       <Table

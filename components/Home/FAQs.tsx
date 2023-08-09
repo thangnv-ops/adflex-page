@@ -1,61 +1,81 @@
+import { contentEndpoints, getEndpoint } from '@/lib/endpoints'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect, useMemo, useState } from 'react'
 
+import { ContentRes } from '@/backend/service/content-service/content-res'
+import { useApiCall } from '@/hooks/useCallApi'
 import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
+import axios from 'axios'
+import { CommonListResult } from 'common-abstract-fares-system'
 import Image from 'next/image'
-import { useState } from 'react'
+import { toast } from 'react-toastify'
 import BriefUsModal from '../BriefUsModal'
 import SecondaryBtn from '../SecondaryBtn'
 import Title from '../Title'
 import ArrowDownIcon from '../icons/ArrowDownIcon'
 import UpRightArrow from '../icons/UpRightArrow'
 
-const listFAQ = [
+const listFAQ: ContentRes[] = [
   {
-    id: 'quest1',
-    question: 'AdFlex cung cấp dịch vụ gì?',
-    answer:
+    _id: 'quest1',
+    route: '',
+    componentName: '',
+    content: [
+      'AdFlex cung cấp dịch vụ gì?',
       'AdFlex cung cấp giải pháp tối ưu hoạt động marketing và vận hành doanh nghiệp (cụ thể là: CPA, Pushtimize - hệ thống quảng cáo tự động với target chuyên sâu, Opsrun - Giải pháp xây dựng và vận hành hệ thống cloud server)',
+    ],
   },
   {
-    id: 'quest2',
-    question: 'Lợi ích của bạn khi sử dụng giải pháp của AdFlex?',
-    answer:
+    _id: 'quest2',
+    route: '',
+    componentName: '',
+    content: [
+      'Lợi ích của bạn khi sử dụng giải pháp của AdFlex?',
       'Tối ưu hiệu quả & tiết kiệm chi phí bởi nền tảng công nghệ cao, strong knowhow về ngành cũng như nhân sự chuyên nghiệp chất lượng cao.',
+    ],
   },
   {
-    id: 'quest3',
-    question: 'Giải pháp CPA của AdFlex có gì khác biệt so với thị trường?',
-    answer:
+    _id: 'quest3',
+    route: '',
+    componentName: '',
+    content: [
+      'Giải pháp CPA của AdFlex có gì khác biệt so với thị trường?',
       'Sản lượng và chất lượng cao: volume và tỉ lệ khách hàng ở lại sau install app rất cao.',
+    ],
   },
   {
-    id: 'quest4',
-    question: 'Tại sao bạn nên lựa chọn giải pháp Pushtimize?',
-    answer:
+    _id: 'quest4',
+    route: '',
+    componentName: '',
+    content: [
+      'Tại sao bạn nên lựa chọn giải pháp Pushtimize?',
       'Thay vì lãng phí thời gian và nguồn lực quảng cáo tràn lan, không đúng đối tượng, Pushtimize với công nghệ ưu việt cho phép target chuyên sâu đến đúng đối tượng khách hàng và tối ưu hiệu quả marketing.',
+    ],
   },
   {
-    id: 'quest5',
-    question: 'Tại sao bạn nên sử dụng giải pháp của Opsrun trong quá trình chuyển đổi số?',
-    answer:
+    _id: 'quest5',
+    route: '',
+    componentName: '',
+    content: [
+      'Tại sao bạn nên sử dụng giải pháp của Opsrun trong quá trình chuyển đổi số?',
       'Là đối tác phân phối của 6 nhà cung cấp cloud server lớn nhất thế giới (Google, Aws, Huwei, Alibaba, Azure, Tencen), Opsrun tự tin với đầy đủ năng lực giúp bạn tối ưu chi phí và gia tăng hiệu năng hệ thống.',
+    ],
   },
   {
-    id: 'quest6',
-    question: 'Làm sao để liên hệ với AdFlex?',
-    answer:
+    _id: 'quest6',
+    route: '',
+    componentName: '',
+    content: [
+      'Làm sao để liên hệ với AdFlex?',
       'Trong trường hợp gấp, hãy gọi ngay đến hotline 0345036008 (Uyển) để được AdFlex tư vấn giúp bạn. Nếu bạn chưa vội, hãy điền thông tin cá nhân của bạn ngay phần liên hệ bên dưới nhé!',
+    ],
   },
 ]
 
-function FAQItem({ question, answer, id }: { question: string; answer: string; id: string }) {
+function FAQItem({ item }: { item: ContentRes }) {
   const [ispExpanded, setIspExpanded] = useState(false)
-  const content = useGetContent({
-    componentName: `${FAQItem.name}-${id}`,
-    defaultValue: [question, answer],
-  })
-  const tranRes = useTranslation(content)
+  const tranRes = useTranslation(item.content)
 
   return (
     <div className="py-6 border-b border-white border-opacity-20">
@@ -112,20 +132,46 @@ function FAQs() {
   })
   const tranRes = useTranslation(content)
 
+  const contentList = useApiCall<CommonListResult<ContentRes>, string>({
+    callApi: () =>
+      axios.get(
+        `${getEndpoint(contentEndpoints, 'getList')}?route=/&componentName=FAQItem&page=1&size=10`
+      ),
+    handleError(status, message) {
+      toast.error(message)
+    },
+  })
+
+  useEffect(() => {
+    contentList.setLetCall(true)
+  }, [])
+
+  const lists = useMemo(() => {
+    if (contentList?.data?.result.data.length < listFAQ.length) {
+      return [
+        ...contentList.data.result.data,
+        ...listFAQ.filter(
+          (item, index) => index >= contentList.data.result.data.length && index < listFAQ.length
+        ),
+      ]
+    }
+    return contentList?.data?.result.data || listFAQ
+  }, [contentList.data?.result.data])
+
   return (
     <div className="bg-[#0F0F0F] py-20 overflow-hidden">
       <div className="max-w-[910px] px-4 mx-auto relative">
         <Image
-          layout="fill"
+          fill
           src="/images/faq-decor.png"
           alt="faq"
           className="absolute -bottom-[300px] -right-[300px]"
         />
         <Title>{tranRes[0]}</Title>
         <div className="relative z-10 mt-10">
-          {listFAQ.map((faq) => (
-            <div key={faq.id} data-aos="fade-up" data-aos-duration="700">
-              <FAQItem question={faq.question} answer={faq.answer} id={faq.id} />
+          {lists.map((faq) => (
+            <div key={faq._id} data-aos="fade-up" data-aos-duration="700">
+              <FAQItem item={faq} />
             </div>
           ))}
           <BriefUsModal>

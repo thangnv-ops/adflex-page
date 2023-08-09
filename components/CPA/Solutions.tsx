@@ -1,3 +1,4 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
 import { ReactNode } from 'react'
@@ -48,18 +49,24 @@ const solutions = [
   },
 ]
 
-function Item({
+function ItemSolution({
+  id,
   title,
   description,
   icon,
   isAlignRight = false,
 }: {
+  id: string
   title: string
   description: string
   icon: ReactNode
   isAlignRight?: boolean
 }) {
-  const tranRes = useTranslation([title, description])
+  const content = useGetContent({
+    componentName: `${ItemSolution.name}-${id}`,
+    defaultValue: [title, description],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div
@@ -77,11 +84,15 @@ function Item({
 }
 
 function Solutions() {
-  const tranRes = useTranslation([
-    'Tích hợp đa dạng các giải pháp',
-    'phù hợp nhu cầu của khách hàng',
-    'Tích hợp đa dạng các giải pháp phù hợp nhu cầu của khách hàng',
-  ])
+  const content = useGetContent({
+    componentName: Solutions.name,
+    defaultValue: [
+      'Tích hợp đa dạng các giải pháp',
+      'phù hợp nhu cầu của khách hàng',
+      'Tích hợp đa dạng các giải pháp phù hợp nhu cầu của khách hàng',
+    ],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div className="bg-[#1A1A1A] pt-28 pb-28 relative overflow-hidden">
@@ -101,7 +112,13 @@ function Solutions() {
         <div className="grid grid-cols-4 gap-8">
           {solutions.slice(0, 3).map((i, index) => (
             <div data-aos="fade-up" data-aos-duration="700" data-aos-delay={300 + 100 * index}>
-              <Item key={i.id} title={i.title} description={i.description} icon={i.icon} />
+              <ItemSolution
+                id={i.id}
+                key={i.id}
+                title={i.title}
+                description={i.description}
+                icon={i.icon}
+              />
             </div>
           ))}
         </div>
@@ -120,7 +137,8 @@ function Solutions() {
               data-aos-duration="700"
               data-aos-delay={300 + 100 * index}
             >
-              <Item
+              <ItemSolution
+                id={i.id}
                 isAlignRight
                 key={i.id}
                 title={i.title}
@@ -150,7 +168,13 @@ function Solutions() {
               className="flex"
               data-aos-delay={300 + 100 * index}
             >
-              <Item key={i.id} title={i.title} description={i.description} icon={i.icon} />
+              <ItemSolution
+                id={i.id}
+                key={i.id}
+                title={i.title}
+                description={i.description}
+                icon={i.icon}
+              />
             </div>
           ))}
         </div>

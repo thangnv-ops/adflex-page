@@ -47,7 +47,12 @@ export const useGetContent = ({
 
   const output = useMemo(() => {
     if (result.length < defaultValue.length) {
-      return [...result, ...defaultValue.filter((item, index) => index >= result.length)]
+      return [
+        ...result,
+        ...defaultValue.filter(
+          (item, index) => index >= result.length && index < defaultValue.length
+        ),
+      ]
     }
     return result
   }, [result])

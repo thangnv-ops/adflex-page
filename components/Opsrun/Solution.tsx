@@ -1,3 +1,4 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
 import BriefUsModal from '../BriefUsModal'
@@ -15,17 +16,30 @@ const cloudComputingAdvantage = [
 ]
 
 function Solution() {
-  const tranRes = useTranslation([
-    'Giải pháp Devops',
-    'cho doanh nghiệp',
-    'Tư vấn, thiết kế & triển khai hệ thống',
-    'Liên hệ ngay với chúng tôi',
-    'Dịch vụ Cloud Computing',
-    'Liên hệ ngay với chúng tôi',
-  ])
+  const content = useGetContent({
+    componentName: `${Solution.name}-main`,
+    defaultValue: [
+      'Giải pháp Devops',
+      'cho doanh nghiệp',
+      'Tư vấn, thiết kế & triển khai hệ thống',
+      'Liên hệ ngay với chúng tôi',
+      'Dịch vụ Cloud Computing',
+      'Liên hệ ngay với chúng tôi',
+    ],
+  })
+  const tranRes = useTranslation(content)
 
-  const tranDevopsRes = useTranslation([...devopsAdvantage])
-  const tranCloudRes = useTranslation([...cloudComputingAdvantage])
+  const contentDevops = useGetContent({
+    componentName: `${Solution.name}-devops`,
+    defaultValue: devopsAdvantage,
+  })
+  const tranDevopsRes = useTranslation(contentDevops)
+
+  const contentCloud = useGetContent({
+    componentName: `${Solution.name}-cloud`,
+    defaultValue: cloudComputingAdvantage,
+  })
+  const tranCloudRes = useTranslation(contentCloud)
 
   return (
     <div className="pt-24 bg-black">

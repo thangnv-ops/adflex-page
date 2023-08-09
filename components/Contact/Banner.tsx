@@ -1,12 +1,17 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import SecondaryBtn from '../SecondaryBtn'
 
 function Banner() {
-  const tranRes = useTranslation([
-    'Bạn quan tâm đến việc làm tại Adflex?',
-    'Hãy theo dõi trang tuyển dụng của chúng tôi!',
-    'Tuyển dụng',
-  ])
+  const content = useGetContent({
+    componentName: Banner.name,
+    defaultValue: [
+      'Bạn quan tâm đến việc làm tại Adflex?',
+      'Hãy theo dõi trang tuyển dụng của chúng tôi!',
+      'Tuyển dụng',
+    ],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div className="px-4 mx-auto mt-32 max-w-maxContent">

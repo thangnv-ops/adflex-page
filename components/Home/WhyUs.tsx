@@ -1,19 +1,19 @@
-import { useGetContent } from '@/hooks/useGetContent'
-import useTranslation from '@/hooks/useTranslation'
-import Image from 'next/image'
-import { ReactNode } from 'react'
 import BriefUsModal from '../BriefUsModal'
-import PrimaryBtn from '../PrimaryBtn'
-import Title from '../Title'
 import CPUIcon from '../icons/CPUIcon'
 import CpuWithBgIcon from '../icons/CpuWithBgIcon'
+import Image from 'next/image'
 import PersonIcon from '../icons/PersonIcon'
 import PersonWithBgIcon from '../icons/PersonWithBgIcon'
+import PrimaryBtn from '../PrimaryBtn'
+import { ReactNode } from 'react'
 import StarIcon from '../icons/StarIcon'
 import StarWithBgIcon from '../icons/StarWithBgIcon'
+import Title from '../Title'
 import TrophyIcon from '../icons/TrophyIcon'
 import TrophyWithBgIcon from '../icons/TrophyWithBgIcon'
 import UpRightArrow from '../icons/UpRightArrow'
+import { useGetContent } from '@/hooks/useGetContent'
+import useTranslation from '@/hooks/useTranslation'
 
 const ICON_ID = {
   CPU: 'cpu',
@@ -114,9 +114,9 @@ function WhyUs() {
         <div
           data-aos="fade-up"
           data-aos-duration="700"
-          className="relative w-full aspect-square hidden md:block"
+          className="relative w-full aspect-[1/1.3] hidden md:block"
         >
-          <Image layout="fill" src="/images/whyus-img.png" alt="whyus" />
+          <Image fill src="/images/whyus-img.png" alt="whyus" />
           <CpuWithBgIcon className="smooth-transform grayscale-[0.4] w-12 md:w-16 absolute top-[70px] left-[70px] md:top-[98px] md:left-[98px]" />
           <PersonWithBgIcon className="smooth-transform grayscale-[0.4] w-12 md:w-16 absolute top-[70px] right-[85px] md:top-[98px] md:right-[110px]" />
           <StarWithBgIcon className="smooth-transform grayscale-[0.4] w-12 md:w-16 absolute bottom-[145px] left-[70px] md:bottom-[198px]  md:left-[98px]" />

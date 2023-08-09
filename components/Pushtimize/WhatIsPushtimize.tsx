@@ -1,18 +1,23 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
 import SecondaryBtn from '../SecondaryBtn'
 import Title from '../Title'
 
 function WhatIsPushtimize() {
-  const tranRes = useTranslation([
-    'là gì?',
-    'Tìm hiểu thêm',
-    `PUSHTIMIZE là hệ thống quảng cáo tự động, giúp kết nối các nhà quảng cáo với hàng
-triệu người dùng cùng lúc. Chúng tôi cung cấp đa dạng các loại hình quảng cáo với công
-nghệ ưu việt cho phép target chuyên sâu đến đúng đối tượng khách hàng và tối ưu hiệu
-quả marketing. Nhà quảng cáo có thể chủ động khởi tạo và quản lý các chiến dịch. Nhà
-xuất bản có thể tự tích hợp website và quản lý doanh thu .`,
-  ])
+  const content = useGetContent({
+    componentName: WhatIsPushtimize.name,
+    defaultValue: [
+      'là gì?',
+      'Tìm hiểu thêm',
+      `PUSHTIMIZE là hệ thống quảng cáo tự động, giúp kết nối các nhà quảng cáo với hàng
+  triệu người dùng cùng lúc. Chúng tôi cung cấp đa dạng các loại hình quảng cáo với công
+  nghệ ưu việt cho phép target chuyên sâu đến đúng đối tượng khách hàng và tối ưu hiệu
+  quả marketing. Nhà quảng cáo có thể chủ động khởi tạo và quản lý các chiến dịch. Nhà
+  xuất bản có thể tự tích hợp website và quản lý doanh thu .`,
+    ],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div>

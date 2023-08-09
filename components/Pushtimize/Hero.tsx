@@ -1,3 +1,4 @@
+import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
 import BriefUsModal from '../BriefUsModal'
@@ -5,14 +6,18 @@ import QuaternaryBtn from '../QuaternaryBtn'
 import SecondaryBtn from '../SecondaryBtn'
 
 function Hero() {
-  const tranRes = useTranslation([
-    'Nền tảng quảng cáo tự động',
-    'đầu tiên tại Đông Nam Á',
-    'Pushtimize đồng hành cùng bạn nâng cao hiệu suất marketing và gia tăng',
-    'thu nhập cho trang web thông qua đa dạng các định dạng quảng cáo.',
-    'Đăng ký nhận brochure',
-    'Liên hệ tư vấn',
-  ])
+  const content = useGetContent({
+    componentName: Hero.name,
+    defaultValue: [
+      'Nền tảng quảng cáo tự động',
+      'đầu tiên tại Đông Nam Á',
+      'Pushtimize đồng hành cùng bạn nâng cao hiệu suất marketing và gia tăng',
+      'thu nhập cho trang web thông qua đa dạng các định dạng quảng cáo.',
+      'Đăng ký nhận brochure',
+      'Liên hệ tư vấn',
+    ],
+  })
+  const tranRes = useTranslation(content)
 
   return (
     <div
