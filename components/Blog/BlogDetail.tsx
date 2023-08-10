@@ -1,13 +1,14 @@
+import { blogEndpoints, getEndpoint } from '@/lib/endpoints'
+import { Card, CardBody, Pagination } from '@nextui-org/react'
+import { useEffect, useState } from 'react'
+
 import { BlogRes } from '@/backend/service/blog-service/blog-res'
 import { useApiCall } from '@/hooks/useCallApi'
 import useTranslation from '@/hooks/useTranslation'
-import { blogEndpoints, getEndpoint } from '@/lib/endpoints'
-import { Card, CardBody, Pagination } from '@nextui-org/react'
 import axios from 'axios'
 import { CommonListResult } from 'common-abstract-fares-system'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import PrimaryBtn from '../PrimaryBtn'
 import PrimaryInput from '../PrimaryInput'
@@ -125,14 +126,12 @@ function BlogDetail() {
         <div
           data-aos="fade-up"
           data-aos-duration="700"
-          className=""
-          dangerouslySetInnerHTML={{ __html: detail.content }}
-        />
-        <div
-          data-aos="fade-up"
-          data-aos-duration="700"
           className="max-w-[1146px] mx-auto px-4 grid grid-cols-1 md:grid-cols-64 gap-20 mt-12"
         >
+          <div
+            className="text-justify blog-detail-style"
+            dangerouslySetInnerHTML={{ __html: detail.content }}
+          />
           <div className="flex flex-col p-8 bg-black border border-black rounded-2xl bg-opacity-10 border-opacity-20 h-min">
             <SubcribeIcon />
             <p className="mt-8 md:text-2xl text-primary"> {tranRes[2]}</p>

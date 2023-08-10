@@ -1,12 +1,13 @@
+import { getEndpoint, jobEndpoints } from '@/lib/endpoints'
+import { Card, CardBody, Pagination } from '@nextui-org/react'
+import { ReactNode, useEffect, useState } from 'react'
+
 import { JobRes } from '@/backend/service/job-service/job-res'
 import { useApiCall } from '@/hooks/useCallApi'
 import useTranslation from '@/hooks/useTranslation'
-import { getEndpoint, jobEndpoints } from '@/lib/endpoints'
-import { Card, CardBody, Pagination } from '@nextui-org/react'
 import axios from 'axios'
 import { CommonListResult } from 'common-abstract-fares-system'
 import { useRouter } from 'next/router'
-import { ReactNode, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import Line from '../Line'
 import PrimaryBtn from '../PrimaryBtn'
@@ -154,7 +155,7 @@ function JobDetails() {
           className="pl-4 mt-4 text-sm list-disc md:text-base"
         >
           <div
-            className="text-justify blog-detail-style"
+            className="text-justify blog-detail-style leading-6	"
             dangerouslySetInnerHTML={{ __html: detail.content }}
           />
         </div>
@@ -210,7 +211,7 @@ function JobDetails() {
                       {tranRes[3]}: <span className="font-semibold">{job.deadline}</span>
                     </p>
                   </div>
-                  <PrimaryBtn className="w-[160px] h-10">tranRes[7]</PrimaryBtn>
+                  <PrimaryBtn className="w-[160px] h-10">{tranRes[7]}</PrimaryBtn>
                 </div>
                 <Line data-aos="fade-up" data-aos-duration="700" className="bg-[#D0D5DD] mt-10" />
               </div>
