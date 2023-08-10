@@ -40,7 +40,7 @@ export const AdminDashboard = () => {
       }
     },
     handleSuccess(message, data) {
-      setCookies(TOKEN_COOKIE_KEY, data.token)
+      setCookies(TOKEN_COOKIE_KEY, data.token, { path: '/' })
       router.push('/admin/users')
       toast.success(message)
     },
