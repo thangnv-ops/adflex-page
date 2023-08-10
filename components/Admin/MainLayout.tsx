@@ -18,10 +18,10 @@ export const MainLayout = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     if (router) {
       if (cookies.token) {
-        if (router.pathname.split('/')[router.pathname.split('/').length - 1] === 'admin') {
+        if (router.pathname === '/admin') {
           router.push('/admin/users')
         }
-      } else {
+      } else if (router.pathname !== '/admin') {
         router.push('/admin')
       }
     }

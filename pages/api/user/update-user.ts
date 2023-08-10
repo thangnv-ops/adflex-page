@@ -11,10 +11,15 @@ import { wrapperEndpoint } from 'common-abstract-fares-system'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const service = new UserService()
-  const result = await wrapperEndpoint(
-    req,
-    'PUT',
-    service.updateUser(req.body, (req.query.id as string) || '')
-  )
-  res.status(200).json(result)
+  const authRes = await service.verifyInternalUserToken(req.cookies.token)
+  if (authRes.success) {
+    const result = await wrapperEndpoint(
+      req,
+      'PUT',
+      service.updateUser(req.body, (req.query.id as string) || '')
+    )
+    res.status(200).json(result)
+  } else {
+    res.status(200).json(authRes)
+  }
 }

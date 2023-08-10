@@ -40,7 +40,7 @@ export const NavbarAdmin = () => {
   const [, , removeCookie] = useCookies([TOKEN_COOKIE_KEY])
 
   const handleSignOut = () => {
-    removeCookie(TOKEN_COOKIE_KEY)
+    removeCookie(TOKEN_COOKIE_KEY, { path: '/' })
   }
 
   return (
