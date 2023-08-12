@@ -1,6 +1,7 @@
 import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
+import Link from 'next/link'
 import BriefUsModal from '../BriefUsModal'
 import QuaternaryBtn from '../QuaternaryBtn'
 import SecondaryBtn from '../SecondaryBtn'
@@ -13,7 +14,7 @@ function Hero() {
       'đầu tiên tại Đông Nam Á',
       'Pushtimize đồng hành cùng bạn nâng cao hiệu suất marketing và gia tăng',
       'thu nhập cho trang web thông qua đa dạng các định dạng quảng cáo.',
-      'Đăng ký nhận brochure',
+      'Xem thêm về giải pháp',
       'Liên hệ tư vấn',
     ],
   })
@@ -51,9 +52,11 @@ function Hero() {
             {tranRes[2]} <br className="hidden md:block" /> {tranRes[3]}
           </p>
           <div className="flex gap-2 mt-5">
-            <QuaternaryBtn className="px-5">
-              <span className="text-sm md:text-base">{tranRes[4]}</span>
-            </QuaternaryBtn>
+            <Link href="https://pushtimize.com/" target="_blank">
+              <QuaternaryBtn className="px-5">
+                <span className="text-sm md:text-base">{tranRes[4]}</span>
+              </QuaternaryBtn>
+            </Link>
             <BriefUsModal>
               <SecondaryBtn className="px-5">
                 <span className="text-sm md:text-base">{tranRes[5]}</span>

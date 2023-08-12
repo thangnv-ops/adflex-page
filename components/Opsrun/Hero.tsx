@@ -1,7 +1,7 @@
 import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
-import BriefUsModal from '../BriefUsModal'
+import Link from 'next/link'
 import SecondaryBtn from '../SecondaryBtn'
 
 function Hero() {
@@ -39,9 +39,9 @@ function Hero() {
           </p>
           <p className="mt-5 text-sm md:text-base">{tranRes[3]}</p>
           <div className="flex gap-2 mt-5">
-            <BriefUsModal>
+            <Link href="https://opsrun.io/" target="_blank">
               <SecondaryBtn>{tranRes[4]}</SecondaryBtn>
-            </BriefUsModal>
+            </Link>
           </div>
         </div>
         <div className="">
