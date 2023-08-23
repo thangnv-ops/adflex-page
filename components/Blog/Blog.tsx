@@ -1,17 +1,19 @@
-import { BlogRes } from '@/backend/service/blog-service/blog-res'
-import { useApiCall } from '@/hooks/useCallApi'
-import { blogEndpoints, getEndpoint } from '@/lib/endpoints'
 import { Card, CardBody, Pagination } from '@nextui-org/react'
-import axios from 'axios'
+import { blogEndpoints, getEndpoint } from '@/lib/endpoints'
+import { useEffect, useState } from 'react'
+
+import { BlogRes } from '@/backend/service/blog-service/blog-res'
 import { CommonListResult } from 'common-abstract-fares-system'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
 import Map from '../Map'
 import { NewsItem } from './NewsItem'
 import { NewsLoading } from './NewsLoading'
 import { Tag } from './Tag'
+import axios from 'axios'
+import { toast } from 'react-toastify'
+import { useApiCall } from '@/hooks/useCallApi'
+import useTranslation from '@/hooks/useTranslation'
 
 function Blog() {
   const [page, setPage] = useState(1)
@@ -39,6 +41,13 @@ function Blog() {
   const headList = data?.result?.data.filter((item, index) => index < 3) || []
   const belowList = data?.result?.data.filter((item, index) => index >= 3) || []
 
+  const tranRes = useTranslation([
+    'Tin tức',
+    'Những cập nhật mới nhất từ Adflex',
+    'Tin tức mới nhất',
+    'Tất cả tin tức',
+  ])
+
   return (
     <div>
       <div
@@ -52,12 +61,12 @@ function Blog() {
         }}
         className="h-auto px-4 pt-56 pb-32 text-center"
       >
-        <p className="text-lg md:text-2xl">Tin tức</p>
-        <p className="mt-2 text-[30px] md:text-5xl">Những cập nhật mới nhất từ Adflex</p>
+        <p className="text-lg md:text-2xl">{tranRes[0]}</p>
+        <p className="mt-2 text-[30px] md:text-5xl">{tranRes[1]}</p>
       </div>
       <div className="px-4 py-20 mx-auto text-black max-w-maxContent">
         <p data-aos="fade-up" data-aos-duration="700" className="text-2xl font-semibold">
-          Tin tức mới nhất
+          {tranRes[2]}
         </p>
         {getList.loading && <NewsLoading />}
         <div
@@ -96,7 +105,7 @@ function Blog() {
         </div>
 
         <p data-aos="fade-up" data-aos-duration="700" className="mt-20 text-2xl font-semibold">
-          Tất cả tin tức
+          {tranRes[3]}
         </p>
         <div
           data-aos="fade-up"
