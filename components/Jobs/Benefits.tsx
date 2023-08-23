@@ -1,9 +1,11 @@
-import React, { ReactNode } from 'react'
-import Title from '../Title'
+import { useGetContent } from '@/hooks/useGetContent'
+import useTranslation from '@/hooks/useTranslation'
+import { ReactNode } from 'react'
 import Line from '../Line'
-import WorkEnvIcon from '../icons/Jobs/WorkEnvIcon'
-import TrophyIcon from '../icons/Jobs/TrophyIcon'
+import Title from '../Title'
 import ChartIcon from '../icons/Jobs/ChartIcon'
+import TrophyIcon from '../icons/Jobs/TrophyIcon'
+import WorkEnvIcon from '../icons/Jobs/WorkEnvIcon'
 import UptrendIcon from '../icons/Pushtimize/UptrendIcon'
 
 const benefits = [
@@ -41,12 +43,19 @@ function Item({
   description,
   icon,
   isAlignRight = false,
+  id,
 }: {
   title: string
   description: string
   icon: ReactNode
   isAlignRight?: boolean
+  id: string
 }) {
+  const getContent = useGetContent({
+    componentName: `${Item.name}-${id}`,
+    defaultValue: [title, description],
+  })
+  const content = useTranslation(getContent)
   return (
     <div
       className={`p-4 md:p-6 bg-white border border-white bg-opacity-5 rounded-2xl border-opacity-20 flex flex-col ${
@@ -55,17 +64,18 @@ function Item({
     >
       {icon}
       <p className={`mt-4 text-xl md:text-2xl font-medium ${isAlignRight && 'text-right'}`}>
-        {title}
+        {content[0]}
       </p>
-      <p className={`text-sm md:text-base mt-4 ${isAlignRight && 'text-right'}`}>{description}</p>
+      <p className={`text-sm md:text-base mt-4 ${isAlignRight && 'text-right'}`}>{content[1]}</p>
     </div>
   )
 }
 
 function Benefits() {
+  const trans = useTranslation(['Nơi làm việc tuyệt vời nhất!'])
   return (
     <div className="bg-[#262626] px-4 pt-56 pb-28 -mt-[115px]">
-      <Title className="text-center">Nơi làm việc tuyệt vời nhất!</Title>
+      <Title className="text-center">{trans[0]}</Title>
       <Line
         data-aos="fade-up"
         data-aos-duration="700"
@@ -80,6 +90,7 @@ function Benefits() {
             className="flex"
           >
             <Item
+              id={benefit.id}
               key={benefit.id}
               title={benefit.title}
               description={benefit.description}
