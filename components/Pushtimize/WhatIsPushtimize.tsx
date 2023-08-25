@@ -1,8 +1,8 @@
-import { useGetContent } from '@/hooks/useGetContent'
-import useTranslation from '@/hooks/useTranslation'
 import Image from 'next/image'
 import SecondaryBtn from '../SecondaryBtn'
 import Title from '../Title'
+import { useGetContent } from '@/hooks/useGetContent'
+import useTranslation from '@/hooks/useTranslation'
 
 function WhatIsPushtimize() {
   const content = useGetContent({
@@ -57,7 +57,7 @@ function WhatIsPushtimize() {
       </div>
       <div className="bg-[#121212] pt-16 block md:hidden">
         <div className="flex flex-col items-end px-4">
-          <div className="w-[214px] md:w-[334px] aspect-square relative">
+          <div className="w-[214px] md:w-[334px] aspect-[2/0.7] relative">
             <Image
               fill
               data-aos="fade-up"
@@ -71,15 +71,17 @@ function WhatIsPushtimize() {
             <SecondaryBtn className="mt-8">{tranRes[1]}</SecondaryBtn>
           </div>
         </div>
-        <div className="">
-          <div className="h-[462px] w-[1060px] aspect-square">
-            <Image
-              fill
-              data-aos="fade-up"
-              data-aos-duration="700"
-              src="/images/pushtimize/what-is-pushtimize-bg.png"
-              alt="pushtimize"
-            />
+        <div className="w-screen h-max-[462px] flex items-center justify-center overflow-hidden">
+          <div className="w-full h-full">
+            <div className="h-[462px] w-[1060px] relative ">
+              <Image
+                fill
+                data-aos="fade-up"
+                data-aos-duration="700"
+                src="/images/pushtimize/what-is-pushtimize-bg.png"
+                alt="pushtimize"
+              />
+            </div>
           </div>
         </div>
 

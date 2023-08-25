@@ -24,9 +24,9 @@ function Hero() {
     <div
       data-aos="fade-up"
       data-aos-duration="700"
-      className="relative flex flex-col justify-end w-screen pt-[409px] md:pt-64"
+      className="relative flex flex-col justify-end w-screen pt-[409px] md:pt-64 max-h-[750px] md:h-full"
     >
-      <div className="max-w-[930px] px-4 flex flex-col items-center mx-auto">
+      <div className="max-w-[930px] px-4 flex flex-col items-center mx-auto ">
         <Title className="text-center">
           {result[0]} <span>{result[1]}</span> {result[2]}&nbsp;
           <br className="hidden md:block" />
