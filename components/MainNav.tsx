@@ -87,7 +87,7 @@ function MainNav() {
             </div>
           </div>
 
-          <div className="items-center hidden gap-20 md:flex">
+          <div className="items-center hidden gap-20 md:flex ">
             <SelectLanguageDropDown color={!isChange ? '#ffffff' : '#000000'} />
             <BriefUsModal>
               {isChange ? (
@@ -128,8 +128,8 @@ function MainNav() {
         {!isChange && <Line className="mx-auto max-w-maxContent" />}
       </div>
       <div
-        className={`flex items-center gap-8 px-4 mx-auto mt-4 max-w-maxContent smooth-transform ${
-          isChange ? 'hidden' : 'visible'
+        className={`items-center gap-8 px-4 mx-auto mt-4 max-w-maxContent smooth-transform ${
+          isChange ? 'hidden' : 'visible hidden md:flex'
         }`}
       >
         <Item href="/">{tranRes[0]}</Item>
