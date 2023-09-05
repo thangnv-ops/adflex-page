@@ -51,7 +51,7 @@ function MainNav() {
     <div
       data-aos="fade-up"
       data-aos-duration="700"
-      className="fixed top-0 left-0 right-0 z-[9999] w-screen shadow-md"
+      className="fixed top-0 left-0 right-0 z-[49] w-screen shadow-md"
     >
       <div className={`${isChange ? 'bg-white' : 'bg-transparent'} smooth-transform`}>
         <div
