@@ -9,7 +9,7 @@ const steps = ['Phân tích', 'Lên kế hoạch', 'Triển khai', 'Bàn giao', 
 
 function StepBar({ goToSlide, activatingSlide }: { goToSlide: any; activatingSlide: number }) {
   const content = useGetContent({
-    componentName: StepBar.name,
+    componentName: 'StepBar',
     defaultValue: steps,
   })
   const tranStep = useTranslation(content)
