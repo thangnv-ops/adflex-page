@@ -6,7 +6,7 @@ import SecondaryBtn from '../SecondaryBtn'
 
 function Hero() {
   const content = useGetContent({
-    componentName: Hero.name,
+    componentName: 'Hero',
     defaultValue: [
       'Giải pháp thiết kế, triển khai, vận hành',
       'hệ thống công nghệ thông tin trên',
