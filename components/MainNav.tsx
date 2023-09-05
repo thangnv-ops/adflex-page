@@ -36,9 +36,9 @@ function MainNav() {
   const tranRes = useTranslation(['Trang chủ', 'Liên hệ', 'Tuyển dụng'])
 
   function changeColorNav() {
-    if (window.scrollY > 160) {
+    if (window.scrollY > 20) {
       setIsChange(true)
-    } else if (window.scrollY < 160) {
+    } else if (window.scrollY < 20) {
       setIsChange(false)
     }
   }
