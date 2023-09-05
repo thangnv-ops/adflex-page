@@ -52,8 +52,15 @@ function Partner() {
           >
             {partners.map((partner) => (
               <div key={partner} className="px-4 md:px-0">
-                <div className="w-44 relative aspect-[2/1.5]">
-                  <Image fill src={`/images/opsrun/partners/${partner}.png`} alt={partner} />
+                <div className=" flex content-center flex-wrap w-44 relative aspect-[2/1.5] ">
+                  <Image
+                    src={`/images/opsrun/partners/${partner}.png`}
+                    alt={partner}
+                    width="0"
+                    height="0"
+                    sizes="100vw"
+                    className="w-full h-auto"
+                  />
                 </div>
               </div>
             ))}
