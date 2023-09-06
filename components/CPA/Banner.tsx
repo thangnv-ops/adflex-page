@@ -21,8 +21,8 @@ function Banner() {
       }}
       className="text-black"
     >
-      <div className="grid grid-cols-2 gap-10 max-w-[1150px] px-4 mx-auto items-center">
-        <div>
+      <div className="pt-[100px]  md:grid md:grid-cols-2 gap-10 max-w-[1150px] px-4 mx-auto items-center relative md:static">
+        <div className="max-w-[200px] md:max-w-none">
           <Title>
             {tranRes[0]} <br className="hidden md:block" />
             {tranRes[1]} <br className="hidden md:block" />
@@ -35,7 +35,7 @@ function Banner() {
           </div>
         </div>
         <div data-aos="fade-up" data-aos-duration="700" className="flex justify-center">
-          <div className="w-[60%] aspect-[1/1.5] relative">
+          <div className="w-full md:w-[60%] aspect-[1/1.5] right-[-100px] md:right-0 relative">
             <Image fill src="/images/cpa/ava.png" alt="ava" className="" />
           </div>
         </div>

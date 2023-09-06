@@ -30,24 +30,24 @@ function Banner() {
         }}
         className="grid grid-cols-1 md:grid-cols-2 rounded-2xl bg-black md:bg-[url(/images/pushtimize/pushtimize-banner.png)]"
       >
-        <div className="p-6 md:p-12">
+        <div className="p-6 md:p-12 relative">
           <p className="!text-[28px] !md:text-[32px]">
             {tranRes[0]}
-            <br className="hidden md:block" /> {tranRes[1]}
+            <br /> {tranRes[1]}
           </p>
           <p className="mt-4">
-            {tranRes[2]} <br className="hidden md:block" /> {tranRes[3]}
+            {tranRes[2]} <br /> {tranRes[3]}
           </p>
           <BriefUsModal>
             <RedBtn className="mt-4">{tranRes[4]}</RedBtn>
           </BriefUsModal>
         </div>
-        <div className="block md:hidden">
+        <div className="block md:hidden w-full h-[250px] relative">
           <Image
-            fill
             src="/images/pushtimize/pushtimize-banner-img.png"
             alt="img"
             className="rounded-b-2xl"
+            fill
           />
         </div>
       </div>

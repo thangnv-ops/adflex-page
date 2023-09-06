@@ -84,8 +84,8 @@ function PushtimizeSolution() {
                     <div className="w-[30%] aspect-[2/0.65] relative">
                       <Image fill src="/images/pushtimize-icon.png" alt="pushtimize" />
                     </div>
-                    <p className="text-[32px] font-medium mt-4">{translateRes[2]}</p>
-                    <p className="mt-4">{translateRes[3]}</p>
+                    <p className="text-[32px] font-medium mt-4">{translateRes[0]}</p>
+                    <p className="mt-4">{translateRes[1]}</p>
                     <div className="flex flex-col gap-4 mt-8">
                       {advantageTransRes.map((item, index) => (
                         <div key={`opsrun-${index}`} className="flex items-center gap-3">

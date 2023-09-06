@@ -70,7 +70,7 @@ function ItemSolution({
 
   return (
     <div
-      className={`p-4 md:p-6 bg-white border border-white bg-opacity-5 rounded-2xl border-opacity-20 flex flex-col ${
+      className={`p-4 md:p-6 bg-white h-full border border-white bg-opacity-5 rounded-2xl border-opacity-20 flex flex-col ${
         isAlignRight ? 'items-end' : ''
       }`}
     >

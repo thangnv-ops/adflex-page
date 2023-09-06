@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Label from './Label'
+import useTranslation from '@/hooks/useTranslation'
 
 const leaders = [
   {
@@ -7,12 +8,6 @@ const leaders = [
     name: 'PHẠM PHƯƠNG TÚ',
     title: 'Chief Executive Officer',
     avatar: '/images/leaders/phuongtu.png',
-  },
-  {
-    id: 'leader2',
-    name: 'HOÀNG MẠNH TIẾN',
-    title: 'Chief Technology Officer',
-    avatar: '/images/leaders/manhtien.png',
   },
   {
     id: 'leader3',
@@ -26,9 +21,16 @@ const leaders = [
     title: 'Chief Customer Officer',
     avatar: '/images/leaders/kimchi.png',
   },
+  {
+    id: 'leader2',
+    name: 'HOÀNG MẠNH TIẾN',
+    title: 'Chief Technology Officer',
+    avatar: '/images/leaders/manhtien.jpg',
+  },
 ]
 
 function Leader() {
+  const transRes = useTranslation(['Đội ngũ lãnh đạo'])
   return (
     <div className="relative z-10 -mt-14">
       <div data-aos="fade-up" data-aos-duration="700" className="px-4 mx-auto max-w-maxContent">
@@ -37,7 +39,7 @@ function Leader() {
           stopColor="#C06962"
           className="bg-gradient-to-r from-[#BA5850] to-[#C06962]"
         >
-          Đội ngũ lãnh đạo
+          {transRes[0]}
         </Label>
       </div>
       <div

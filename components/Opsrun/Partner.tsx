@@ -25,7 +25,7 @@ const responsiveCarouselTournaments = {
 
 function Partner() {
   const content = useGetContent({
-    componentName: Partner.name,
+    componentName: 'Partner',
     defaultValue: ['Opsrun tự hào là đại lý phân phối của top nhà cung cấp đứng đầu thế giới'],
   })
   const tranRes = useTranslation(content)
@@ -36,7 +36,7 @@ function Partner() {
         <p
           data-aos="fade-up"
           data-aos-duration="700"
-          className="text-center text-black text-xl md:text-[32px]"
+          className="text-center text-black text-xl md:text-[32px] pb-14"
         >
           {tranRes[0]}
         </p>
@@ -52,7 +52,7 @@ function Partner() {
           >
             {partners.map((partner) => (
               <div key={partner} className="px-4 md:px-0">
-                <div className=" flex content-center flex-wrap w-44 relative aspect-[2/1.5] ">
+                <div className=" flex content-center flex-wrap w-40 relative aspect-[2/1.5] justify-center">
                   <Image
                     src={`/images/opsrun/partners/${partner}.png`}
                     alt={partner}
