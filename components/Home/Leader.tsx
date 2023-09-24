@@ -25,7 +25,7 @@ const leaders = [
     id: 'leader2',
     name: 'HOÀNG MẠNH TIẾN',
     title: 'Chief Technology Officer',
-    avatar: '/images/leaders/manhtien.jpg',
+    avatar: '/images/leaders/manhtien_new.jpg',
   },
 ]
 
@@ -59,7 +59,7 @@ function Leader() {
                 data-aos-delay={300 + 100 * index}
                 key={leader.id}
               >
-                <div className="w-full aspect-square relative">
+                <div className="w-full aspect-square relative rounded-3xl overflow-hidden">
                   <Image fill src={leader.avatar} alt="avatar" />
                 </div>
                 <div className="px-0 py-2 text-black md:px-6">
