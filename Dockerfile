@@ -12,6 +12,7 @@ RUN yarn build
 FROM node:18.18.0 as runner
 WORKDIR /adflex-fe
 ENV NODE_ENV production
+ARG NEXT_PUBLIC_RECEIVE_EMAIL=jobs@adflex.vn
 # If you are using a custom next.config.js file, uncomment this line.
 COPY --from=builder /adflex-fe/next.config.js ./
 COPY --from=builder /adflex-fe/public ./public
