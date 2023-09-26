@@ -1,15 +1,15 @@
-FROM node:lts as dependencies
+FROM node:18.18.0 as dependencies
 WORKDIR /adflex-fe
 COPY package.json ./
 RUN yarn install --frozen-lockfile
 
-FROM node:lts as builder
+FROM node:18.18.0 as builder
 WORKDIR /adflex-fe
 COPY . .
 COPY --from=dependencies /adflex-fe/node_modules ./node_modules
 RUN yarn build
 
-FROM node:lts as runner
+FROM node:18.18.0 as runner
 WORKDIR /adflex-fe
 ENV NODE_ENV production
 # If you are using a custom next.config.js file, uncomment this line.
