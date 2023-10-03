@@ -59,15 +59,17 @@ const RichTextEditor = ({
   }, [editorState, mounted])
 
   return (
-    <Editor
-      editorState={stateEdit}
-      toolbarClassName="toolbarClassName"
-      wrapperClassName="wrapperClassName"
-      editorClassName="editorClassName"
-      onEditorStateChange={(state) => {
-        if (!disable) setStateEdit(state)
-      }}
-    />
+    <div>
+      <Editor
+        editorState={stateEdit}
+        toolbarClassName="toolbarClassName"
+        wrapperClassName="wrapperClassName"
+        editorClassName="editorClassName"
+        onEditorStateChange={(state) => {
+          if (!disable) setStateEdit(state)
+        }}
+      />
+    </div>
   )
 }
 
