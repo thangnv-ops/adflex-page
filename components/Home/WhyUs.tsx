@@ -12,7 +12,7 @@ import Title from '../Title'
 import TrophyIcon from '../icons/TrophyIcon'
 import TrophyWithBgIcon from '../icons/TrophyWithBgIcon'
 import UpRightArrow from '../icons/UpRightArrow'
-import { useGetContent } from '@/hooks/useGetContent'
+// import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 
 const ICON_ID = {
@@ -73,11 +73,11 @@ function Item({
 }
 
 function WhyUs() {
-  const content = useGetContent({
-    componentName: WhyUs.name,
-    defaultValue: ['Tại sao ', 'lựa chọn chúng tôi?'],
-  })
-  const transRes = useTranslation(content)
+  // const content = useGetContent({
+  //   componentName: WhyUs.name,
+  //   defaultValue: ['Tại sao ', 'lựa chọn chúng tôi?'],
+  // })
+  const transRes = useTranslation(['Tại sao ', 'lựa chọn chúng tôi?', 'Liên hệ tư vấn'])
   const { CPU, PERSON, STAR, TROPHY } = ICON_ID
   return (
     <div className="max-w-maxContent mx-auto px-4 py-10 md:py-[120px] text-black">
@@ -89,7 +89,7 @@ function WhyUs() {
           <div data-aos="fade-up" data-aos-duration="700">
             <PrimaryBtn className="mt-2 md:mt-8">
               <div className="flex items-center gap-2">
-                <p className="text-white">Brief us</p>
+                <p className="text-white">{transRes[2]}</p>
                 <UpRightArrow />
               </div>
             </PrimaryBtn>

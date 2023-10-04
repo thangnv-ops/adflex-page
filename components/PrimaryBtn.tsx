@@ -1,8 +1,9 @@
+/* eslint-disable react/button-has-type */
 import React, { ButtonHTMLAttributes } from 'react'
 
 type CustomButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 
-function PrimaryBtn({ children, className, ...attributes }: CustomButtonProps) {
+function PrimaryBtn({ children, className, type = 'button', ...attributes }: CustomButtonProps) {
   return (
     <button
       style={{
@@ -13,7 +14,7 @@ function PrimaryBtn({ children, className, ...attributes }: CustomButtonProps) {
       }}
       {...attributes}
       className={`${className} py-[10px] text-white px-5 outline-none`}
-      type="button"
+      type={type}
     >
       {children}
     </button>

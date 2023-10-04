@@ -118,6 +118,7 @@ function MobileNav() {
     'Giải pháp Opsrun',
     'Liên hệ',
     'Tuyển dụng',
+    'Liên hệ tư vấn',
   ])
 
   return (
@@ -185,7 +186,7 @@ function MobileNav() {
                 <BriefUsModal>
                   <SecondaryBtn>
                     <div className="flex items-center gap-2">
-                      <p className="text-black">Brief us</p>
+                      <p className="text-black">{tranRes[6]}</p>
                       <UpRightArrow />
                     </div>
                   </SecondaryBtn>

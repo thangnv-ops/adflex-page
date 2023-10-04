@@ -33,7 +33,7 @@ function Item({
 function MainNav() {
   const [isChange, setIsChange] = useState(false)
 
-  const tranRes = useTranslation(['Trang chủ', 'Liên hệ', 'Tuyển dụng'])
+  const tranRes = useTranslation(['Trang chủ', 'Liên hệ', 'Tuyển dụng', 'Liên hệ tư vấn'])
 
   function changeColorNav() {
     if (window.scrollY > 20) {
@@ -102,14 +102,14 @@ function MainNav() {
                   type="button"
                 >
                   <div className="flex items-center gap-2">
-                    <p className={`${isChange ? 'text-black' : 'text-white'} `}>Brief us</p>
+                    <p className={`${isChange ? 'text-black' : 'text-white'} `}>{tranRes[3]}</p>
                     <UpRightArrow />
                   </div>
                 </button>
               ) : (
                 <SecondaryBtn>
                   <div className="flex items-center gap-2">
-                    <p className={`${isChange ? 'text-black' : 'text-white'} `}>Brief us</p>
+                    <p className={`${isChange ? 'text-black' : 'text-white'} `}>{tranRes[3]}</p>
                     <UpRightArrow />
                   </div>
                 </SecondaryBtn>

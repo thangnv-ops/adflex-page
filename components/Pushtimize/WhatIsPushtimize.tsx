@@ -43,7 +43,9 @@ function WhatIsPushtimize() {
             </div>
             <Title>{tranRes[0]}</Title>
             <div data-aos="fade-up" data-aos-duration="700">
-              <SecondaryBtn className="mt-8">{tranRes[1]}</SecondaryBtn>
+              <a target="_blank" href="https://pushtimize.com/" rel="noreferrer">
+                <SecondaryBtn className="mt-8">{tranRes[1]}</SecondaryBtn>
+              </a>
             </div>
           </div>
           <div />
@@ -66,29 +68,30 @@ function WhatIsPushtimize() {
               alt="cpa"
             />
           </div>
-          <Title>là gì?</Title>
+          <Title>{tranRes[0]}</Title>
           <div data-aos="fade-up" data-aos-duration="700">
-            <SecondaryBtn className="mt-8">{tranRes[1]}</SecondaryBtn>
+            <a target="_blank" href="https://pushtimize.com/" rel="noreferrer">
+              <SecondaryBtn className="mt-8">{tranRes[1]}</SecondaryBtn>
+            </a>
           </div>
         </div>
         <div className="w-screen h-max-[462px] flex items-center justify-center overflow-hidden">
           <div className="w-full h-full">
-            <div className="h-[462px] w-[1060px] relative ">
-              <Image
-                fill
-                data-aos="fade-up"
-                data-aos-duration="700"
-                src="/images/pushtimize/what-is-pushtimize-bg.png"
-                alt="pushtimize"
-              />
+            <div
+              className="h-[462px] w-full"
+              style={{
+                backgroundImage: 'url(/images/pushtimize/what-is-pushtimize-bg.png)',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+              }}
+            />
+            <div className="px-4 pt-12 pb-20 z-20">
+              <p data-aos="fade-up" data-aos-duration="700" className="text-justify">
+                {tranRes[2]}
+              </p>
             </div>
           </div>
-        </div>
-
-        <div className="px-4 pt-12 pb-20">
-          <p data-aos="fade-up" data-aos-duration="700" className="text-justify">
-            {tranRes[2]}
-          </p>
         </div>
       </div>
     </div>

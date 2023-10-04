@@ -24,7 +24,7 @@ function Hero() {
     <div
       data-aos="fade-up"
       data-aos-duration="700"
-      className="relative flex flex-col justify-end w-screen pt-[409px] md:pt-64 max-h-[750px] md:h-full"
+      className="relative flex flex-col justify-end w-screen pt-[409px] md:pt-64\ max-h-[800px] md:h-full"
     >
       <div className="max-w-[930px] px-4 flex flex-col items-center mx-auto ">
         <Title className="text-center">

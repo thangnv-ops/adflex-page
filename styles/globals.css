@@ -33,3 +33,9 @@ img {
 .effective-item:hover .effective-btn {
   opacity: 1;
 }
+
+.error {
+  margin-top: 6px;
+  margin-left: 6px;
+  color: var(--error-base, #f04438);
+}
