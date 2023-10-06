@@ -4,7 +4,35 @@ import Image from 'next/image'
 import Carousel from 'react-multi-carousel'
 import Label from './Label'
 
-const partners = ['cake', 'mb', 'msb', 'shopee', 'tpbank', 'vng', 'vpbank']
+const partners = [
+  'aha',
+  'appota',
+  'be',
+  'beamin',
+  'fika',
+  'garena',
+  'gmobile',
+  'HomeCredit',
+  'lazada',
+  'mobifone',
+  'OneCre',
+  'selly',
+  'shinhan',
+  'soha',
+  'ucunion',
+  'vinaphone',
+  'vtcgame',
+  'vtpay',
+  'vtvplay',
+  'zepto',
+  'cake',
+  'mb',
+  'msb',
+  'shopee',
+  'tpbank',
+  'vng',
+  'vpbank',
+]
 
 const responsiveCarouselTournaments = {
   desktop: {
@@ -54,7 +82,13 @@ function Partner() {
           >
             {partners.map((partner) => (
               <div className="w-44 relative aspect-[2/1.5]">
-                <Image fill key={partner} src={`/images/partners/${partner}.png`} alt={partner} />
+                <Image
+                  fill
+                  key={partner}
+                  src={`/images/partners/${partner}.png`}
+                  alt={partner}
+                  className="w-full h-full top-0 left-0 object-contain"
+                />
               </div>
             ))}
           </Carousel>
