@@ -1,16 +1,12 @@
 import useTranslation from '@/hooks/useTranslation'
 import { handleSubmitForm } from '@/lib/submitFormToGoogleSheet'
-import { useState } from 'react'
 import PrimaryInput from './PrimaryInput'
 import PrimaryTextarea from './PrimaryTextarea'
 import SecondaryBtn from './SecondaryBtn'
+import { Field, Form, Formik } from 'formik'
+import { ContactSchema } from '@/validations/ContactSchema'
 
 function Map() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phoneNumber, setPhoneNumber] = useState<number>()
-  const [note, setNote] = useState('')
-
   const tranRes = useTranslation([
     'Đăng ký liên hệ hợp tác',
     'Chúng tôi luôn muốn lắng nghe từ bạn',
@@ -34,46 +30,75 @@ function Map() {
         }}
         className="grid grid-cols-1 md:grid-cols-2 rounded-2xl"
       >
-        <div
-          data-aos="fade-up"
-          data-aos-duration="700"
-          data-aos-delay={500}
-          className="flex flex-col px-4 py-4 text-black md:px-20 md:py-24"
+        <Formik
+          initialValues={{
+            name: null,
+            email: null,
+            phoneNumber: null,
+            note: null,
+          }}
+          validationSchema={ContactSchema}
+          onSubmit={(values, { setSubmitting }) => {
+            handleSubmitForm(values)
+            setSubmitting(false)
+          }}
         >
-          <p className="text-[28px] md:text-[32px] text-white ">{tranRes[0]}</p>
-          <p className="mt-2 text-xl text-white">{tranRes[1]}</p>
-          <PrimaryInput
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="w-full mt-6"
-            placeholder={tranRes[2]}
-          />
-          <PrimaryInput
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full mt-6"
-            placeholder="Email"
-          />
-          <PrimaryInput
-            value={String(phoneNumber)}
-            onChange={(e) => setPhoneNumber(Number(e.target.value))}
-            className="w-full mt-6"
-            placeholder={tranRes[3]}
-            type="number"
-          />
-          <PrimaryTextarea
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
-            className="h-[128px] mt-6"
-            placeholder={tranRes[4]}
-          />
-          <SecondaryBtn
-            onClick={() => handleSubmitForm({ name, email, phoneNumber, note })}
-            className="max-w-[216px] mt-6 text-white"
-          >
-            {tranRes[5]}
-          </SecondaryBtn>
-        </div>
+          <Form>
+            <div
+              data-aos="fade-up"
+              data-aos-duration="700"
+              data-aos-delay={500}
+              className="flex flex-col px-4 py-4 text-black md:px-20 md:py-24"
+            >
+              <p className="text-[28px] md:text-[32px] text-white ">{tranRes[0]}</p>
+              <p className="mt-2 text-xl text-white">{tranRes[1]}</p>
+              <Field name="name">
+                {({ field, meta }: any) => (
+                  <div>
+                    <PrimaryInput {...field} placeholder={tranRes[2]} className="w-full mt-6" />
+                    {meta.touched && meta.error && <div className="error">{meta.error}</div>}
+                  </div>
+                )}
+              </Field>
+              <Field name="email">
+                {({ field, meta }: any) => (
+                  <div>
+                    <PrimaryInput {...field} placeholder="Email" className="w-full mt-6" />
+                    {meta.touched && meta.error && <div className="error">{meta.error}</div>}
+                  </div>
+                )}
+              </Field>
+              <Field name="phoneNumber">
+                {({ field, meta }: any) => (
+                  <div>
+                    <PrimaryInput
+                      {...field}
+                      placeholder={tranRes[3]}
+                      className="w-full mt-6"
+                      type="string"
+                    />
+                    {meta.touched && meta.error && <div className="error">{meta.error}</div>}
+                  </div>
+                )}
+              </Field>
+              <Field name="note">
+                {({ field, meta }: any) => (
+                  <div>
+                    <PrimaryTextarea
+                      {...field}
+                      placeholder={tranRes[4]}
+                      className="h-[128px] mt-6"
+                    />
+                    {meta.touched && meta.error && <div className="error">{meta.error}</div>}
+                  </div>
+                )}
+              </Field>
+              <SecondaryBtn type="submit" className="max-w-[216px] mt-6 text-white">
+                {tranRes[5]}
+              </SecondaryBtn>
+            </div>
+          </Form>
+        </Formik>
         <div className="p-4 md:p-0">
           <iframe
             data-aos="fade-up"

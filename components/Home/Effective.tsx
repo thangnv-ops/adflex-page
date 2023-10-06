@@ -42,7 +42,7 @@ const effectives: ContentRes[] = [
 ]
 
 const EffectiveItem = ({ item, index }: { index: number; item: ContentRes }) => {
-  const tranRes = useTranslation([item.content[1]])
+  const tranRes = useTranslation([item.content[1], 'Liên hệ tư vấn'])
 
   const id = useId()
 
@@ -63,7 +63,7 @@ const EffectiveItem = ({ item, index }: { index: number; item: ContentRes }) => 
         <BriefUsModal>
           <PrimaryBtn className="w-full mt-4 md:mt-8">
             <div className="flex items-center justify-center gap-2">
-              <p className="text-white">Brief us</p>
+              <p className="text-white">{tranRes[1]}</p>
               <UpRightArrow />
             </div>
           </PrimaryBtn>

@@ -4,7 +4,6 @@ import { useEffect, useMemo, useState } from 'react'
 
 import { ContentRes } from '@/backend/service/content-service/content-res'
 import { useApiCall } from '@/hooks/useCallApi'
-import { useGetContent } from '@/hooks/useGetContent'
 import useTranslation from '@/hooks/useTranslation'
 import axios from 'axios'
 import { CommonListResult } from 'common-abstract-fares-system'
@@ -126,11 +125,7 @@ function FAQItem({ item }: { item: ContentRes }) {
 }
 
 function FAQs() {
-  const content = useGetContent({
-    componentName: FAQs.name,
-    defaultValue: ['Có thể bạn quan tâm?', 'Đăng ký liên hệ hợp tác'],
-  })
-  const tranRes = useTranslation(content)
+  const tranRes = useTranslation(['Có thể bạn quan tâm?', 'Đăng ký liên hệ hợp tác'])
 
   const contentList = useApiCall<CommonListResult<ContentRes>, string>({
     callApi: () =>

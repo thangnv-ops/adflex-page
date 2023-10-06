@@ -11,6 +11,7 @@
 .blog-detail-style h3 {
   font-size: 1.17em;
   font-weight: bold;
+  margin: 20px 0;
 }
 
 .blog-detail-style h4 {
@@ -31,6 +32,10 @@
   list-style-type: disc;
   padding-left: 32px;
   margin-top: 4px;
+}
+
+.blog-detail-style li {
+  margin: 10px 0;
 }
 
 .blog-detail-style a {

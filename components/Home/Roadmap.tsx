@@ -42,7 +42,7 @@ function RoadMapItem({
 
 function Roadmap() {
   const content = useGetContent({
-    componentName: Roadmap.name,
+    componentName: 'Roadmap',
     defaultValue: ['Lịch sử', 'hình thành', 'phát triển'],
   })
   const transRes = useTranslation(content)
