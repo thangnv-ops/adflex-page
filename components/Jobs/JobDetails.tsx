@@ -15,6 +15,7 @@ import DateIcon from '../icons/Jobs/DateIcon'
 import PersonIcon from '../icons/Jobs/PersonIcon'
 import SalaryIcon from '../icons/Jobs/SalaryIcon'
 import SubmitCVModal from './SubmitCVModal'
+import Link from 'next/link'
 
 function Item({ icon, title, content }: { icon: ReactNode; title: string; content: string }) {
   return (
@@ -211,7 +212,9 @@ function JobDetails() {
                       {tranRes[3]}: <span className="font-semibold">{job.deadline}</span>
                     </p>
                   </div>
-                  <PrimaryBtn className="w-[160px] h-10">{tranRes[7]}</PrimaryBtn>
+                  <Link href={`/jobs/${job.title}`}>
+                    <PrimaryBtn className="w-[160px] h-10">{tranRes[7]}</PrimaryBtn>
+                  </Link>
                 </div>
                 <Line data-aos="fade-up" data-aos-duration="700" className="bg-[#D0D5DD] mt-10" />
               </div>
