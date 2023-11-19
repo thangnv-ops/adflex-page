@@ -119,7 +119,7 @@ function Blog() {
           <CardBody>
             <Pagination
               radius="none"
-              total={(getList.data?.result.total || 0) / 9 + 1}
+              total={Math.floor((getList.data?.result.total || 0) / 9) + 1}
               page={page}
               onChange={(thisPage) => {
                 setPage(thisPage)

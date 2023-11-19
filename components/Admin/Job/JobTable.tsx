@@ -131,7 +131,7 @@ export const JobTable = () => {
       <Card>
         <CardBody>
           <Pagination
-            total={(getList.data?.result.total || 0) / 10 + 1}
+            total={Math.floor((getList.data?.result.total || 0) / 10) + 1}
             page={page}
             onChange={(thisPage) => {
               setPage(thisPage)
