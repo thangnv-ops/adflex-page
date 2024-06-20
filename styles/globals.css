@@ -39,3 +39,8 @@ img {
   margin-left: 6px;
   color: var(--error-base, #f04438);
 }
+
+.react-multi-carousel-item {
+  display: flex;
+  align-items: center;
+}
