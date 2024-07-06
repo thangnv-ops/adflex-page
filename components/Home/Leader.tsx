@@ -15,12 +15,12 @@ const leaders = [
     title: 'Chief Operations Officer',
     avatar: '/images/leaders/vietnhat.png',
   },
-  {
-    id: 'leader4',
-    name: 'CAMY KIM CHI',
-    title: 'Chief Customer Officer',
-    avatar: '/images/leaders/kimchi.png',
-  },
+  // {
+  //   id: 'leader4',
+  //   name: 'CAMY KIM CHI',
+  //   title: 'Chief Customer Officer',
+  //   avatar: '/images/leaders/kimchi.png',
+  // },
   {
     id: 'leader2',
     name: 'HOÀNG MẠNH TIẾN',
@@ -51,7 +51,7 @@ function Leader() {
         className="py-[10px] bg-cover"
       >
         <div className="px-4 mx-auto max-w-maxContent">
-          <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-3">
             {leaders.map((leader, index) => (
               <div
                 data-aos="fade-up"
